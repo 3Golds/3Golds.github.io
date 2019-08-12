@@ -241,18 +241,18 @@
   </url>
   
   <url>
+    <loc>http://zhaox.xyz/tags/linux/</loc>
+    <lastmod>2017-01-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://zhaox.xyz/posts/2017-01-19-coredump/</loc>
     <lastmod>2017-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://zhaox.xyz/tags/coredump/</loc>
-    <lastmod>2017-01-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://zhaox.xyz/tags/linux/</loc>
     <lastmod>2017-01-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
