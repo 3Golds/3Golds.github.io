@@ -6,18 +6,13 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理
-先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等） Ruby 这个就不用多说了
-RVM 用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。
+<meta name="description" content="最近接触了很多 ruby 程序，除了 java 之外，让我感觉第二耗时、不是很舒服的语言。但是 ruby 不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装 ruby 程序变得飞快，不用一安装一天。本文做个总结和梳理
+先介绍下 Ruby 相关的各种概念（rvm, gem, bundle, rake, rails 等） Ruby 这个就不用多说了
+RVM 用于帮你安装 Ruby 环境，帮你管理多个 Ruby 环境，帮你管理你开发的每个 Ruby 应用使用机器上哪个 Ruby 环境。Ruby 环境不仅仅是 Ruby 本身，还包括依赖的第三方 Ruby 插件。都由 RVM 管理。
 Rails 这个也不用多说，著名开发框架。详细看 http://zh.wikipedia.org/wiki/Ruby_on_Rails
-RubyGems RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。
-Gem Gem是封装起来的Ruby应用程序或代码库。
-注：在终端使用的gem命令，是指通过RubyGems管理Gem包。
-Gemfile 定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。
-Rake Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。
-Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.
-PS：个人感觉有点类似Symfony2中的app/console
-Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &amp;gt; In a gem’s context, the Rakefile is extremely useful."/>
+RubyGems RubyGems 是一个方便而强大的 Ruby 程序包管理器（ package manager），类似 RedHat 的 RPM.它将一个 Ruby 应用程序打包到一个 gem 里，作为一个安装单元。无需安装，最新的 Ruby 版本已经包含 RubyGems 了。
+Gem Gem 是封装起来的 Ruby 应用程序或代码库。
+注：在终端使用的 gem 命令，是指通过 RubyGems 管理 Gem 包。"/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/" />
@@ -38,34 +33,12 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ruby 环境那些坑"/>
-<meta name="twitter:description" content="最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理
-先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等） Ruby 这个就不用多说了
-RVM 用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。
-Rails 这个也不用多说，著名开发框架。详细看 http://zh.wikipedia.org/wiki/Ruby_on_Rails
-RubyGems RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。
-Gem Gem是封装起来的Ruby应用程序或代码库。
-注：在终端使用的gem命令，是指通过RubyGems管理Gem包。
-Gemfile 定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。
-Rake Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。
-Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.
-PS：个人感觉有点类似Symfony2中的app/console
-Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &gt; In a gem’s context, the Rakefile is extremely useful."/>
+<meta name="twitter:description" content="Ruby env的注意事项"/>
 
 
 
 <meta property="og:title" content="Ruby 环境那些坑" />
-<meta property="og:description" content="最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理
-先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等） Ruby 这个就不用多说了
-RVM 用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。
-Rails 这个也不用多说，著名开发框架。详细看 http://zh.wikipedia.org/wiki/Ruby_on_Rails
-RubyGems RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。
-Gem Gem是封装起来的Ruby应用程序或代码库。
-注：在终端使用的gem命令，是指通过RubyGems管理Gem包。
-Gemfile 定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。
-Rake Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。
-Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.
-PS：个人感觉有点类似Symfony2中的app/console
-Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &gt; In a gem’s context, the Rakefile is extremely useful." />
+<meta property="og:description" content="Ruby env的注意事项" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/" />
 <meta property="article:published_time" content="2017-01-23T00:00:00+00:00" />
@@ -153,7 +126,7 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
             2017-01-23
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 3 min read</span>
       
@@ -172,9 +145,9 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
     <div class="post-content">
       
 
-<p><strong>最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理</strong></p>
+<p><strong>最近接触了很多 ruby 程序，除了 java 之外，让我感觉第二耗时、不是很舒服的语言。但是 ruby 不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装 ruby 程序变得飞快，不用一安装一天。本文做个总结和梳理</strong></p>
 
-<h3 id="先介绍下ruby相关的各种概念-rvm-gem-bundle-rake-rails等">先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等）</h3>
+<h3 id="先介绍下-ruby-相关的各种概念-rvm-gem-bundle-rake-rails-等">先介绍下 Ruby 相关的各种概念（rvm, gem, bundle, rake, rails 等）</h3>
 
 <h4 id="ruby">Ruby</h4>
 
@@ -182,7 +155,7 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
 
 <h4 id="rvm">RVM</h4>
 
-<p>用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。</p>
+<p>用于帮你安装 Ruby 环境，帮你管理多个 Ruby 环境，帮你管理你开发的每个 Ruby 应用使用机器上哪个 Ruby 环境。Ruby 环境不仅仅是 Ruby 本身，还包括依赖的第三方 Ruby 插件。都由 RVM 管理。</p>
 
 <h4 id="rails">Rails</h4>
 
@@ -190,35 +163,35 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
 
 <h4 id="rubygems">RubyGems</h4>
 
-<p>RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。</p>
+<p>RubyGems 是一个方便而强大的 Ruby 程序包管理器（ package manager），类似 RedHat 的 RPM.它将一个 Ruby 应用程序打包到一个 gem 里，作为一个安装单元。无需安装，最新的 Ruby 版本已经包含 RubyGems 了。</p>
 
 <h4 id="gem">Gem</h4>
 
-<p>Gem是封装起来的Ruby应用程序或代码库。</p>
+<p>Gem 是封装起来的 Ruby 应用程序或代码库。</p>
 
-<p>注：在终端使用的gem命令，是指通过RubyGems管理Gem包。</p>
+<p>注：在终端使用的 gem 命令，是指通过 RubyGems 管理 Gem 包。</p>
 
 <h4 id="gemfile">Gemfile</h4>
 
-<p>定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。</p>
+<p>定义你的应用依赖哪些第三方包，bundle 根据该配置去寻找这些包。</p>
 
 <h4 id="rake">Rake</h4>
 
-<p>Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。</p>
+<p>Rake 是一门构建语言，和 make 类似。Rake 是用 Ruby 写的，它支持自己的 DSL 用来处理和维护 Ruby 程序。 Rails 用 rake 扩展来完成多种不容任务，如数据库初始化、更新等。</p>
 
 <p>Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.</p>
 
-<p>PS：个人感觉有点类似Symfony2中的app/console</p>
+<p>PS：个人感觉有点类似 Symfony2 中的 app/console</p>
 
 <h4 id="rakefile">Rakefile</h4>
 
-<p>Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &gt; In a gem’s context, the Rakefile is extremely useful. It can hold various tasks to help building, testing and debugging your gem, among all other things that you might find useful.</p>
+<p>Rakefile 是由 Ruby 编写，Rake 的命令执行就是由 Rakefile 文件定义。 &gt; In a gem’s context, the Rakefile is extremely useful. It can hold various tasks to help building, testing and debugging your gem, among all other things that you might find useful.</p>
 
 <p>详细：<a href="http://rake.rubyforge.org/files/doc/rakefile_rdoc.html">http://rake.rubyforge.org/files/doc/rakefile_rdoc.html</a></p>
 
 <h4 id="bundle">Bundle</h4>
 
-<p>相当于多个RubyGems批处理运行。在配置文件gemfilel里说明你的应用依赖哪些第三方包，他自动帮你下载安装多个包，并且会下载这些包依赖的包。 &gt; Bundler maintains a consistent environment for ruby applications. It tracks an application’s code and the rubygems it needs to run, so that an application will always have the exact gems (and versions) that it needs to run.</p>
+<p>相当于多个 RubyGems 批处理运行。在配置文件 gemfilel 里说明你的应用依赖哪些第三方包，他自动帮你下载安装多个包，并且会下载这些包依赖的包。 &gt; Bundler maintains a consistent environment for ruby applications. It tracks an application’s code and the rubygems it needs to run, so that an application will always have the exact gems (and versions) that it needs to run.</p>
 
 <p><code>参考</code>:</p>
 
@@ -242,7 +215,7 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
 
 <h3 id="一-ruby">一、Ruby</h3>
 
-<p>在安装ruby的时候，有两个问题</p>
+<p>在安装 ruby 的时候，有两个问题</p>
 
 <ul>
 <li><p><strong>安装方式</strong></p></li>
@@ -250,7 +223,7 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
 <li><p><strong>程序包查找</strong></p></li>
 </ul>
 
-<p>对于第一个问题，分为包安装和源码方式编译安装，因为可以选择版本，一般yum或者apt-get源提供的版本不能打倒我们的要求的时候，我们会选择这个。还有一种就是通过ruby的虚拟环境管理程序RVM(跟python的pyenv一样)，可以控制每个目录使用不同版本的ruby，并且安装很简单，本文主要介绍rvm安装。</p>
+<p>对于第一个问题，分为包安装和源码方式编译安装，因为可以选择版本，一般 yum 或者 apt-get 源提供的版本不能打倒我们的要求的时候，我们会选择这个。还有一种就是通过 ruby 的虚拟环境管理程序 RVM(跟 python 的 pyenv 一样)，可以控制每个目录使用不同版本的 ruby，并且安装很简单，本文主要介绍 rvm 安装。</p>
 
 <h5 id="rvm-安装"><code>RVM</code>安装</h5>
 
@@ -274,14 +247,14 @@ $ echo &quot;ruby_url=https://cache.ruby-china.org/pub/ruby&quot; &gt; ~/.rvm/us
 
 <h5 id="ruby-的安装与切换"><code>Ruby</code>的安装与切换</h5>
 
-<p>列出已知的Ruby版本</p>
+<p>列出已知的 Ruby 版本</p>
 
 <pre><code>
 rvm list know
 
 </code></pre>
 
-<p>安装一个ruby版本</p>
+<p>安装一个 ruby 版本</p>
 
 <pre><code>
 
@@ -289,7 +262,7 @@ rvm install 2.2.0 --disable-binary
 
 </code></pre>
 
-<p>切换ruby版本</p>
+<p>切换 ruby 版本</p>
 
 <pre><code>
 rvm use 2.2.0
@@ -303,7 +276,7 @@ rvm use 2.2.0 --default
 
 </code></pre>
 
-<p>查看已经安装的Ruby</p>
+<p>查看已经安装的 Ruby</p>
 
 <pre><code>
 rvm list
@@ -319,15 +292,15 @@ rvm remove 1.8.7
 
 <h3 id="二-rubygems">二、RubyGems</h3>
 
-<p><strong>第二个坑应该就是gem了，经常通过gem安装程序很慢，或者版本出现问题等等问题，我们接下来先介绍下Gems，然后在展开</strong></p>
+<p><strong>第二个坑应该就是 gem 了，经常通过 gem 安装程序很慢，或者版本出现问题等等问题，我们接下来先介绍下 Gems，然后在展开</strong></p>
 
 <blockquote>
-<p>Note: RubyGems是Ruby的一个包管理器，提供了分发Ruby程序和函式库的标准格式“gem”，旨在方便地管理gem安装的工具，以及用于分发gem的服务器。这类似于Python的pip。RubyGems大约创建于2003年11月，从Ruby 1.9版起成为Ruby标准库的一部分</p>
+<p>Note: RubyGems 是 Ruby 的一个包管理器，提供了分发 Ruby 程序和函式库的标准格式“gem”，旨在方便地管理 gem 安装的工具，以及用于分发 gem 的服务器。这类似于 Python 的 pip。RubyGems 大约创建于 2003 年 11 月，从 Ruby 1.9 版起成为 Ruby 标准库的一部分</p>
 </blockquote>
 
-<h4 id="为了方便读者和自己查阅-在前面介绍下gem-source">为了方便读者和自己查阅，在前面介绍下gem source</h4>
+<h4 id="为了方便读者和自己查阅-在前面介绍下-gem-source">为了方便读者和自己查阅，在前面介绍下 gem source</h4>
 
-<p>如何使用？(主要用于解决安装的时候慢，将sources改为国内的，速度有明显提升)</p>
+<p>如何使用？(主要用于解决安装的时候慢，将 sources 改为国内的，速度有明显提升)</p>
 
 <pre><code>$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 
@@ -345,23 +318,23 @@ $ gem install rails
 
 </code></pre>
 
-<h4 id="gemset的使用">gemset的使用</h4>
+<h4 id="gemset-的使用">gemset 的使用</h4>
 
 <p><code>RVM</code> 不仅可以提供一个多 <code>Ruby</code> 版本共存的环境，还可以根据项目管理不同的 <code>gemset</code></p>
 
-<p></p>
+<p>``</p>
 
 <p><code>gemset</code> 可以理解为是一个独立的虚拟 <code>Gem</code> 环境，每一个 <code>gemset</code> 都是相互独立的。</p>
 
-<p></p>
+<p>``</p>
 
 <p>比如你有两个项目，一个是 <code>Rails 2.3</code> 一个是 <code>rails3. gemset</code> 可以帮你便捷的建立两套 <code>Gem</code> 开发环境，并且方便的切换。</p>
 
-<p></p>
+<p>``</p>
 
 <p><code>gemset</code> 是附加在 <code>Ruby</code> 语言版本下面的，例如你用了 <code>1.9.2</code>, 建立了一个叫 <code>rails3</code> 的 <code>gemset</code>,当切换到 <code>1.8.7</code> 的时候，<code>rails3</code> 这个 <code>gemset</code>并不存在。</p>
 
-<h4 id="建立gemset">建立gemset</h4>
+<h4 id="建立-gemset">建立 gemset</h4>
 
 <pre><code>
 rvm use 1.8.7
@@ -370,9 +343,9 @@ rvm gemset create rails23
 
 </code></pre>
 
-<p>然后可以设定已经建立的gemset作为当前环境</p>
+<p>然后可以设定已经建立的 gemset 作为当前环境</p>
 
-<h4 id="use-可以用来切换语言或者gemset">use 可以用来切换语言或者gemset</h4>
+<h4 id="use-可以用来切换语言或者-gemset">use 可以用来切换语言或者 gemset</h4>
 
 <p>前提是它们已经被安装(或者建立)，并可以在<code>list</code>命令中看到</p>
 
@@ -383,16 +356,16 @@ rvm use 1.8.7@rails23
 
 </code></pre>
 
-<p>然后所有安装的Gem都是安装在这个gemset之下</p>
+<p>然后所有安装的 Gem 都是安装在这个 gemset 之下</p>
 
-<h4 id="列出当前的ruby的gemset">列出当前的Ruby的gemset</h4>
+<h4 id="列出当前的-ruby-的-gemset">列出当前的 Ruby 的 gemset</h4>
 
 <pre><code>
 rvm gemset list
 
 </code></pre>
 
-<h4 id="清空gemset中的gem">清空gemset中的Gem</h4>
+<h4 id="清空-gemset-中的-gem">清空 gemset 中的 Gem</h4>
 
 <p>如果你想清空一个 gemset 的所有 Gem, 想重新安装所有 Gem，可以这样</p>
 
@@ -401,14 +374,14 @@ rvm gemset empty 1.8.7@rails23
 
 </code></pre>
 
-<h4 id="删除一个gemset">删除一个gemset</h4>
+<h4 id="删除一个-gemset">删除一个 gemset</h4>
 
 <pre><code>
 rvm gemset delete rails2-3
 
 </code></pre>
 
-<h4 id="项目自动加载gemset">项目自动加载gemset</h4>
+<h4 id="项目自动加载-gemset">项目自动加载 gemset</h4>
 
 <p>RVM 还可以自动加载 gemset。 例如我们有一个 Rails 3.1.3 项目，需要 1.9.3 版本 Ruby，整个流程可以这样。</p>
 
@@ -447,7 +420,7 @@ gem install passenger
 
 <p>然后使用 <code>passenger-install-nginx-module</code> 来安装 Nginx 和部署。</p>
 
-<p></p>
+<p>``</p>
 
 <p>因为这一步需要 root 权限（因为要编译 Nginx）可以用 rvmsudo 这个东西（这个东西真是个好东西）。</p>
 
@@ -458,21 +431,21 @@ rvmsudo passenger-install-nginx-module
 
 <p>然后会让你选择是下载 Nginx 源码自动编译安装，还是自己选择 Nginx 源码位置。</p>
 
-<p></p>
+<p>``</p>
 
 <p>选择 Nginx 手动安装的可以添加别的编译参数，方便自定义编译 Nginx。</p>
 
-<p></p>
+<p>``</p>
 
 <p>然后一路下载安装。默认的安装位置为 /opt/nginx.</p>
 
-<p></p>
+<p>``</p>
 
 <p>然后看看 nginx.conf，都给你配置好了，只需要加上 root 位置（yourapp/public）就可以了。</p>
 
 <h4 id="其他选择">其他选择</h4>
 
-<p>如果你不太喜欢RVM，可以选择<a href="https://github.com/rbenv/rbenv">rbenv</a> 在rubychaina有一篇文章(rbenv实用指南)[<a href="https://ruby-china.org/wiki/rbenv-guide">https://ruby-china.org/wiki/rbenv-guide</a>]</p>
+<p>如果你不太喜欢 RVM，可以选择<a href="https://github.com/rbenv/rbenv">rbenv</a> 在 rubychaina 有一篇文章(rbenv 实用指南)[<a href="https://ruby-china.org/wiki/rbenv-guide">https://ruby-china.org/wiki/rbenv-guide</a>]</p>
 
 <h3 id="三-bundler">三、bundler</h3>
 

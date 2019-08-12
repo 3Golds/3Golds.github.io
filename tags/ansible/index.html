@@ -144,10 +144,7 @@
 
       <div class="post-content">
         
-          
-            这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
- #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh    # like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &lt;&lt; EOF +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+ | this is a ansible script | | from Altamob&hellip;&hellip;. | +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; EOF read -p &quot;pelease input your service name: &quot; SER read -p &quot;pelease input your hostgroup name: &quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;&gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}.
-          
+          ansible shell
         
       </div>
       <div><a class="read-more button" href="/posts/ansible%E8%84%9A%E6%9C%AC/">Read more →</a></div>

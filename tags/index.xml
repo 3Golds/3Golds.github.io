@@ -39,11 +39,20 @@
     </item>
     
     <item>
-      <title>Gitlab</title>
+      <title>gitlab</title>
       <link>http://zhaox.xyz/tags/gitlab/</link>
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab-upgrade</title>
+      <link>http://zhaox.xyz/tags/gitlab-upgrade/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/gitlab-upgrade/</guid>
       <description></description>
     </item>
     
@@ -111,15 +120,6 @@
     </item>
     
     <item>
-      <title>docker-forward-drop</title>
-      <link>http://zhaox.xyz/tags/docker-forward-drop/</link>
-      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/tags/docker-forward-drop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>docker-ee</title>
       <link>http://zhaox.xyz/tags/docker-ee/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
@@ -156,20 +156,20 @@
     </item>
     
     <item>
-      <title>CD(持续交付)</title>
-      <link>http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/</link>
+      <title>CD</title>
+      <link>http://zhaox.xyz/tags/cd/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/</guid>
+      <guid>http://zhaox.xyz/tags/cd/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>CI(持续集成)</title>
-      <link>http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</link>
+      <title>CI</title>
+      <link>http://zhaox.xyz/tags/ci/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</guid>
+      <guid>http://zhaox.xyz/tags/ci/</guid>
       <description></description>
     </item>
     
@@ -192,20 +192,65 @@
     </item>
     
     <item>
+      <title>coredump</title>
+      <link>http://zhaox.xyz/tags/coredump/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/coredump/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://zhaox.xyz/tags/linux/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ipsec</title>
+      <link>http://zhaox.xyz/tags/ipsec/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ipsec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>l2tp</title>
+      <link>http://zhaox.xyz/tags/l2tp/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/l2tp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>http://zhaox.xyz/tags/vpn/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>http://zhaox.xyz/tags/ec2/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>FastDFS</title>
       <link>http://zhaox.xyz/tags/fastdfs/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/tags/fastdfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://zhaox.xyz/tags/linux/</link>
-      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -246,6 +291,15 @@
     </item>
     
     <item>
+      <title>linux user</title>
+      <link>http://zhaox.xyz/tags/linux-user/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/linux-user/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>memory</title>
       <link>http://zhaox.xyz/tags/memory/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
@@ -255,11 +309,56 @@
     </item>
     
     <item>
+      <title>php</title>
+      <link>http://zhaox.xyz/tags/php/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyenv</title>
+      <link>http://zhaox.xyz/tags/pyenv/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/pyenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://zhaox.xyz/tags/python/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>swap</title>
       <link>http://zhaox.xyz/tags/swap/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/tags/swap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>用户权限</title>
+      <link>http://zhaox.xyz/tags/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tags</title>
+      <link>http://zhaox.xyz/tags/tags/</link>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/tags/</guid>
       <description></description>
     </item>
     

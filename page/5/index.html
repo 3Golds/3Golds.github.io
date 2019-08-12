@@ -121,7 +121,7 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/git/">Git基础</a></h1>
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">Nginx+PHP编译安装</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2017-01-07
@@ -136,7 +136,9 @@
       
         <span class="post-tags">
           
-            #<a href="http://zhaox.xyz/tags/git/">git</a>&nbsp;
+            #<a href="http://zhaox.xyz/tags/nginx/">nginx</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/php/">php</a>&nbsp;
           
         </span>
       
@@ -145,89 +147,10 @@
 
       <div class="post-content">
         
-          
-            一、git install  Ubuntu sudo apt-get install git Centos yum install git Mac brew install git  二、git initialization configure  git config &ndash;global user.name &quot;Your Name&quot; git config &ndash;global user.email &quot;email@example.com&quot;  注意git config命令的&ndash;global参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址 三、git create repository  git 版本库，也叫仓库，英文为repository，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。  1、创建一个目录  $ mkdir gitrepo $ cd gitrepo $ pwd /Users/antony/gitrepo  注意：目录不要包含中文
-2、通过 git init 命令把这个目录变成 Git 可以管理的仓库  $ git init Initialized empty Git repository in /Users/antony/gitrepo/.
-          
+          <code>nginx</code>和<code>php</code>编译安装
         
       </div>
-      <div><a class="read-more button" href="/posts/git/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/">Golang 数组和切片</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2017-01-07
-        </span>
-        <span class="post-author">— Written by zhaoxin</span>
-        
-          <span class="post-read-time">— 4 min read</span>
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="http://zhaox.xyz/tags/go/">go</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            一、数组类型 数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。
-1.定义 var 变量名 [len]type
- var a[5] int var a[5]string var a[15]bool  2.元素访问 可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:
- var a[5]int var b = [2]int {1,2} fmt.Printf(&quot;%v %v %v\n&quot;,a, b, b[1]) Output: [0 0 0 0 0] [1 2] 2  3.值类型 需要特别注意的是，在 Go 语言中数组是一个值类型( value type)。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组做为函数的从参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。
- $ vim main.go package main import ( &quot;fmt&quot; ) func modify(array [5]int) { array[0] = 100 fmt.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Linux三剑客之grep</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2017-01-07
-        </span>
-        <span class="post-author">— Written by zhaoxin</span>
-        
-          <span class="post-read-time">— 4 min read</span>
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="http://zhaox.xyz/tags/linux/">linux</a>&nbsp;
-          
-            #<a href="http://zhaox.xyz/tags/grep/">grep</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
- 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
-grep 家族：
-  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
-alias alias cp=&lsquo;cp -i&rsquo; alias egrep=&lsquo;egrep &ndash;color=auto&rsquo; alias fgrep=&lsquo;fgrep &ndash;color=auto&rsquo; alias grep=&lsquo;grep &ndash;color=auto&rsquo; alias l.=&lsquo;ls -d .* &ndash;color=auto&rsquo; alias ll=&lsquo;ls -l &ndash;color=auto&rsquo; alias ls=&lsquo;ls &ndash;color=auto&rsquo; alias mv=&lsquo;mv -i&rsquo; alias rm=&lsquo;rm -i&rsquo; alias which=&lsquo;alias | /usr/bin/which &ndash;tty-only &ndash;read-alias &ndash;show-dot &ndash;show-tilde&rsquo;  -i：忽略字符大小写； # cat test Hello World How are you?
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
@@ -255,13 +178,43 @@ alias alias cp=&lsquo;cp -i&rsquo; alias egrep=&lsquo;egrep &ndash;color=auto&rs
 
       <div class="post-content">
         
-          
-            这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
- #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh    # like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &lt;&lt; EOF +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+ | this is a ansible script | | from Altamob&hellip;&hellip;. | +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; EOF read -p &quot;pelease input your service name: &quot; SER read -p &quot;pelease input your hostgroup name: &quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;&gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}.
-          
+          ansible shell
         
       </div>
       <div><a class="read-more button" href="/posts/ansible%E8%84%9A%E6%9C%AC/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">python-快速改造：基础知识</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-07
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 3 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/python/">python</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/pyenv/">pyenv</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          <code>python基础</code>
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
@@ -299,6 +252,103 @@ alias alias cp=&lsquo;cp -i&rsquo; alias egrep=&lsquo;egrep &ndash;color=auto&rs
       <div><a class="read-more button" href="/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">Read more →</a></div>
     </div>
     
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/">分布式文件系统-FastDFS</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-07
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 5 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/filesystem/">filesystem</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/fastdfs/">FastDFS</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          FastDFS
+        
+      </div>
+      <div><a class="read-more button" href="/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/">制作并安装FastDFS的RPM程序包</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-07
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/filesystem/">filesystem</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/fastdfs/">FastDFS</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          介绍如何制作和安装FastDFS的RPM
+        
+      </div>
+      <div><a class="read-more button" href="/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/template/">Template Exmple</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2000-01-01
+        </span>
+        <span class="post-author">— Written by AUTHOR</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/tags/">tags</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          Description
+        
+      </div>
+      <div><a class="read-more button" href="/posts/template/">Read more →</a></div>
+    </div>
+    
     <div class="pagination">
   <div class="pagination__buttons">
     
@@ -309,13 +359,6 @@ alias alias cp=&lsquo;cp -i&rsquo; alias egrep=&lsquo;egrep &ndash;color=auto&rs
         </a>
       </span>
     
-    
-      <span class="button next">
-        <a href="/page/6/">
-          <span class="button__text">Older posts</span>
-          <span class="button__icon">→</span>
-        </a>
-      </span>
     
   </div>
 </div>

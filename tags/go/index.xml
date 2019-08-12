@@ -13,10 +13,10 @@
     
     <item>
       <title>Golang 常量</title>
-      <link>http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/</link>
+      <link>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/</guid>
+      <guid>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</guid>
       <description> 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
 常量定义 通过 const 关键字定义，有以下三种方式
  const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
@@ -42,11 +42,11 @@ package main import &amp;quot;fmt&amp;quot; func main() { sum := 1 for ; sum &am
     </item>
     
     <item>
-      <title>初识Go</title>
-      <link>http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/</link>
+      <title>Golang 常量</title>
+      <link>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</link>
       <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/</guid>
+      <guid>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</guid>
       <description>Go 介绍 Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。
 Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。
 罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。

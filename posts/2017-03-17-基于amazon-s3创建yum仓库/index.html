@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5."/>
+<meta name="description" content="AWS 配置 1.创建 s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建 s3 用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予 s3 用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/" />
@@ -27,12 +27,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于amazon-s3创建yum仓库"/>
-<meta name="twitter:description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Stmt1489722431765&quot;, &quot;Action&quot;: &quot;s3:*&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &quot;PolicyNames&quot;: [ &quot;yum-repo-s3-Bucket-Access&quot; ] }  5."/>
+<meta name="twitter:description" content="yum storage to amzon s3"/>
 
 
 
 <meta property="og:title" content="基于amazon-s3创建yum仓库" />
-<meta property="og:description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Stmt1489722431765&quot;, &quot;Action&quot;: &quot;s3:*&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &quot;PolicyNames&quot;: [ &quot;yum-repo-s3-Bucket-Access&quot; ] }  5." />
+<meta property="og:description" content="yum storage to amzon s3" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/" />
 <meta property="article:published_time" content="2017-03-17T00:00:00+00:00" />
@@ -120,7 +120,7 @@
             2017-03-17
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 4 min read</span>
       
@@ -143,7 +143,7 @@
 
 <h2 id="aws-配置">AWS 配置</h2>
 
-<h3 id="1-创建s3-仓库">1.创建s3 仓库</h3>
+<h3 id="1-创建-s3-仓库">1.创建 s3 仓库</h3>
 
 <pre><code>
 aws s3 mb s3://yum-repo-s3
@@ -152,14 +152,14 @@ make_bucket: yum-repo-s3
 
 </code></pre>
 
-<h3 id="2-创建s3用户">2.创建s3用户</h3>
+<h3 id="2-创建-s3-用户">2.创建 s3 用户</h3>
 
 <pre><code>
 $~ aws iam create-user --user-name yum-repo-user
 
 </code></pre>
 
-<h3 id="3-赋予s3用户权限">3.赋予s3用户权限</h3>
+<h3 id="3-赋予-s3-用户权限">3.赋予 s3 用户权限</h3>
 
 <pre><code>
 $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json
@@ -210,7 +210,7 @@ $ aws iam list-user-policies --user-name yum-repo-user
 
 </code></pre>
 
-<h3 id="5-创建access-key">5.创建access key</h3>
+<h3 id="5-创建-access-key">5.创建 access key</h3>
 
 <pre><code>
 $ aws iam create-access-key --user-name yum-repo-user
@@ -248,7 +248,7 @@ $ sudo yum install createrepo pinentry -y
 
 </code></pre>
 
-<h3 id="2-添加用户-此处也可以使用root">2.添加用户(此处也可以使用root)</h3>
+<h3 id="2-添加用户-此处也可以使用-root">2.添加用户(此处也可以使用 root)</h3>
 
 <pre><code>
 $ sudo adduser builder
@@ -257,7 +257,7 @@ $ sudo echo -e &quot;builder\tALL=(ALL) NOPASSWD:ALL&quot;&gt;/etc/sudoers.d/bui
 
 </code></pre>
 
-<h3 id="3-配置用户access-key">3.配置用户access key</h3>
+<h3 id="3-配置用户-access-key">3.配置用户 access key</h3>
 
 <pre><code>
 $ aws configure
@@ -272,11 +272,11 @@ Default output format [None]: json
 
 </code></pre>
 
-<h3 id="4-配置一个专用的public-private-gpg密钥对">4.配置一个专用的Public/Private GPG密钥对</h3>
+<h3 id="4-配置一个专用的-public-private-gpg-密钥对">4.配置一个专用的 Public/Private GPG 密钥对</h3>
 
-<p><strong>生成一个新的GPG密钥对</strong></p>
+<p><strong>生成一个新的 GPG 密钥对</strong></p>
 
-<p>这里要等一段时间，他需要从随机数库里面去数字，在此期间可以敲击键盘或者点击鼠标来生成随机数(注意：不要ctrl+c)</p>
+<p>这里要等一段时间，他需要从随机数库里面去数字，在此期间可以敲击键盘或者点击鼠标来生成随机数(注意：不要 ctrl+c)</p>
 
 <pre><code>
 gpg --gen-key
@@ -359,7 +359,7 @@ generator a better chance to gain enough entropy.
 
 </code></pre>
 
-<p><strong>查看生成的GPG密钥对</strong></p>
+<p><strong>查看生成的 GPG 密钥对</strong></p>
 
 <pre><code>
 # gpg --list-keys
@@ -376,21 +376,21 @@ sub   2048R/45DEQAD 2017-03-17
 
 </code></pre>
 
-<p><strong>导出public key</strong></p>
+<p><strong>导出 public key</strong></p>
 
 <pre><code>
 gpg --output ~/RPM-GPG-KEY-my-repo --armor --export AE355D
 
 </code></pre>
 
-<p><strong>导出private key</strong></p>
+<p><strong>导出 private key</strong></p>
 
 <pre><code>
 gpg --output ~/RPM-GPG-KEY-my-repo.private --export-secret-key -armor AE355D
 
 </code></pre>
 
-<p><strong>rpm 导入key</strong></p>
+<p><strong>rpm 导入 key</strong></p>
 
 <pre><code>
 rpm --import ~/RPM-GPG-KEY-my-repo
@@ -410,16 +410,16 @@ gpg-pubkey-4a7cz49d-533129b --&gt; gpg(repo-for-me (my repo) &lt;repo@repo.com&g
 
 </code></pre>
 
-<h3 id="5-构建rpm-packages">5.构建RPM packages</h3>
+<h3 id="5-构建-rpm-packages">5.构建 RPM packages</h3>
 
-<p><strong>创建rpmbuild目录</strong></p>
+<p><strong>创建 rpmbuild 目录</strong></p>
 
 <pre><code>
 mkdir -pv ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 
 </code></pre>
 
-<p><strong>创建一个repo文件</strong></p>
+<p><strong>创建一个 repo 文件</strong></p>
 
 <pre><code>
 $ cat ~/repo-for-me.repo
@@ -438,7 +438,7 @@ gpgcheck=1
 
 </code></pre>
 
-<p><strong>配置.spec文件</strong></p>
+<p><strong>配置.spec 文件</strong></p>
 
 <pre><code>
 $ cat repo-for-me.spec
@@ -533,7 +533,7 @@ rm -rf $RPM_BUILD_ROOT
 
 </code></pre>
 
-<p><strong>配置rpm macros</strong></p>
+<p><strong>配置 rpm macros</strong></p>
 
 <pre><code>
 cat .rpmmacros
@@ -552,7 +552,7 @@ cat .rpmmacros
 
 </code></pre>
 
-<p><strong>制作rpm</strong></p>
+<p><strong>制作 rpm</strong></p>
 
 <pre><code>
 rpmbuild -v -ba --sign --clean repo-for-me.spec
@@ -580,21 +580,21 @@ rpm --checksig /home/builder/rpmbuild/SRPMS/repo-for-me-1-0.1.x86_64.rpm
 
 </code></pre>
 
-<h3 id="更新到s3">更新到s3</h3>
+<h3 id="更新到-s3">更新到 s3</h3>
 
 <pre><code>
 mkdir -pv ~/yum-repo/{x86_64,noarch} # 注意 yum-repo这个目录必须和repo文件中的一一对应
 
 </code></pre>
 
-<p><strong>拷贝rpm包到/yum-repo/x86_64</strong></p>
+<p><strong>拷贝 rpm 包到/yum-repo/x86_64</strong></p>
 
 <pre><code>
 cp /home/root/rpmbuild/SRPMS/*.rpm ~/yum-repo/x86-64
 
 </code></pre>
 
-<p><strong>创建metadata file（最重要的一步）</strong></p>
+<p><strong>创建 metadata file（最重要的一步）</strong></p>
 
 <pre><code>
 for a in /root/repo-for-me/x86_64; do createrepo -v --update --deltas $a/ ; done
@@ -603,7 +603,7 @@ for a in /root/repo-for-me/x86_64; do createrepo -v --update --deltas $a/ ; done
 
 </code></pre>
 
-<p><strong>上传到s3</strong></p>
+<p><strong>上传到 s3</strong></p>
 
 <pre><code>
 aws s3 sync yum-repo/ s3://repo-for-me/yum-repo/
@@ -617,9 +617,9 @@ rpm -ivh https://s3.cn-north-1.amazonaws.com.cn/repo-for-me/yum-repo/x86_64/tool
 
 </code></pre>
 
-<p><strong>本文主要介绍如何管理仓库，如制作rpm包、创建依赖关系、上传rpm到s3等，如果想了解实现方式，请查阅：<a href="http://wiki.meiqia.com/pages/viewpage.action?pageId=5701661">repo-for-s3</a></strong></p>
+<p><strong>本文主要介绍如何管理仓库，如制作 rpm 包、创建依赖关系、上传 rpm 到 s3 等，如果想了解实现方式，请查阅：<a href="http://wiki.meiqia.com/pages/viewpage.action?pageId=5701661">repo-for-s3</a></strong></p>
 
-<h3 id="公开s3">公开s3</h3>
+<h3 id="公开-s3">公开 s3</h3>
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/yum-s3.png" alt="s3-yum" /></p>
 

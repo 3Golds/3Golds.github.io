@@ -27,12 +27,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="添加一个用户sudo权限的使用密钥登录的用户"/>
-<meta name="twitter:description" content=" $1为用户名 $2为用户公钥 #!/bin/bash #添加证书账户,并且将对应用户加入sudo # $1 为用户名 $2 为用户公钥 [[ -z $3 ]] &amp;&amp; useradd $1 || useradd -d $3 $1 mkdir /home/$1/.ssh echo &quot;$2&quot; &gt;/home/$1/.ssh/authorized_keys chown -R $1.$1 /home/$1/.ssh/ chmod 600 /home/$1/.ssh/authorized_keys chmod 700 /home/$1/.ssh/ sed -i &#39;/^root.*/a\&#39;$1&#39; ALL=(ALL) NOPASSWD:ALL&#39; /etc/sudoers  "/>
+<meta name="twitter:description" content="ALL Permission Sudo User"/>
 
 
 
 <meta property="og:title" content="添加一个用户sudo权限的使用密钥登录的用户" />
-<meta property="og:description" content=" $1为用户名 $2为用户公钥 #!/bin/bash #添加证书账户,并且将对应用户加入sudo # $1 为用户名 $2 为用户公钥 [[ -z $3 ]] &amp;&amp; useradd $1 || useradd -d $3 $1 mkdir /home/$1/.ssh echo &quot;$2&quot; &gt;/home/$1/.ssh/authorized_keys chown -R $1.$1 /home/$1/.ssh/ chmod 600 /home/$1/.ssh/authorized_keys chmod 700 /home/$1/.ssh/ sed -i &#39;/^root.*/a\&#39;$1&#39; ALL=(ALL) NOPASSWD:ALL&#39; /etc/sudoers  " />
+<meta property="og:description" content="ALL Permission Sudo User" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-22-useradd-sh/" />
 <meta property="article:published_time" content="2017-01-21T00:00:00+00:00" />
@@ -120,7 +120,7 @@
             2017-01-21
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 1 min read</span>
       
@@ -171,8 +171,8 @@ sed -i '/^root.*/a\'$1' ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/fastdfs-unti-for-systemd/">
-                <span class="button__text">FastDFS unti for systemd</span>
+              <a href="http://zhaox.xyz/posts/2017-01-19-coredump/">
+                <span class="button__text">Linux系统异常-CoreDump详解</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

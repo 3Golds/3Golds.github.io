@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="# 配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = http://127.0.0.1:7777 # # 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0."/>
+<meta name="description" content="// 配置文件中 # 开头的行为注释 // // 代理服务器监听地址，重复多次来指定多个监听地址，语法： // // listen = protocol://[optional@]server_address:server_port // // 支持的 protocol 如下： // // HTTP (提供 http 代理): // listen = http://127.0.0.1:7777 // // 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac // 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 // 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 // // cow (需两个 cow 服务器配合使用): // listen = cow://encrypt_method:password@1.2.3.4:5678 // // 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 // 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 // // 其他说明： // - 若 server_address 为 0."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
@@ -27,12 +27,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cow-rc-样例配置文件"/>
-<meta name="twitter:description" content="# 配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = http://127.0.0.1:7777 # # 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0."/>
+<meta name="twitter:description" content="example"/>
 
 
 
 <meta property="og:title" content="Cow-rc-样例配置文件" />
-<meta property="og:description" content="# 配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = http://127.0.0.1:7777 # # 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0." />
+<meta property="og:description" content="example" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
 <meta property="article:published_time" content="2017-02-20T00:00:00+00:00" />
@@ -120,7 +120,7 @@
             2017-02-20
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 3 min read</span>
       
@@ -139,32 +139,32 @@
     
 
     <div class="post-content">
-      <pre><code># 配置文件中 # 开头的行为注释
-#
-# 代理服务器监听地址，重复多次来指定多个监听地址，语法：
-#
-#   listen = protocol://[optional@]server_address:server_port
-#
-# 支持的 protocol 如下：
-#
-# HTTP (提供 http 代理):
-#   listen = http://127.0.0.1:7777
-#
-#   上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac
-#   配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址
-#   若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选
-#
-# cow (需两个 cow 服务器配合使用):
-#   listen = cow://encrypt_method:password@1.2.3.4:5678
-#
-#   若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以
-#   通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。
-#
-# 其他说明：
-# - 若 server_address 为 0.0.0.0，监听本机所有 IP 地址
-# - 可以用如下语法指定 PAC 中返回的代理服务器地址（当使用端口映射将 http 代理提供给外网时使用）
-#   listen = http://127.0.0.1:7777 1.2.3.4:5678
-#
+      <pre><code>// 配置文件中 # 开头的行为注释
+//
+// 代理服务器监听地址，重复多次来指定多个监听地址，语法：
+//
+//   listen = protocol://[optional@]server_address:server_port
+//
+// 支持的 protocol 如下：
+//
+// HTTP (提供 http 代理):
+//   listen = http://127.0.0.1:7777
+//
+//   上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac
+//   配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址
+//   若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选
+//
+// cow (需两个 cow 服务器配合使用):
+//   listen = cow://encrypt_method:password@1.2.3.4:5678
+//
+//   若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以
+//   通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。
+//
+// 其他说明：
+// - 若 server_address 为 0.0.0.0，监听本机所有 IP 地址
+// - 可以用如下语法指定 PAC 中返回的代理服务器地址（当使用端口映射将 http 代理提供给外网时使用）
+//   listen = http://127.0.0.1:7777 1.2.3.4:5678
+//
 listen = http://127.0.0.1:7777
 
 # 日志文件路径，如不指定则输出到 stdout

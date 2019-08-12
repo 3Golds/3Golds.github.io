@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on 赵鑫的博客</title>
+    <title>linux on 赵鑫的博客</title>
     <link>http://zhaox.xyz/tags/linux/</link>
-    <description>Recent content in Linux on 赵鑫的博客</description>
+    <description>Recent content in linux on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jan 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://zhaox.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Linux三剑客之grep</title>
+      <title>Linux系统异常-CoreDump详解</title>
+      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
+      <description>CoreDump http://linux.die.net/man/5/core
+什么是 core dump core dump 又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个 core 文件中, 叫 core dump。core dump 在应用 crash 掉之后对问题的诊断是很有帮助的。而在默认安装的时候 core dump 是关闭状 态的。
+如何查看系统是否打开了 core dump  Note：使用 ulimit -c 查看 core dump 是否打开。如果结果为 0，则表示此功能处于关闭 状态，不会生成 core 文件
+  $ ulimit -c  如何打开 core dump  方法一:命令行方式
+ $ ulimit -c 1024 # 避免一下生成几G的大文件 $ ulimit -c unlimited #无限制  方法二:配置 profile 文件: 将ulimit -S -c 0 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1改成ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1</description>
+    </item>
+    
+    <item>
+      <title>Linux grep</title>
       <link>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -22,6 +35,18 @@
 grep 家族：
   1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &amp;ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
 alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?</description>
+    </item>
+    
+    <item>
+      <title>Linux用户、用户组及权限管理</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>一、Linux 用户及用户组的基本概念 用户：用户是实现能够将有限的资源在多个使用者之间进行分配；、 用户组：用户组是指多个用户的集合，方便对一类需要同样权限的用户授权 Linux 是多用户、多任务的操作系统。 多用户指：多人同时使用系统资源；多任务：同时运行多个进程
+二、用户及用户组类别 1、用户：名称解析库 /etc/passwd a、管理员 root 用户标识（UID）为 0 b、普通用户及系统用户 普通用户的用户标识（既 UID）： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户用户标识（既 UID）： CentOS 5,6: 1-499 CentOS 7: 1-999
+2、用户组：名称解析库 /etc/group a、管理员组 组标识为：0 b、普通用户组及系统用户组 普通用户组标识： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户组标识： CentOS 5,6: 1-499 CentOS 7: 1-999 3、用户组类别： 以用户为核心分为： 用户的主组：基本组； 用户的附加组：额外组； 以容纳的用户来划分： 私有组：与用户名相同，且只有一个用户； 共有组：组内包含了多个用户；
+三、用户及用户组的认证机制 Linux 的用户密码认证方式在 centos7 中使用 sha512 认证信息库存储位置： 用户的认证信息库：/etc/shadow 组的认证信息库：/etc/gshadow 密码：加密存放，使用单向加密机制 算法： md5: message digest, 128bits sha1: secure hash algorithm, 160bits sha224 sha256 sha384 sha512</description>
     </item>
     
     <item>

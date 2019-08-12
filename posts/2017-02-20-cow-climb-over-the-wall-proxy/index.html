@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
+<meta name="description" content="COW 简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW 对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW 的二级代理用来访问海外的 server，支持sock5、shadowsocks、cow(采用 shadowsock 协议)三种方式. Github 地址
  功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
  作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
  支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
@@ -14,7 +14,7 @@
  自动检测网站是否被墙，仅对被墙网站使用二级代理
  自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
  内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
-  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/."/>
+  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/" />
@@ -35,28 +35,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="COW (Climb Over the Wall) Proxy"/>
-<meta name="twitter:description" content="COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
- 功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
- 作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
- 支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
- 可使用多个二级代理，支持简单的负载均衡
- 自动检测网站是否被墙，仅对被墙网站使用二级代理
- 自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
- 内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
-  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/."/>
+<meta name="twitter:description" content="COW 是一个简化穿墙的 HTTP 代理服务器"/>
 
 
 
 <meta property="og:title" content="COW (Climb Over the Wall) Proxy" />
-<meta property="og:description" content="COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
- 功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
- 作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
- 支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
- 可使用多个二级代理，支持简单的负载均衡
- 自动检测网站是否被墙，仅对被墙网站使用二级代理
- 自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
- 内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
-  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/." />
+<meta property="og:description" content="COW 是一个简化穿墙的 HTTP 代理服务器" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/" />
 <meta property="article:published_time" content="2017-02-20T00:00:00+00:00" />
@@ -144,7 +128,7 @@
             2017-02-20
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 2 min read</span>
       
@@ -165,10 +149,10 @@
     <div class="post-content">
       
 
-<h3 id="cow简介">COW简介</h3>
+<h3 id="cow-简介">COW 简介</h3>
 
 <blockquote>
-<p><code>COW</code> 是一个简化穿墙的 <code>HTTP 代理服务器</code>。它能自动检测被墙网站，仅对这些网站使用<code>二级代理</code>。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持<code>sock5</code>、<code>shadowsocks</code>、<code>cow</code>(采用shadowsock协议)三种方式. <a href="https://github.com/cyfdecyf/cow">Github地址</a></p>
+<p><code>COW</code> 是一个简化穿墙的 <code>HTTP 代理服务器</code>。它能自动检测被墙网站，仅对这些网站使用<code>二级代理</code>。COW 对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW 的二级代理用来访问海外的 server，支持<code>sock5</code>、<code>shadowsocks</code>、<code>cow</code>(采用 shadowsock 协议)三种方式. <a href="https://github.com/cyfdecyf/cow">Github 地址</a></p>
 </blockquote>
 
 <h3 id="功能">功能</h3>
@@ -247,7 +231,7 @@ proxy = cow://aes-128-cfb:password@1.2.3.4:8388
 
 <p>完成配置后启动 COW 并配置好代理即可使用。</p>
 
-<h3 id="三-启动cow">三、启动COW</h3>
+<h3 id="三-启动-cow">三、启动 COW</h3>
 
 <p><strong>配置文件在 Unix 系统上为 ~/.cow/rc，Windows 上为 COW 所在目录的 rc.txt 文件。 <a href="http://zantony.top/2017/02/20/Cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">样例配置</a> 包含了所有选项以及详细的说明，建议下载然后修改。</strong></p>
 
@@ -257,13 +241,11 @@ proxy = cow://aes-128-cfb:password@1.2.3.4:8388
 <pre><code>cow -rc=rc  -v  -debug &amp; # 可先开启debug模式测试
 </code></pre></li>
 
-<li><p><strong>Windows</strong></p>
+<li><p><strong>Windows</strong></p></li>
 
-<ul>
 <li><p>双击 cow-taskbar.exe，隐藏到托盘执行</p></li>
 
 <li><p>双击 cow-hide.exe，隐藏为后台程序执行</p></li>
-</ul></li>
 </ul>
 
 <blockquote>
@@ -276,12 +258,12 @@ proxy = cow://aes-128-cfb:password@1.2.3.4:8388
 
 <h3 id="四-客户端配置">四、客户端配置</h3>
 
-<h4 id="1-firefox配置">1.Firefox配置</h4>
+<h4 id="1-firefox-配置">1.Firefox 配置</h4>
 
 <p>首选项&ndash;&gt;高级&ndash;&gt;网络&ndash;&gt;设置
 <img src="http://obbogqhb1.bkt.clouddn.com/firefox.png" alt="firefox" /></p>
 
-<h4 id="2-chrom和mac配置">2.Chrom和mac配置</h4>
+<h4 id="2-chrom-和-mac-配置">2.Chrom 和 mac 配置</h4>
 
 <p>网络&ndash;&gt;选择网络&ndash;&gt;高级&ndash;&gt;代理
 <img src="http://obbogqhb1.bkt.clouddn.com/mac1.png" alt="mac" />
@@ -294,15 +276,13 @@ proxy = cow://aes-128-cfb:password@1.2.3.4:8388
 <p>配置文件所在目录下的 blocked 和 direct 可指定被墙和直连网站（direct 中的 host 会添加到 PAC）。 Windows 下文件名为 blocked.txt 和 direct.txt。</p>
 
 <ul>
-<li><p>每行一个域名或者主机名（COW 会先检查主机名是否在列表中，再检查域名）</p>
+<li><p>每行一个域名或者主机名（COW 会先检查主机名是否在列表中，再检查域名）</p></li>
 
-<ul>
 <li><p>二级域名如 google.com 相当于 *.google.com</p></li>
 
 <li><p>com.hk, edu.cn 等二级域名下的三级域名，作为二级域名处理。如 google.com.hk 相当于 *.google.com.hk</p></li>
 
 <li><p>其他三级及以上域名/主机名做精确匹配，例如 plus.google.com</p></li>
-</ul></li>
 </ul>
 
     </div>

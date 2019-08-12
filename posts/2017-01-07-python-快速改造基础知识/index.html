@@ -6,19 +6,15 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="一、python安装之pyenv windows下安装Python （1）打开web浏览器，访问Python官方站点http://www.python.org
-（2）点击Download，或者在首页点击下载
-（3）下载所需版本，目前最新版本为3.5.2
+<meta name="description" content="一、python 安装之 pyenv windows 下安装 Python （1）打开 web 浏览器，访问 Python 官方站点http://www.python.org
+（2）点击 Download，或者在首页点击下载
+（3）下载所需版本，目前最新版本为 3.5.2
 （4）下载完成后双击并执行安装
-CentOS下安装Python和pyenv  pyenv：pyenv是一款python版本管理器，由于不同程序员可能使用不同的python进行开发，但还需在同一台机器又互不影响。pyenv主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装python。
- 1、安装依赖包 yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server Plataform Development&amp;quot; -y  2、安装pyenv （1）通过git克隆pyenv程序
-$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  （2）设置pyenv的环境变量
-$ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile $ echo &#39;export PATH=&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （3）添加pyenv init到环境变量中
-$ echo &#39;eval &amp;quot;$(pyenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （4）重读你的shell
-$ exec $SHELL $ source ~/.bash_profile  3、pyenv的使用及安装python 列出所有可用的版本
-pyenv install -l  安装指定版本
-$ pyenv install 3."/>
-<meta name="keywords" content="python基础,pyenv"/>
+CentOS 下安装 Python 和 pyenv  pyenv：pyenv 是一款 python 版本管理器，由于不同程序员可能使用不同的 python 进行开发，但还需在同一台机器又互不影响。pyenv 主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装 python。
+ 1、安装依赖包 yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server Plataform Development&amp;quot; -y  2、安装 pyenv （1）通过 git 克隆 pyenv 程序
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  （2）设置 pyenv 的环境变量
+$ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile $ echo &#39;export PATH=&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （3）添加pyenv init到环境变量中"/>
+<meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" />
 
@@ -38,15 +34,16 @@ $ pyenv install 3."/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="python-快速改造：基础知识"/>
-<meta name="twitter:description" content="python基础"/>
+<meta name="twitter:description" content="`python基础`"/>
 
 
 
 <meta property="og:title" content="python-快速改造：基础知识" />
-<meta property="og:description" content="python基础" />
+<meta property="og:description" content="`python基础`" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" />
-<meta property="og:site_name" content="赵鑫的博客" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
 
 
 
@@ -126,12 +123,24 @@ $ pyenv install 3."/>
     <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">python-快速改造：基础知识</a></h2>
     <div class="post-meta">
       
+        <span class="post-date">
+            2017-01-07
+        </span>
       
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 3 min read</span>
       
     </div>
 
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/python/">python</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/pyenv/">pyenv</a>&nbsp;
+        
+      </span>
     
 
     
@@ -139,22 +148,22 @@ $ pyenv install 3."/>
     <div class="post-content">
       
 
-<h2 id="一-python安装之pyenv">一、python安装之pyenv</h2>
+<h2 id="一-python-安装之-pyenv">一、python 安装之 pyenv</h2>
 
-<h3 id="windows下安装python">windows下安装Python</h3>
+<h3 id="windows-下安装-python">windows 下安装 Python</h3>
 
-<p>（1）打开web浏览器，访问Python官方站点<a href="http://www.python.org">http://www.python.org</a></p>
+<p>（1）打开 web 浏览器，访问 Python 官方站点<a href="http://www.python.org">http://www.python.org</a></p>
 
-<p>（2）点击Download，或者在首页点击下载</p>
+<p>（2）点击 Download，或者在首页点击下载</p>
 
-<p>（3）下载所需版本，目前最新版本为3.5.2</p>
+<p>（3）下载所需版本，目前最新版本为 3.5.2</p>
 
 <p>（4）下载完成后双击并执行安装</p>
 
-<h3 id="centos下安装python和pyenv">CentOS下安装Python和pyenv</h3>
+<h3 id="centos-下安装-python-和-pyenv">CentOS 下安装 Python 和 pyenv</h3>
 
 <blockquote>
-<p>pyenv：pyenv是一款python版本管理器，由于不同程序员可能使用不同的python进行开发，但还需在同一台机器又互不影响。pyenv主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装python。</p>
+<p>pyenv：pyenv 是一款 python 版本管理器，由于不同程序员可能使用不同的 python 进行开发，但还需在同一台机器又互不影响。pyenv 主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装 python。</p>
 </blockquote>
 
 <h4 id="1-安装依赖包">1、安装依赖包</h4>
@@ -162,14 +171,14 @@ $ pyenv install 3."/>
 <pre><code>yum groupinstall &quot;Development Tools&quot; &quot;Server Plataform Development&quot; -y
 </code></pre>
 
-<h4 id="2-安装pyenv">2、安装pyenv</h4>
+<h4 id="2-安装-pyenv">2、安装 pyenv</h4>
 
-<p>（1）通过git克隆pyenv程序</p>
+<p>（1）通过 git 克隆 pyenv 程序</p>
 
 <pre><code>$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 </code></pre>
 
-<p>（2）设置pyenv的环境变量</p>
+<p>（2）设置 pyenv 的环境变量</p>
 
 <pre><code>$ echo 'export PYENV_ROOT=&quot;$HOME/.pyenv&quot;' &gt;&gt; ~/.bash_profile
 $ echo 'export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' &gt;&gt; ~/.bash_profile
@@ -180,13 +189,13 @@ $ echo 'export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' &gt;&gt; ~/.bash_profile
 <pre><code>$ echo 'eval &quot;$(pyenv init -)&quot;' &gt;&gt; ~/.bash_profile
 </code></pre>
 
-<p>（4）重读你的shell</p>
+<p>（4）重读你的 shell</p>
 
 <pre><code>$ exec $SHELL
 $ source ~/.bash_profile
 </code></pre>
 
-<h4 id="3-pyenv的使用及安装python">3、pyenv的使用及安装python</h4>
+<h4 id="3-pyenv-的使用及安装-python">3、pyenv 的使用及安装 python</h4>
 
 <p>列出所有可用的版本</p>
 
@@ -200,17 +209,17 @@ Downloading Python-3.5.2.tar.xz...
 -&gt; https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz
 </code></pre>
 
-<p>切换本地python版本</p>
+<p>切换本地 python 版本</p>
 
 <pre><code>$ pyenv local 2.7.12
 </code></pre>
 
-<p>切换全局python版本</p>
+<p>切换全局 python 版本</p>
 
 <pre><code>pyenv global 3.5.2
 </code></pre>
 
-<h4 id="4-卸载pyenv">4、卸载pyenv</h4>
+<h4 id="4-卸载-pyenv">4、卸载 pyenv</h4>
 
 <p>CentOS 卸载</p>
 
@@ -224,23 +233,23 @@ Downloading Python-3.5.2.tar.xz...
 
 <h2 id="二-交互式解释器">二、交互式解释器</h2>
 
-<p>当启动python的时候，会出现如下提示：</p>
+<p>当启动 python 的时候，会出现如下提示：</p>
 
 <pre><code>$ python
-Python 3.5.2 (default, Aug 17 2016, 18:31:29) 
+Python 3.5.2 (default, Aug 17 2016, 18:31:29)
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-17)] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt;
 </code></pre>
 
-<p>可以再次和python进行交互式的输入，比如</p>
+<p>可以再次和 python 进行交互式的输入，比如</p>
 
 <pre><code>&gt;&gt;&gt; print('Hello World')
 当按下回车后，会得到下面的输出
 Hello World
 </code></pre>
 
-<p>当然很多计算机语言，习惯以分号结尾，但是python不同，一行就是一行，不管内容多少。
+<p>当然很多计算机语言，习惯以分号结尾，但是 python 不同，一行就是一行，不管内容多少。
 上面所描述的就是交互式解释器，可以通过键入一些字符来获取输出从而实现自己的目的。</p>
 
 <h2 id="三-算法是什么">三、算法是什么</h2>
@@ -251,14 +260,15 @@ Hello World
 （1）将凉皮切成细条
 （2）将凉皮放入容器中
 （3）放入麻将、醋、蒜汁、辣椒等调料
-（4）搅拌大约1分钟左右
+（4）搅拌大约 1 分钟左右
 其实上面的步骤就是算法，他告诉醋程序如何去做，做多久，以及做什么，还有对什么做。</p>
+</blockquote>
 
 <h2 id="四-数字和表达式">四、数字和表达式</h2>
 
 <h3 id="数字运算">数字运算</h3>
 
-<p>交互式python解释器可以当做非常强大的计算器使用</p>
+<p>交互式 python 解释器可以当做非常强大的计算器使用</p>
 
 <pre><code>&gt;&gt;&gt; 3666665444566 + 1123134546
 3667788579112
@@ -268,13 +278,13 @@ Hello World
 
 <p>当然还有一些特殊的,下面的两个例子分别在不同的版本下</p>
 
-<pre><code>Python 2.7.5 (default, Jun 24 2015, 00:41:19) 
+<pre><code>Python 2.7.5 (default, Jun 24 2015, 00:41:19)
 [GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; 1/2
 0
 
-Python 3.5.2 (default, Aug 17 2016, 18:31:29) 
+Python 3.5.2 (default, Aug 17 2016, 18:31:29)
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-17)] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; 1/2
@@ -309,18 +319,18 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 
 <h3 id="长整数">长整数</h3>
 
-<p>长整数的显示方式在python3.0之后有所不同，3.0之前后面会有一个L</p>
+<p>长整数的显示方式在 python3.0 之后有所不同，3.0 之前后面会有一个 L</p>
 
-<pre><code>Python 2.7.5 (default, Jun 24 2015, 00:41:19) 
+<pre><code>Python 2.7.5 (default, Jun 24 2015, 00:41:19)
 [GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; 30000000000000000000000000000
 30000000000000000000000000000L
 
-Python 3.5.2 (default, Aug 17 2016, 18:31:29) 
+Python 3.5.2 (default, Aug 17 2016, 18:31:29)
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-17)] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt; 
+&gt;&gt;&gt;
 &gt;&gt;&gt; 243000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 243000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 </code></pre>
@@ -340,7 +350,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 
 <h2 id="六-获取用户输入">六、获取用户输入</h2>
 
-<p>在编写程序的时候，我们可能并不知道某些变量的值。可能通过用户的输入，但是解释器是知道他的值的，所以我们可能会需要去获取用户的输入，获取用户的输入使用input()函数(在3.0以后raw_input函数被input函数替代)</p>
+<p>在编写程序的时候，我们可能并不知道某些变量的值。可能通过用户的输入，但是解释器是知道他的值的，所以我们可能会需要去获取用户的输入，获取用户的输入使用 input()函数(在 3.0 以后 raw_input 函数被 input 函数替代)</p>
 
 <pre><code>&gt;&gt;&gt; input('Please input your name? ')
 Please input your name? Antony
@@ -371,11 +381,13 @@ Please input a number y: 56
 
 <h2 id="七-函数">七、函数</h2>
 
-<p>函数类似小程序，可以用来实现特定的功能。python有很多函数，print()就是一个函数。定义函数会在后续介绍，目前先介绍如何使用python的内置函数。</p>
+<blockquote>
+<p>函数类似小程序，可以用来实现特定的功能。python 有很多函数，print()就是一个函数。定义函数会在后续介绍，目前先介绍如何使用 python 的内置函数。</p>
+</blockquote>
 
 <h3 id="pow">pow()</h3>
 
-<p>pow表示幂，既做计算乘方</p>
+<p>pow 表示幂，既做计算乘方</p>
 
 <pre><code>&gt;&gt;&gt; 2 ** 3
 8
@@ -387,7 +399,7 @@ Please input a number y: 56
 
 <h3 id="abs">abs()</h3>
 
-<p>abs表示绝对值</p>
+<p>abs 表示绝对值</p>
 
 <pre><code>&gt;&gt;&gt; abs(-10)
 10
@@ -395,7 +407,7 @@ Please input a number y: 56
 
 <h3 id="round">round()</h3>
 
-<p>round函数会把浮点数四舍五入</p>
+<p>round 函数会把浮点数四舍五入</p>
 
 <pre><code>&gt;&gt;&gt; 1 / 2
 0.5
@@ -407,14 +419,14 @@ Please input a number y: 56
 
 <h3 id="floor">floor()</h3>
 
-<p>floor为向下取整，比如某个人的年龄是32.9岁，既32岁零九个月，这个时候不能说他已经三三岁，这个时候使用floor函数</p>
+<p>floor 为向下取整，比如某个人的年龄是 32.9 岁，既 32 岁零九个月，这个时候不能说他已经三三岁，这个时候使用 floor 函数</p>
 
 <pre><code>&gt;&gt;&gt; import math
 &gt;&gt;&gt; math.floor(32.9)
 32
 </code></pre>
 
-<p>floor函数在python3.0之后取值不再为小数，直接取得证书，下面为3.0之前的输出</p>
+<p>floor 函数在 python3.0 之后取值不再为小数，直接取得证书，下面为 3.0 之前的输出</p>
 
 <pre><code>&gt;&gt;&gt; import math
 &gt;&gt;&gt; math.floor(32.9)
@@ -423,7 +435,7 @@ Please input a number y: 56
 
 <h3 id="int">int()</h3>
 
-<p>int表示取整数</p>
+<p>int 表示取整数</p>
 
 <pre><code>&gt;&gt;&gt; int(256.125)
 256
@@ -431,7 +443,7 @@ Please input a number y: 56
 
 <h3 id="input">input()</h3>
 
-<p>input表示获取用户输入，在上面有过介绍，话不多说，上例子</p>
+<p>input 表示获取用户输入，在上面有过介绍，话不多说，上例子</p>
 
 <pre><code>&gt;&gt;&gt; input('Do you want me? ')
 Do you want me? No!!!
@@ -440,19 +452,19 @@ Do you want me? No!!!
 
 <h3 id="exit">exit()</h3>
 
-<p>用来退出python的交互式解释器</p>
+<p>用来退出 python 的交互式解释器</p>
 
 <pre><code>$ python
-Python 3.5.2 (default, Aug 17 2016, 18:31:29) 
+Python 3.5.2 (default, Aug 17 2016, 18:31:29)
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-17)] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; exit()
-$ 
+$
 </code></pre>
 
 <h2 id="八-模块">八、模块</h2>
 
-<p>模块是为了扩展python的功能，需要使用特殊的命令import来导入模块。前面内容提到的floor函数就在名为math模块中。</p>
+<p>模块是为了扩展 python 的功能，需要使用特殊的命令 import 来导入模块。前面内容提到的 floor 函数就在名为 math 模块中。</p>
 
 <pre><code>&gt;&gt;&gt; import math
 &gt;&gt;&gt; math.floor(333.20)
@@ -468,26 +480,27 @@ $
 
 <h2 id="九-保存于执行脚本">九、保存于执行脚本</h2>
 
+<blockquote>
 <p>为了将命令永久存储，以便以后使用，可以写到文件中。
-文件的开头需要注明，因为在unix中有个标准的实现方法：在脚本首行前加上<code>#！</code>。再其后面添加用于解释脚本的程序的绝对路径。</p>
+文件的开头需要注明，因为在 unix 中有个标准的实现方法：在脚本首行前加上<code>#！</code>。再其后面添加用于解释脚本的程序的绝对路径。</p>
 </blockquote>
 
 <p>例如：</p>
 
-<pre><code>$ cat first.py 
+<pre><code>$ cat first.py
 #!/usr/bin/env python3.5
 name = input('Please input your name: ')
 print('Hello, ' + name)
 
-$ chmod +x first.py 
-$ ./first.py 
+$ chmod +x first.py
+$ ./first.py
 Please input your name: Antony
 Hello, Antony
 </code></pre>
 
 <h2 id="小结">小结</h2>
 
-<p>算法：算法是对如何完成一项任务的详尽描述。实际上，在编写程序的时候，就要使用计算机能够理解的语言（如Python）来描述算法。这类对机器友好的描述叫做程序，程序主要包含表达式和语句。</p>
+<p>算法：算法是对如何完成一项任务的详尽描述。实际上，在编写程序的时候，就要使用计算机能够理解的语言（如 Python）来描述算法。这类对机器友好的描述叫做程序，程序主要包含表达式和语句。</p>
 
     </div>
     
@@ -499,16 +512,16 @@ Hello, Antony
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
+              <a href="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/">
                 <span class="button__icon">←</span>
-                <span class="button__text">aws自定义AMI-UUID相同处理方法</span>
+                <span class="button__text">ansible脚本</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/template/">
-                <span class="button__text">template page</span>
+              <a href="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">
+                <span class="button__text">为什么你的Linux物理内存还有很多，却开始使用swap?</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

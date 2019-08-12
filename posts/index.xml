@@ -13,10 +13,10 @@
     
     <item>
       <title>Golang 常量</title>
-      <link>http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/</link>
+      <link>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/</guid>
+      <guid>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</guid>
       <description> 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
 常量定义 通过 const 关键字定义，有以下三种方式
  const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
@@ -42,11 +42,11 @@ package main import &amp;quot;fmt&amp;quot; func main() { sum := 1 for ; sum &am
     </item>
     
     <item>
-      <title>初识Go</title>
-      <link>http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/</link>
+      <title>Golang 常量</title>
+      <link>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</link>
       <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/</guid>
+      <guid>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</guid>
       <description>Go 介绍 Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。
 Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。
 罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
@@ -62,18 +62,18 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</guid>
-      <description>Zipkin是一个开源分布式的追踪系统 http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google Dagger](http://research.google.com/pubs/pub36356.html)论文
-架构 查看您的平台是否已经在instrumentation, 查看列表existing instrumentations
-示例流程 以下是User Code调用资源/foo的示例http跟踪序列，讲一个span在User Code收到http响应之后异步发送给zipkin
- ┌─────────────┐ ┌───────────────────────┐ ┌─────────────┐ ┌──────────────────┐ │ User Code │ │ Trace Instrumentation │ │ Http Client │ │ Zipkin Collector │ └─────────────┘ └───────────────────────┘ └─────────────┘ └──────────────────┘ │ │ │ │ ┌─────────┐ │ ──┤GET /foo ├─▶ │ ────┐ │ │ └─────────┘ │ record tags │ │ ◀───┘ │ │ ────┐ │ │ │ add trace headers │ │ ◀───┘ │ │ ────┐ │ │ │ record timestamp │ │ ◀───┘ │ │ ┌─────────────────┐ │ │ ──┤GET /foo ├─▶ │ │ │X-B3-TraceId: aa │ ────┐ │ │ │X-B3-SpanId: 6b │ │ │ │ └─────────────────┘ │ invoke │ │ │ │ request │ │ │ │ │ │ │ ┌────────┐ ◀───┘ │ │ ◀─────┤200 OK ├─────── │ │ ────┐ └────────┘ │ │ │ record duration │ │ ┌────────┐ ◀───┘ │ ◀──┤200 OK ├── │ │ │ └────────┘ ┌────────────────────────────────┐ │ │ ──┤ asynchronously report span ├────▶ │ │ │ │{ │ │ &amp;quot;traceId&amp;quot;: &amp;quot;aa&amp;quot;, │ │ &amp;quot;id&amp;quot;: &amp;quot;6b&amp;quot;, │ │ &amp;quot;name&amp;quot;: &amp;quot;get&amp;quot;, │ │ &amp;quot;timestamp&amp;quot;: 1483945573944000,│ │ &amp;quot;duration&amp;quot;: 386000, │ │ &amp;quot;annotations&amp;quot;: [ │ │--snip-- │ └────────────────────────────────┘  Transport instrumentation(装配库)发送的Span必须由装配的服务传输到Collector。有三种主要的传输类型：HTTP、Scribe和Kafka.</description>
+      <description>Zipkin 是一个开源分布式的追踪系统 http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google Dagger](http://research.google.com/pubs/pub36356.html)论文
+架构 查看您的平台是否已经在 instrumentation, 查看列表existing instrumentations
+示例流程 以下是 User Code 调用资源/foo 的示例 http 跟踪序列，讲一个 span 在 User Code 收到 http 响应之后异步发送给 zipkin
+ ┌─────────────┐ ┌───────────────────────┐ ┌─────────────┐ ┌──────────────────┐ │ User Code │ │ Trace Instrumentation │ │ Http Client │ │ Zipkin Collector │ └─────────────┘ └───────────────────────┘ └─────────────┘ └──────────────────┘ │ │ │ │ ┌─────────┐ │ ──┤GET /foo ├─▶ │ ────┐ │ │ └─────────┘ │ record tags │ │ ◀───┘ │ │ ────┐ │ │ │ add trace headers │ │ ◀───┘ │ │ ────┐ │ │ │ record timestamp │ │ ◀───┘ │ │ ┌─────────────────┐ │ │ ──┤GET /foo ├─▶ │ │ │X-B3-TraceId: aa │ ────┐ │ │ │X-B3-SpanId: 6b │ │ │ │ └─────────────────┘ │ invoke │ │ │ │ request │ │ │ │ │ │ │ ┌────────┐ ◀───┘ │ │ ◀─────┤200 OK ├─────── │ │ ────┐ └────────┘ │ │ │ record duration │ │ ┌────────┐ ◀───┘ │ ◀──┤200 OK ├── │ │ │ └────────┘ ┌────────────────────────────────┐ │ │ ──┤ asynchronously report span ├────▶ │ │ │ │{ │ │ &amp;quot;traceId&amp;quot;: &amp;quot;aa&amp;quot;, │ │ &amp;quot;id&amp;quot;: &amp;quot;6b&amp;quot;, │ │ &amp;quot;name&amp;quot;: &amp;quot;get&amp;quot;, │ │ &amp;quot;timestamp&amp;quot;: 1483945573944000,│ │ &amp;quot;duration&amp;quot;: 386000, │ │ &amp;quot;annotations&amp;quot;: [ │ │--snip-- │ └────────────────────────────────┘  Transport instrumentation(装配库)发送的 Span 必须由装配的服务传输到 Collector。有三种主要的传输类型：HTTP、Scribe 和 Kafka.</description>
     </item>
     
     <item>
       <title>解决 AWS ELB 偶发的 502 Bad Gateway 错误</title>
-      <link>http://zhaox.xyz/posts/2017-10-27-aws-elb-502/</link>
+      <link>http://zhaox.xyz/posts/aws-elb-502/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-10-27-aws-elb-502/</guid>
+      <guid>http://zhaox.xyz/posts/aws-elb-502/</guid>
       <description>问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
 HTTP 数据流向如下：
  [Client] --- [ELB] --- [nginx] --- [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
@@ -83,28 +83,19 @@ HTTP 数据流向如下：
     
     <item>
       <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
-      <link>http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <link>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
-      <description>升级场景 由于公司要通过gitlab接入ci和cd功能，经测试一个repo不能正常使用，且gitlab9.5之后增加了很多新功能，比较吸引我们
- GPG Commit Verification: GPG密钥允许您验证签名提交
+      <guid>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <description>升级场景 由于公司要通过 gitlab 接入 ci 和 cd 功能，经测试一个 repo 不能正常使用，且 gitlab9.5 之后增加了很多新功能，比较吸引我们
+ GPG Commit Verification: GPG 密钥允许您验证签名提交
  New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
  Project Template: 新增了更多的项目模板
- Automatic Retry for Failed CI Jobs：自动重试失败的ci job
+ Automatic Retry for Failed CI Jobs：自动重试失败的 ci job
  Automatically Monitor Auto Deployed Apps：自动监控自动部署应用程序
- Merge Request Diff File Navigation：查看merge request时更清晰
+ Merge Request Diff File Navigation：查看 merge request 时更清晰
   更多的特性请查阅：https://about.gitlab.com/2017/08/22/gitlab-9-5-released/
-考虑的点及问题  1.postgresql版本问题： 由于我们公司使用的是外部的postgresql和redis，postgresql的版本为9.3，而gitlab9.5.9依赖postgresql 9.6以上的版本，所以在升级gitlab的时候他会升级数据库，但是我们是外部的(AWS RDS)，所以他并不能升级，会抛出异常。
- 2.postgresql的表结构问题：在升级期间，由于版本变化比较大，所以会涉及表结构及表字段的更改，如果使用外部的postgresql，可能会导致不成功
- 3.gitlab有可能升级失败，失败后必须理解还原，且不影响线上数据
-  解决方案 根据上述问题，新启动一台实例，首先保持和线上的版本相同，其次将线上的数据还原到这台实例，然后在将新启动的实例进行升级，不过在这其中有几个点必须注意：
- 1.新启动的实例必须使用本地的postgresql和redis
- 2.必须将线上的postgresql的数据还原到当前实例的postgresql
- 3.当前实例上面的psql和pg_dump工具必须和线上版本保持一致(AWS RDS POSTGRESQL)
- 4.在测试期间，绝对不能和线上使用同一个redis，必须保持redis只有一个connect
- 5.在gitlab还原数据的时候，其必须在running状态
-  实施步骤 一、新实例安装线上同版本gitlab  $ curl -s https://packages.</description>
+考虑的点及问题  1.postgresql 版本问题： 由于我们公司使用的是外部的 postgresql 和 redis，postgresql 的版本为 9.3，而 gitlab9.5.9 依赖 postgresql 9.6 以上的版本，所以在升级 gitlab 的时候他会升级数据库，但是我们是外部的(AWS RDS)，所以他并不能升级，会抛出异常。</description>
     </item>
     
     <item>
@@ -114,19 +105,19 @@ HTTP 数据流向如下：
       
       <guid>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</guid>
       <description>七个对我最重要的职业建议（译文） 作者： 阮一峰
-日期： 2015年9月18日
+日期： 2015 年 9 月 18 日
 Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
 两年前，他写了一篇长文，回顾自己的职业生涯，提到七个对他来说最重要的建议。
 我读完很受启发，决定做一点摘录。你可以先读下面的精简版，再去读全文。
 七个对我最好的职业建议（精简版） 作者：Nicholas C. Zakas
 译者：阮一峰
 原文网址：https://www.nczonline.net/blog/2013/10/15/the-best-career-advice-ive-received/
-一、不要别人点什么，就做什么 我的第一份工作，只干了8个月，那家公司就倒闭了。我问经理，接下来我该怎么办，他说：
+一、不要别人点什么，就做什么 我的第一份工作，只干了 8 个月，那家公司就倒闭了。我问经理，接下来我该怎么办，他说：
  &amp;ldquo;小伙子，千万不要当一个被人点菜的厨师，别人点什么，你就烧什么。不要接受那样一份工作，别人下命令你该干什么，以及怎么干。你要去一个地方，那里的人肯定你对产品的想法，相信你的能力，放手让你去做。&amp;rdquo;
  我从此明白，单单实现一个产品是不够的，你还必须参与决定怎么实现。好的工程师并不仅仅服从命令，而且还给出反馈，帮助产品的拥有者改进它。
 二、推销自己 我进入雅虎公司以后，经理有一天跟我谈话，他觉得我还做得不够。
- &amp;ldquo;你工作得很好，代码看上去不错，很少出Bug。但是，问题是别人都没看到这一点。为了让其他人相信你，你必须首先让别人知道你做了什么。你需要推销自己，引起别人的注意。&amp;rdquo;
- 我这才意识到，即使做出了很好的工作，别人都不知道，也没用。做一个角落里静静编码的工程师，并不可取。你的主管会支持你，但是他没法替你宣传。公司的其他人需要明白你的价值，最好的办法就是告诉别人你做了什么。一封简单的Email：&amp;rdquo;嗨，我完成了XXX，欢迎将你的想法告诉我&amp;rdquo;，就很管用。
+ &amp;ldquo;你工作得很好，代码看上去不错，很少出 Bug。但是，问题是别人都没看到这一点。为了让其他人相信你，你必须首先让别人知道你做了什么。你需要推销自己，引起别人的注意。&amp;rdquo;
+ 我这才意识到，即使做出了很好的工作，别人都不知道，也没用。做一个角落里静静编码的工程师，并不可取。你的主管会支持你，但是他没法替你宣传。公司的其他人需要明白你的价值，最好的办法就是告诉别人你做了什么。一封简单的 Email：&amp;rdquo;嗨，我完成了 XXX，欢迎将你的想法告诉我&amp;rdquo;，就很管用。
 三、学会带领团队 工作几年后，已经没人怀疑我的技术能力了，大家知道我能写出高质量的可靠代码。有一次，我问主管，怎么才能得到提升，他说：
  &amp;ldquo;当你的技术能力过关以后，就要考验你与他人相处的能力了。&amp;rdquo;
  于是，我看到了，自己缺乏的是领导能力，如何带领一个团队，有效地与其他人协同工作，取到更大的成果。
@@ -140,16 +131,15 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
  &amp;ldquo;不要再去开这样的会了。你参加一个会，那是因为你参与了某件事。如果不确定自己为什么要在场，就停下来问。如果这件事不需要你，就离开。不要从头到尾都静静地参加一个会，要把自己当成负责人，大家会相信你的。&amp;rdquo;
  从那时起，我从没有一声不发地参加会议。我确保只参加那些需要我参加的会议。
 七、找到水平更高的人 最后，让我从自己的经历出发，给我的读者一个建议。
- &amp;ldquo;找到那些比你水平更高、更聪明的人，尽量和他们在一起，吃饭或者喝咖啡，向他们讨教，了解他们拥有的知识。你的职业，甚至你的生活，都会因此变得更好。&amp;rdquo;
- （完）</description>
+ &amp;ldquo;找到那些比你水平更高、更聪明的人，尽量和他们在一起，吃饭或者喝咖啡，向他们讨教，了解他们拥有的知识。你的职业，甚至你的生活，都会因此变得更好。&amp;rdquo;</description>
     </item>
     
     <item>
       <title>软技能——代码之外的生存指南</title>
-      <link>http://zhaox.xyz/posts/2017-06-09-%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <link>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-06-09-%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <guid>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
       <description>这本书是在逛知乎的时候发现的，说的神乎其神的，也没多想就买了本，并在一个周六的下午看完了，读的过程倒是很轻松，速度也挺快，因为毕竟是一本励志书，多少有点“鸡汤”。总体来说，这本书可圈可点，有干货，也有“鸡汤”，主要分为职业、自我营销、学习、生产力、理财、健身、精神七大模块，不论是不是码农，取其精华来安利一下自己还是不错的！ 下面我就谈谈书中一些不错的干货，湿货就自己去慢慢看吧。
 一、如何对待上班这件事情？ 把自己当做一个软件企业，把雇主当做企业的一个客户，你应当能够提供某种产品或者服务（把一个想法通过技术手段变成一个产品的能力），不断提升你的服务质量，专注于为某一类客户提供特定的服务，做好自我营销，为更多更优质的雇主服务。
 二、如何注意人际关系？ 不是教你搞办公室政治，而是让你在这上面少踩坑。书中有句话比较经典：“一旦你贬低他人，削弱他们的成就感，在某种程度上就如同切断了他们的氧气补给，获得的回馈将完全是抓狂和绝望”。
@@ -165,7 +155,7 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
  提升自己的技能
  不是提出问题，而是解决问题，相信一切问题都可以解决
   六、如何创业？ 要利用业余时间做起来，后期到一定阶段再辞职也不迟，不仅降低了风险，还提高了成功率。
-创业要从小处着手，也就是朝着某个独角兽方向发展，比如国内的Face++，就是只做人脸识别算法。
+创业要从小处着手，也就是朝着某个独角兽方向发展，比如国内的 Face++，就是只做人脸识别算法。
 七、技术人员如何自我营销？  写博客
  社交媒体
  演讲、培训别人
@@ -186,14 +176,13 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</guid>
-      <description>Nginx配置文件安全分析工具Gixy Gixy是一个分析Nginx配置的工具。Gixy的主要目的是防止安全的错误配置和自动化探伤。
-目前支持Python版本2.7和3.5 +。
-免责声明:Gixy只在GNU / Linux Gixy测试良好,其他的操作系统可能有问题。
-Gixy的特性  找出服务器端请求伪造。 验证HTTP拆分。 验证referrer/origin问题。 验证是否正确通过add_header指令重新定义Response Headers。 验证请求的主机头是否伪造。 验证valid_referers是否为空。 验证是否存在多行主机头。  Github地址：https://github.com/yandex/gixy
-Gixy安装 安装步骤很简单，直接使用pip安装即可
-$ sudo pip install gixy # 注意：目前支持Python版本2.7和3.5 +。  Gixy使用 Gixy默认检查/etc/nginx/nginx.conf文件
-$ gixy  可以指定nginx配置文件所在位置
-$ gixy /usr/local//nginx/nginx.conf ==================== Results =================== Problem: [http_splitting] Possible HTTP-Splitting vulnerability. Description: Using variables that can contain &amp;quot;\n&amp;quot; may lead to http injection. Additional info: https://github.com/yandex/gixy/blob/master/docs/ru/plugins/httpsplitting.md Reason: At least variable &amp;quot;$action&amp;quot; can contain &amp;quot;\n&amp;quot; Pseudo config: include /etc/nginx/sites/default.</description>
+      <description>Nginx 配置文件安全分析工具 Gixy Gixy 是一个分析 Nginx 配置的工具。Gixy 的主要目的是防止安全的错误配置和自动化探伤。
+目前支持 Python 版本 2.7 和 3.5 +。
+免责声明:Gixy 只在 GNU / Linux Gixy 测试良好,其他的操作系统可能有问题。
+Gixy 的特性  找出服务器端请求伪造。 验证 HTTP 拆分。 验证 referrer/origin 问题。 验证是否正确通过 add_header 指令重新定义 Response Headers。 验证请求的主机头是否伪造。 验证 valid_referers 是否为空。 验证是否存在多行主机头。  Github 地址：https://github.com/yandex/gixy
+Gixy 安装 安装步骤很简单，直接使用 pip 安装即可
+$ sudo pip install gixy # 注意：目前支持Python版本2.7和3.5 +。  Gixy 使用 Gixy 默认检查/etc/nginx/nginx.conf 文件
+$ gixy  可以指定 nginx 配置文件所在位置</description>
     </item>
     
     <item>
@@ -202,7 +191,7 @@ $ gixy /usr/local//nginx/nginx.conf ==================== Results ===============
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</guid>
-      <description>AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5.</description>
+      <description>AWS 配置 1.创建 s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建 s3 用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予 s3 用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5.</description>
     </item>
     
     <item>
@@ -211,15 +200,15 @@ $ gixy /usr/local//nginx/nginx.conf ==================== Results ===============
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description> 本地网络容器访问漏洞 这个问题出现在docker的issue中
-其主要影响：允许与docker主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
-当docker启动时，它启用net.ipv4.ip_forward而不改变iptables FORWARD链默认策略DROP。这意味着与docker主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该docker主机上运行的任何容器。
-例如，如果docker0子网是172.17.0.0/16（默认子网），并且docker主机的IP地址是192.168.0.10，则从网络上的另一个主机运行：
- ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的IP地址和运行的服务。
-要解决这个问题，docker需要将FORWARD策略设置为DROP启用net.ipv4.ip_forwardsysctl参数。
-带来的其他问题 带来的问题主要出现在docker 配合kubernetes使用时，kubernetes的网络使用flannel，flannel可以使不同主机间的容器通信。如下图
-但是带来的问题是：一旦DROP后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
-1.将FORWARD改为ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2.仅允许flannel网段  $ iptables -I FORWARD -s 172.1.0.0/16 -j ACCEPT  3.在/usr/lib/systemd/system/docker.service中添加  [Service] #在这下面添加 ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT  </description>
+      <description>本地网络容器访问漏洞 这个问题出现在 docker 的issue中
+其主要影响：允许与 docker 主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
+当 docker 启动时，它启用 net.ipv4.ip_forward 而不改变 iptables FORWARD 链默认策略 DROP。这意味着与 docker 主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该 docker 主机上运行的任何容器。
+例如，如果 docker0 子网是 172.17.0.0/16（默认子网），并且 docker 主机的 IP 地址是 192.168.0.10，则从网络上的另一个主机运行：
+ ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的 IP 地址和运行的服务。
+要解决这个问题，docker 需要将 FORWARD 策略设置为 DROP 启用 net.ipv4.ip_forwardsysctl 参数。
+带来的其他问题 带来的问题主要出现在 docker 配合 kubernetes 使用时，kubernetes 的网络使用 flannel，flannel 可以使不同主机间的容器通信。如下图
+但是带来的问题是：一旦 DROP 后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
+1.将 FORWARD 改为 ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2.</description>
     </item>
     
     <item>
@@ -228,23 +217,16 @@ $ gixy /usr/local//nginx/nginx.conf ==================== Results ===============
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</guid>
-      <description>Docker 社区和企业版出现了 今天早上去官网看文档，一进去发现主页变了，映入眼帘的便是：join us at Dockercon, April 17,2017。一脸蒙蔽的我往下翻了翻，发现做了这么久的解决方案，docker企业版都支持，但是收费！！！！而且，Dockercon是什么鬼？
-当然，docker也被分为两个版本：
+      <description>Docker 社区和企业版出现了 今天早上去官网看文档，一进去发现主页变了，映入眼帘的便是：join us at Dockercon, April 17,2017。一脸蒙蔽的我往下翻了翻，发现做了这么久的解决方案，docker 企业版都支持，但是收费！！！！而且，Dockercon 是什么鬼？
+当然，docker 也被分为两个版本：
  community-edition
  enterprise-edition
-  dockercon社区 docker 官网公布了一个社区，目前还没有开放，其域名是:2017.dockercon.com
-docker社区将在2017年4月17号开始使用，现在可以去注册了。
-Docker CE和EE的区别及定价 参照：https://www.docker.com/pricing
-Docker EE（企业版）详细介绍  Docker企业版（EE）专为企业开发和IT团队设计，可在大规模生产中构建，运送和运行关键业务应用程序。Docker EE集成，认证和支持，为企业提供业界最安全的容器平台，实现所有应用程序的现代化。作为一个以应用为中心的平台，Docker EE旨在加速和保护整个软件供应链，从开发到在任何基础设施上运行的生产。
- 平台 信任和认证  Docker EE为在企业Linux或Windows操作系统和云提供商上运行的应用程序提供集成，测试和认证的平台。Docker EE紧密集成到底层基础架构，以提供本机，易于安装的体验和优化的Docker环境。Docker认证的基础架构，容器和插件专用于Docker EE，由Docker和认证技术合作伙伴提供合作支持。
-  认证基础设施为企业Linux（CentOS，Oracle Linux，RHEL，SLES，Ubuntu）提供集成环境Windows Server 2016和云提供商如AWS和Azure
- 认证容器提供可信的ISV产品打包和分发为Docker容器，提供最佳实践和最安全的构建
- 认证插件提供网络和volume插件，并且易于下载和安装容器到Docker EE环境。
-  使用Docker数据中心的集成容器管理  Docker Datacenter现在是Docker EE的一部分，提供集成容器管理和安全从开发到生产。企业版准备了诸多功能，例如multi-tenancy,security和full support for Docker API给IT团队。开放接口允许轻松集成到现有系统中，并且灵活地支持任何一系列业务流程。
-  从单个Web管理UI集成管理所有应用程序资源
- 通过几次点击，将应用程序和撰写文件无缝部署到生产环境中
- 具有基于角色的访问控制（RBAC）和LDAP / AD集成的多租户系统
- 自我修复应用程序部署，能够应用滚动应用程序更新</description>
+  dockercon 社区 docker 官网公布了一个社区，目前还没有开放，其域名是:2017.dockercon.com
+docker 社区将在 2017 年 4 月 17 号开始使用，现在可以去注册了。
+Docker CE 和 EE 的区别及定价 参照：https://www.docker.com/pricing
+Docker EE（企业版）详细介绍  Docker 企业版（EE）专为企业开发和 IT 团队设计，可在大规模生产中构建，运送和运行关键业务应用程序。Docker EE 集成，认证和支持，为企业提供业界最安全的容器平台，实现所有应用程序的现代化。作为一个以应用为中心的平台，Docker EE 旨在加速和保护整个软件供应链，从开发到在任何基础设施上运行的生产。
+ 平台 信任和认证  Docker EE 为在企业 Linux 或 Windows 操作系统和云提供商上运行的应用程序提供集成，测试和认证的平台。Docker EE 紧密集成到底层基础架构，以提供本机，易于安装的体验和优化的 Docker 环境。Docker 认证的基础架构，容器和插件专用于 Docker EE，由 Docker 和认证技术合作伙伴提供合作支持。
+  认证基础设施为企业 Linux（CentOS，Oracle Linux，RHEL，SLES，Ubuntu）提供集成环境 Windows Server 2016 和云提供商如 AWS 和 Azure</description>
     </item>
     
     <item>
@@ -253,7 +235,7 @@ Docker EE（企业版）详细介绍  Docker企业版（EE）专为企业开发�
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</guid>
-      <description>COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
+      <description>COW 简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW 对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW 的二级代理用来访问海外的 server，支持sock5、shadowsocks、cow(采用 shadowsock 协议)三种方式. Github 地址
  功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
  作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
  支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
@@ -261,7 +243,7 @@ Docker EE（企业版）详细介绍  Docker企业版（EE）专为企业开发�
  自动检测网站是否被墙，仅对被墙网站使用二级代理
  自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
  内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
-  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/.</description>
+  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.</description>
     </item>
     
     <item>
@@ -270,7 +252,7 @@ Docker EE（企业版）详细介绍  Docker企业版（EE）专为企业开发�
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
-      <description># 配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = http://127.0.0.1:7777 # # 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0.</description>
+      <description>// 配置文件中 # 开头的行为注释 // // 代理服务器监听地址，重复多次来指定多个监听地址，语法： // // listen = protocol://[optional@]server_address:server_port // // 支持的 protocol 如下： // // HTTP (提供 http 代理): // listen = http://127.0.0.1:7777 // // 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac // 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 // 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 // // cow (需两个 cow 服务器配合使用): // listen = cow://encrypt_method:password@1.2.3.4:5678 // // 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 // 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 // // 其他说明： // - 若 server_address 为 0.</description>
     </item>
     
     <item>
@@ -279,32 +261,31 @@ Docker EE（企业版）详细介绍  Docker企业版（EE）专为企业开发�
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
-      <description>AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+      <description>AWS Management Console 扩容 ebs 容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到 100% 扩容磁盘分区 growpart
  growpart /dev/xvdf 1  parted
  GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used.</description>
     </item>
     
     <item>
-      <title>Yahoo-screwdriver开源了</title>
+      <title>Yahoo-screwdriver开源</title>
       <link>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</guid>
-      <description> screwdriver 介绍 screwdriver 是yahoo开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
-这应该是目前最完整拥有CI(持续集成Continuous integration)和CD(持续交付Continuous delivery)的专案.
+      <description>screwdriver 介绍 screwdriver 是 yahoo 开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
+这应该是目前最完整拥有 CI(持续集成 Continuous integration)和 CD(持续交付 Continuous delivery)的专案.
  官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)
  2.优化主干开发(Optimizing for trunk development)
  3.回滚更加容易(Making rolling back easy)
   详情请阅:yahooeng.tumblr.com
 Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cluster-management/
 组件:  1.REST API(与流水线协同工作的接口)
- 2.Web UI(用于流水线API的可视化接口)
- 3.Launcher（启动器）: 设置环境并执行shell命令的工具
+ 2.Web UI(用于流水线 API 的可视化接口)
+ 3.Launcher（启动器）: 设置环境并执行 shell 命令的工具
  4.Execution Engine（执行引擎）：可插拔的构建执行器，支持在容器（Jenkins、Kubernetes、Mesos、Docker Swarm）内执行命令。
- 5.Datastore（数据存储）：可插拔的NoSQL存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。
-   作者：Antony WX&amp;amp;QQ：1257465991 Q/A：如有问题请慷慨提出
- </description>
+ 5.Datastore（数据存储）：可插拔的 NoSQL 存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。
+   作者：Antony WX&amp;amp;QQ：1257465991 Q/A：如有问题请慷慨提出</description>
     </item>
     
     <item>
@@ -313,21 +294,18 @@ Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cl
       <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
-      <description>一、Gitlab简介 组件说明
- 前端：Nginx，用于页面及Git tool走http或https协议
- 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
- SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
- 数据库：目前仅支持MySQL和PostgreSQL
- Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
- Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+      <description>一、Gitlab 简介 组件说明
+ 前端：Nginx，用于页面及 Git tool 走 http 或 https 协议
+ 后端：Gitlab 服务，采用 Ruby on Rails 框架，通过 unicorn 实现后台服务及多进程
+ SSHD：开启 sshd 服务，用于用户上传 ssh key 进行版本克隆及上传。注：用户上传的 ssh key 是保存到 git 账户中
+ 数据库：目前仅支持 MySQL 和 PostgreSQL
+ Redis：用于存储用户 session 和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails 框架自带的，订阅 redis 中的任务并执行
   版本说明
  CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
  OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
  EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
-  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
-sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
-curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
-https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab</description>
+  二、Gitlab Omnibus 安装和配置 1.</description>
     </item>
     
     <item>
@@ -336,18 +314,13 @@ https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab</descripti
       <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</guid>
-      <description>最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理
-先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等） Ruby 这个就不用多说了
-RVM 用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。
+      <description>最近接触了很多 ruby 程序，除了 java 之外，让我感觉第二耗时、不是很舒服的语言。但是 ruby 不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装 ruby 程序变得飞快，不用一安装一天。本文做个总结和梳理
+先介绍下 Ruby 相关的各种概念（rvm, gem, bundle, rake, rails 等） Ruby 这个就不用多说了
+RVM 用于帮你安装 Ruby 环境，帮你管理多个 Ruby 环境，帮你管理你开发的每个 Ruby 应用使用机器上哪个 Ruby 环境。Ruby 环境不仅仅是 Ruby 本身，还包括依赖的第三方 Ruby 插件。都由 RVM 管理。
 Rails 这个也不用多说，著名开发框架。详细看 http://zh.wikipedia.org/wiki/Ruby_on_Rails
-RubyGems RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。
-Gem Gem是封装起来的Ruby应用程序或代码库。
-注：在终端使用的gem命令，是指通过RubyGems管理Gem包。
-Gemfile 定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。
-Rake Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。
-Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.
-PS：个人感觉有点类似Symfony2中的app/console
-Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &amp;gt; In a gem’s context, the Rakefile is extremely useful.</description>
+RubyGems RubyGems 是一个方便而强大的 Ruby 程序包管理器（ package manager），类似 RedHat 的 RPM.它将一个 Ruby 应用程序打包到一个 gem 里，作为一个安装单元。无需安装，最新的 Ruby 版本已经包含 RubyGems 了。
+Gem Gem 是封装起来的 Ruby 应用程序或代码库。
+注：在终端使用的 gem 命令，是指通过 RubyGems 管理 Gem 包。</description>
     </item>
     
     <item>
@@ -357,6 +330,55 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
       
       <guid>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</guid>
       <description> $1为用户名 $2为用户公钥 #!/bin/bash #添加证书账户,并且将对应用户加入sudo # $1 为用户名 $2 为用户公钥 [[ -z $3 ]] &amp;amp;&amp;amp; useradd $1 || useradd -d $3 $1 mkdir /home/$1/.ssh echo &amp;quot;$2&amp;quot; &amp;gt;/home/$1/.ssh/authorized_keys chown -R $1.$1 /home/$1/.ssh/ chmod 600 /home/$1/.ssh/authorized_keys chmod 700 /home/$1/.ssh/ sed -i &#39;/^root.*/a\&#39;$1&#39; ALL=(ALL) NOPASSWD:ALL&#39; /etc/sudoers  </description>
+    </item>
+    
+    <item>
+      <title>Linux系统异常-CoreDump详解</title>
+      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
+      <description>CoreDump http://linux.die.net/man/5/core
+什么是 core dump core dump 又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个 core 文件中, 叫 core dump。core dump 在应用 crash 掉之后对问题的诊断是很有帮助的。而在默认安装的时候 core dump 是关闭状 态的。
+如何查看系统是否打开了 core dump  Note：使用 ulimit -c 查看 core dump 是否打开。如果结果为 0，则表示此功能处于关闭 状态，不会生成 core 文件
+  $ ulimit -c  如何打开 core dump  方法一:命令行方式
+ $ ulimit -c 1024 # 避免一下生成几G的大文件 $ ulimit -c unlimited #无限制  方法二:配置 profile 文件: 将ulimit -S -c 0 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1改成ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1</description>
+    </item>
+    
+    <item>
+      <title>IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</title>
+      <link>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
+      <description>VPN 原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
+http://www.china-ccie.com/doc/vpn/vpn.html
+Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用 ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl.</description>
+    </item>
+    
+    <item>
+      <title>aws-ec2-双网卡问题y</title>
+      <link>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <description>问题描述 在已存在的 EC2 上新添加网卡后发现，凡是和 eth0 在同一个网段的只能通过 eth0 访问，不能通过 eth1。同样的，在 eth1 网段的只能通过 eth1 访问，不能通过 eth0 访问。 如果既不在 eth0 也不再 eth0 默认走 eth0(在没有修改路由表的前提下，默认路由是 eth0)
+问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡 2 进来的数据包从网卡 1 发送出去，或者从网卡 1 进来的数据包从网卡 2 发送出去，AWS 底层会把这样的数据包丢弃。
+因此需要手动定义策略路由，在响应网卡 1 进来的数据包时通过网卡 1 发送，响应网卡 2 进来的数据包时通过网卡 2 发送。
+解决方案 关于这个现象和解决方案，可以参考这遍文档：
+http://www.linuxjournal.com/article/7291
+该文档较长，这里介绍一个配置路由策略的事例，可以按照此事例的方法结合具体网络环境进行配置：
+1、首先为网卡 1 和 2 创建各自的路由表：  ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1 ip route add [子网2网段] via [您子网的网关IP] dev eth1 tab 2 可以通过ip route show table 1和ip route show table 2查看您刚刚完成的配置是否正确  2、然后创建策略路由  ip rule add from [eth0的IP]/32 tab 1 priority 500 ip rule add from [eth1的IP]/32 tab 2 priority 600  这个配置的意思是，将原地址为 eth0 的 IP 的包按照路由表 1 发送,将原地址为 eth1 的 IP 的包按照路由表 2 发送</description>
+    </item>
+    
+    <item>
+      <title>aws自定义AMI-UUID相同处理方法</title>
+      <link>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
+      <description>Note: 在制作 Centos 7 AMI 并进行使用时，我们发现：如果将两个相同 AMI 挂载到一个操作系统的时候，会出现因为 UUID 相同，导致不能挂载的问题(至于为什么将两个相同的 AMI 挂载到一个操作系统：当误删除用户的密钥文件或者不能登录系统时，我们不得不将其挂载到其他操作系统)
+ 问题重现  $ sudo fdisk -l Disk /dev/xvda: 53.7 GB, 53687091200 bytes, 104857600 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x0001783d Device Boot Start End Blocks Id System /dev/xvda1 * 2048 104856254 52427103+ 83 Linux Disk /dev/mapper/docker-202:1-84149041-pool: 107.</description>
     </item>
     
     <item>
@@ -392,7 +414,7 @@ Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件�
     </item>
     
     <item>
-      <title>Linux三剑客之grep</title>
+      <title>Linux grep</title>
       <link>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -405,6 +427,29 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
     </item>
     
     <item>
+      <title>Linux用户、用户组及权限管理</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>一、Linux 用户及用户组的基本概念 用户：用户是实现能够将有限的资源在多个使用者之间进行分配；、 用户组：用户组是指多个用户的集合，方便对一类需要同样权限的用户授权 Linux 是多用户、多任务的操作系统。 多用户指：多人同时使用系统资源；多任务：同时运行多个进程
+二、用户及用户组类别 1、用户：名称解析库 /etc/passwd a、管理员 root 用户标识（UID）为 0 b、普通用户及系统用户 普通用户的用户标识（既 UID）： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户用户标识（既 UID）： CentOS 5,6: 1-499 CentOS 7: 1-999
+2、用户组：名称解析库 /etc/group a、管理员组 组标识为：0 b、普通用户组及系统用户组 普通用户组标识： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户组标识： CentOS 5,6: 1-499 CentOS 7: 1-999 3、用户组类别： 以用户为核心分为： 用户的主组：基本组； 用户的附加组：额外组； 以容纳的用户来划分： 私有组：与用户名相同，且只有一个用户； 共有组：组内包含了多个用户；
+三、用户及用户组的认证机制 Linux 的用户密码认证方式在 centos7 中使用 sha512 认证信息库存储位置： 用户的认证信息库：/etc/shadow 组的认证信息库：/etc/gshadow 密码：加密存放，使用单向加密机制 算法： md5: message digest, 128bits sha1: secure hash algorithm, 160bits sha224 sha256 sha384 sha512</description>
+    </item>
+    
+    <item>
+      <title>Nginx&#43;PHP编译安装</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</guid>
+      <description>编译安装 Nginx&amp;amp;PHP nginx 编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
+启动命令 /usr/local/nginx/sbin/nginx 重载 nginx /usr/local/nginx/sbin/nginx -s reload
+一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改 conf 文件 1.</description>
+    </item>
+    
+    <item>
       <title>ansible脚本</title>
       <link>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
@@ -412,6 +457,22 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
       <guid>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</guid>
       <description>这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
  #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh	# like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &amp;lt;&amp;lt; EOF +---------------------------------------+ | this is a ansible script | | from Altamob....... | +--------------------------------------- EOF read -p &amp;quot;pelease input your service name: &amp;quot; SER read -p &amp;quot;pelease input your hostgroup name: &amp;quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;amp;&amp;gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}.</description>
+    </item>
+    
+    <item>
+      <title>python-快速改造：基础知识</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>一、python 安装之 pyenv windows 下安装 Python （1）打开 web 浏览器，访问 Python 官方站点http://www.python.org
+（2）点击 Download，或者在首页点击下载
+（3）下载所需版本，目前最新版本为 3.5.2
+（4）下载完成后双击并执行安装
+CentOS 下安装 Python 和 pyenv  pyenv：pyenv 是一款 python 版本管理器，由于不同程序员可能使用不同的 python 进行开发，但还需在同一台机器又互不影响。pyenv 主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装 python。
+ 1、安装依赖包 yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server Plataform Development&amp;quot; -y  2、安装 pyenv （1）通过 git 克隆 pyenv 程序
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  （2）设置 pyenv 的环境变量
+$ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile $ echo &#39;export PATH=&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （3）添加pyenv init到环境变量中</description>
     </item>
     
     <item>
@@ -465,115 +526,9 @@ M##：服务器配置的虚拟路径，与磁盘选项 store_path#对应两级�
     </item>
     
     <item>
-      <title>IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</title>
-      <link>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
-      <description>VPN原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
-http://www.china-ccie.com/doc/vpn/vpn.html
-Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl.</description>
-    </item>
-    
-    <item>
-      <title>Linux用户、用户组及权限管理</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
-      <description>一、Linux用户及用户组的基本概念 用户：用户是实现能够将有限的资源在多个使用者之间进行分配；、 用户组：用户组是指多个用户的集合，方便对一类需要同样权限的用户授权 Linux是多用户、多任务的操作系统。 多用户指：多人同时使用系统资源；多任务：同时运行多个进程
-二、用户及用户组类别 1、用户：名称解析库 /etc/passwd a、管理员 root 用户标识（UID）为0 b、普通用户及系统用户 普通用户的用户标识（既UID）： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户用户标识（既UID）： CentOS 5,6: 1-499 CentOS 7: 1-999
-2、用户组：名称解析库 /etc/group a、管理员组 组标识为：0 b、普通用户组及系统用户组 普通用户组标识： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户组标识： CentOS 5,6: 1-499 CentOS 7: 1-999 3、用户组类别： 以用户为核心分为： 用户的主组：基本组； 用户的附加组：额外组； 以容纳的用户来划分： 私有组：与用户名相同，且只有一个用户； 共有组：组内包含了多个用户；
-三、用户及用户组的认证机制 Linux的用户密码认证方式在centos7中使用sha512 认证信息库存储位置： 用户的认证信息库：/etc/shadow 组的认证信息库：/etc/gshadow 密码：加密存放，使用单向加密机制 算法： md5: message digest, 128bits sha1: secure hash algorithm, 160bits sha224 sha256 sha384 sha512</description>
-    </item>
-    
-    <item>
-      <title>Linux系统异常-CoreDump详解</title>
-      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
-      <description>CoreDump http://linux.die.net/man/5/core
-什么是core dump core dump又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个core文件中, 叫core dump。core dump在应用 crash掉之后对问题的诊断是很有帮助的。而在默认安装的时候core dump是关闭状 态的。
-如何查看系统是否打开了core dump  Note：使用ulimit -c查看core dump是否打开。如果结果为0，则表示此功能处于关闭 状态，不会生成core文件
-  $ ulimit -c  如何打开core dump  方法一:命令行方式
- $ ulimit -c 1024 # 避免一下生成几G的大文件 $ ulimit -c unlimited #无限制  方法二:配置profile文件: 将ulimit -S -c 0 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1改成ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
- $ vim /etc/profile ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1  方法三:修改/etc/security/limits.</description>
-    </item>
-    
-    <item>
-      <title>Nginx&#43;PHP编译安装</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</guid>
-      <description>编译安装Nginx&amp;amp;PHP nginx编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
-启动命令 /usr/local/nginx/sbin/nginx 重载nginx /usr/local/nginx/sbin/nginx -s reload
-一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改conf文件 1. 修改主nginx.conf 1-1.</description>
-    </item>
-    
-    <item>
-      <title>Ss-Client-Config</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-ss-client-config/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-07-ss-client-config/</guid>
-      <description> Mac local configure  $ sudo pip install shadowsocks $ sudo vim /etc/shadowsock-cient.json { &amp;quot;server&amp;quot;:&amp;quot;SERVER_IP&amp;quot;, &amp;quot;server_port&amp;quot;:PORT, &amp;quot;password&amp;quot;:&amp;quot;PASSWORD&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot;, &amp;quot;fast_open&amp;quot;: false } $ sudo sslocal -c /etc/shadowsock-client.json -d start  Windows local configure 待补充。。。。
-SwitchyOmega 配置 1、下载chrom浏览器插件 https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=zh-CN
-2、导入我的备份文件 先下载我的备份：http://zantony.top:8088/antony.bak
-3、配置情景 4、设置为自动切换 5、畅游自由网络的海洋 </description>
-    </item>
-    
-    <item>
-      <title>aws-ec2-双网卡问题</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
-      <description>问题描述 在已存在的EC2上新添加网卡后发现，凡是和eth0在同一个网段的只能通过eth0访问，不能通过eth1。同样的，在eth1网段的只能通过eth1访问，不能通过eth0访问。 如果既不在eth0也不再eth0 默认走eth0(在没有修改路由表的前提下，默认路由是eth0)
-问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡2进来的数据包从网卡1发送出去，或者从网卡1进来的数据包从网卡2发送出去，AWS底层会把这样的数据包丢弃。
-因此需要手动定义策略路由，在响应网卡1进来的数据包时通过网卡1发送，响应网卡2进来的数据包时通过网卡2发送。
-解决方案 关于这个现象和解决方案，可以参考这遍文档：
-http://www.linuxjournal.com/article/7291
-该文档较长，这里介绍一个配置路由策略的事例，可以按照此事例的方法结合具体网络环境进行配置：
-1、首先为网卡1和2创建各自的路由表：  ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1 ip route add [子网2网段] via [您子网的网关IP] dev eth1 tab 2 可以通过ip route show table 1和ip route show table 2查看您刚刚完成的配置是否正确  2、然后创建策略路由  ip rule add from [eth0的IP]/32 tab 1 priority 500 ip rule add from [eth1的IP]/32 tab 2 priority 600  这个配置的意思是，将原地址为eth0的IP的包按照路由表1发送,将原地址为eth1的IP的包按照路由表2发送
-3、查看并刷新 可以通过 ip rule命令查看已经配置的路由策略。一个示例的策略如下：</description>
-    </item>
-    
-    <item>
-      <title>aws自定义AMI-UUID相同处理方法</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
-      <description>Note: 在制作Centos 7 AMI并进行使用时，我们发现：如果将两个相同AMI挂载到一个操作系统的时候，会出现因为UUID相同，导致不能挂载的问题(至于为什么将两个相同的AMI挂载到一个操作系统：当误删除用户的密钥文件或者不能登录系统时，我们不得不将其挂载到其他操作系统)
- 问题重现  $ sudo fdisk -l Disk /dev/xvda: 53.7 GB, 53687091200 bytes, 104857600 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x0001783d Device Boot Start End Blocks Id System /dev/xvda1 * 2048 104856254 52427103+ 83 Linux Disk /dev/mapper/docker-202:1-84149041-pool: 107.</description>
-    </item>
-    
-    <item>
-      <title>python-快速改造：基础知识</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
-      <description>一、python安装之pyenv windows下安装Python （1）打开web浏览器，访问Python官方站点http://www.python.org
-（2）点击Download，或者在首页点击下载
-（3）下载所需版本，目前最新版本为3.5.2
-（4）下载完成后双击并执行安装
-CentOS下安装Python和pyenv  pyenv：pyenv是一款python版本管理器，由于不同程序员可能使用不同的python进行开发，但还需在同一台机器又互不影响。pyenv主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装python。
- 1、安装依赖包 yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server Plataform Development&amp;quot; -y  2、安装pyenv （1）通过git克隆pyenv程序
-$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  （2）设置pyenv的环境变量
-$ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile $ echo &#39;export PATH=&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （3）添加pyenv init到环境变量中
-$ echo &#39;eval &amp;quot;$(pyenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （4）重读你的shell
-$ exec $SHELL $ source ~/.bash_profile  3、pyenv的使用及安装python 列出所有可用的版本
-pyenv install -l  安装指定版本
-$ pyenv install 3.</description>
-    </item>
-    
-    <item>
-      <title>template page</title>
+      <title>Template Exmple</title>
       <link>http://zhaox.xyz/posts/template/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
       
       <guid>http://zhaox.xyz/posts/template/</guid>
       <description>Content here</description>

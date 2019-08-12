@@ -6,21 +6,18 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="一、Gitlab简介 组件说明
- 前端：Nginx，用于页面及Git tool走http或https协议
- 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
- SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
- 数据库：目前仅支持MySQL和PostgreSQL
- Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
- Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+<meta name="description" content="一、Gitlab 简介 组件说明
+ 前端：Nginx，用于页面及 Git tool 走 http 或 https 协议
+ 后端：Gitlab 服务，采用 Ruby on Rails 框架，通过 unicorn 实现后台服务及多进程
+ SSHD：开启 sshd 服务，用于用户上传 ssh key 进行版本克隆及上传。注：用户上传的 ssh key 是保存到 git 账户中
+ 数据库：目前仅支持 MySQL 和 PostgreSQL
+ Redis：用于存储用户 session 和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails 框架自带的，订阅 redis 中的任务并执行
   版本说明
  CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
  OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
  EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
-  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
-sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
-curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
-https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab"/>
+  二、Gitlab Omnibus 安装和配置 1."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/" />
@@ -41,40 +38,12 @@ https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gitlab-Omnibus"/>
-<meta name="twitter:description" content="一、Gitlab简介 组件说明
- 前端：Nginx，用于页面及Git tool走http或https协议
- 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
- SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
- 数据库：目前仅支持MySQL和PostgreSQL
- Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
- Sidekiq：Rails框架自带的，订阅redis中的任务并执行
-  版本说明
- CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
- OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
- EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
-  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
-sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
-curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
-https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab"/>
+<meta name="twitter:description" content="Gitlab-Omnibus 包安装方式"/>
 
 
 
 <meta property="og:title" content="Gitlab-Omnibus" />
-<meta property="og:description" content="一、Gitlab简介 组件说明
- 前端：Nginx，用于页面及Git tool走http或https协议
- 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
- SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
- 数据库：目前仅支持MySQL和PostgreSQL
- Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
- Sidekiq：Rails框架自带的，订阅redis中的任务并执行
-  版本说明
- CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
- OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
- EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
-  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
-sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
-curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
-https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab" />
+<meta property="og:description" content="Gitlab-Omnibus 包安装方式" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/" />
 <meta property="article:published_time" content="2017-02-04T00:00:00+00:00" />
@@ -162,16 +131,16 @@ https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab" />
             2017-02-04
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
-        <span class="post-read-time">— 2 min read</span>
+        <span class="post-read-time">— 3 min read</span>
       
     </div>
 
     
       <span class="post-tags">
         
-          #<a href="http://zhaox.xyz/tags/gitlab/">Gitlab</a>&nbsp;
+          #<a href="http://zhaox.xyz/tags/gitlab/">gitlab</a>&nbsp;
         
       </span>
     
@@ -181,24 +150,24 @@ https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab" />
     <div class="post-content">
       
 
-<h3 id="一-gitlab简介">一、Gitlab简介</h3>
+<h3 id="一-gitlab-简介">一、Gitlab 简介</h3>
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/Gitlab1.png" alt="Gitlab1.png" /></p>
 
 <p><strong>组件说明</strong></p>
 
 <ul>
-<li><p><strong>前端</strong>：Nginx，用于页面及Git tool走http或https协议</p></li>
+<li><p><strong>前端</strong>：Nginx，用于页面及 Git tool 走 http 或 https 协议</p></li>
 
-<li><p><strong>后端</strong>：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程</p></li>
+<li><p><strong>后端</strong>：Gitlab 服务，采用 Ruby on Rails 框架，通过 unicorn 实现后台服务及多进程</p></li>
 
-<li><p><strong>SSHD</strong>：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中</p></li>
+<li><p><strong>SSHD</strong>：开启 sshd 服务，用于用户上传 ssh key 进行版本克隆及上传。注：用户上传的 ssh key 是保存到 git 账户中</p></li>
 
-<li><p><strong>数据库</strong>：目前仅支持MySQL和PostgreSQL</p></li>
+<li><p><strong>数据库</strong>：目前仅支持 MySQL 和 PostgreSQL</p></li>
 
-<li><p><strong>Redis</strong>：用于存储用户session和任务，任务包括新建仓库、发送邮件等等</p></li>
+<li><p><strong>Redis</strong>：用于存储用户 session 和任务，任务包括新建仓库、发送邮件等等</p></li>
 
-<li><p><strong>Sidekiq</strong>：Rails框架自带的，订阅redis中的任务并执行</p></li>
+<li><p><strong>Sidekiq</strong>：Rails 框架自带的，订阅 redis 中的任务并执行</p></li>
 </ul>
 
 <p><strong>版本说明</strong></p>
@@ -218,7 +187,7 @@ https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab" />
 <pre><code>sudo apt-get install curl openssh-server ca-certificates postfix
 </code></pre>
 
-<p><strong>2. 添加gitlab 包并安装</strong></p>
+<p><strong>2. 添加 gitlab 包并安装</strong></p>
 
 <pre><code>curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
 sudo apt-get install gitlab-ce
@@ -229,12 +198,12 @@ sudo apt-get install gitlab-ce
 <pre><code>https://packages.gitlab.com/gitlab/gitlab-ce/install
 </code></pre>
 
-<p><strong>3. 配置gitlab</strong></p>
+<p><strong>3. 配置 gitlab</strong></p>
 
 <pre><code>sudo gitlab-ctl reconfigure
 </code></pre>
 
-<p><strong>4.配置Nginx</strong></p>
+<p><strong>4.配置 Nginx</strong></p>
 
 <p><a href="https://docs.gitlab.com/omnibus/settings/nginx.html">https://docs.gitlab.com/omnibus/settings/nginx.html</a></p>
 
@@ -266,7 +235,7 @@ nginx['ssl_certificate_key'] = &quot;/etc/gitlab/ssl/xxx.com.key&quot;
 
 </code></pre>
 
-<p><strong>5.配置LDAP</strong></p>
+<p><strong>5.配置 LDAP</strong></p>
 
 <p>参考配置：<a href="https://docs.gitlab.com/ce/administration/auth/ldap.html">https://docs.gitlab.com/ce/administration/auth/ldap.html</a></p>
 
@@ -303,7 +272,7 @@ EOS
 
 </code></pre>
 
-<p><strong>6.配置EMAIL</strong></p>
+<p><strong>6.配置 EMAIL</strong></p>
 
 <p>参考配置：<a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md">https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md</a></p>
 
@@ -387,15 +356,15 @@ $ sudo gitlab-rake gitlab:backup:restore BACKUP=1393513186_2014_02_27
 <p><strong>d. 重启并检查</strong></p>
 
 <pre><code>
-sudo gitlab-ctl start 
+sudo gitlab-ctl start
 
 sudo gitlab-rake gitlab:check SANITIZE=true
 
 </code></pre>
 
-<h3 id="四-禁用gitlab-nginx使用production-nginx">四、禁用Gitlab nginx使用production-nginx</h3>
+<h3 id="四-禁用-gitlab-nginx-使用-production-nginx">四、禁用 Gitlab nginx 使用 production-nginx</h3>
 
-<p><strong>禁用gitlab nginx</strong></p>
+<p><strong>禁用 gitlab nginx</strong></p>
 
 <pre><code>
 vim /etc/gitlab/gitlab.rb
@@ -404,14 +373,14 @@ nginx['enable'] = false
 
 </code></pre>
 
-<p><strong>重新配置gitlab</strong></p>
+<p><strong>重新配置 gitlab</strong></p>
 
 <pre><code>
 gitlab-ctl reconfigure
 
 </code></pre>
 
-<p><strong>使用production配置</strong>
+<p><strong>使用 production 配置</strong>
 <code>建议：将/var/opt/gitlab/nginx/conf下面的配置文件直接复制过来，稍作修改即可</code>
 参考配置：<a href="http://docs.gitlab.com/omnibus/settings/nginx.html">http://docs.gitlab.com/omnibus/settings/nginx.html</a></p>
 
@@ -419,9 +388,9 @@ gitlab-ctl reconfigure
 cp /var/opt/gitlab/ngin/conf/* /usr/local/nginx/conf/
 </code></pre>
 
-<h3 id="五-禁用gitlab-postgresql使用production-pgsql">五、禁用Gitlab postgresql使用production-pgsql</h3>
+<h3 id="五-禁用-gitlab-postgresql-使用-production-pgsql">五、禁用 Gitlab postgresql 使用 production-pgsql</h3>
 
-<p><strong>1.禁用Gitlab postgresql</strong></p>
+<p><strong>1.禁用 Gitlab postgresql</strong></p>
 
 <pre><code>
 $ vim /etc/gitlab/gitlab.rb
@@ -430,9 +399,9 @@ postgresql['enable'] = false
 
 </code></pre>
 
-<p><strong>2.导入Gitlab 备份sql到production postgresql</strong></p>
+<p><strong>2.导入 Gitlab 备份 sql 到 production postgresql</strong></p>
 
-<p>连接数据库并创建(注意，在最后创建数据库的时候，如果出现报错，请使用gitlab用户登录并创建)</p>
+<p>连接数据库并创建(注意，在最后创建数据库的时候，如果出现报错，请使用 gitlab 用户登录并创建)</p>
 
 <pre><code>
 $ psql -U PSQL_USER -h PSQL_HOST -p 5432 -d template1
@@ -449,7 +418,7 @@ psql -U PSQL_USER -h PSQL_HOST -p 5432 -d DATABASE &lt; SQL_FILE
 
 </code></pre>
 
-<p><strong>3.修改gitlab配置，添加production</strong></p>
+<p><strong>3.修改 gitlab 配置，添加 production</strong></p>
 
 <pre><code>$ vim /etc/gitlab/gitlab.rb
 gitlab_rails['db_adapter'] = &quot;postgresql&quot;
@@ -466,16 +435,16 @@ gitlab_rails['db_password'] = 'Password'
 
 </code></pre>
 
-<p><strong>4.重新配置Gitlab</strong></p>
+<p><strong>4.重新配置 Gitlab</strong></p>
 
 <pre><code>
 gitlab-ct reconfigure
 
 </code></pre>
 
-<h3 id="六-禁用gitlab-redis使用production-redis">六、禁用Gitlab Redis使用production Redis</h3>
+<h3 id="六-禁用-gitlab-redis-使用-production-redis">六、禁用 Gitlab Redis 使用 production Redis</h3>
 
-<p><strong>配置gitlab</strong></p>
+<p><strong>配置 gitlab</strong></p>
 
 <pre><code>$ vim /etc/gitlab/gitlab.rb
 
@@ -486,7 +455,7 @@ gitlab_rails['redis_host'] = 'REDIS_HOST'
 gitlab_rails['redis_port'] = 6379
 </code></pre>
 
-<p><strong>备份本地redis</strong></p>
+<p><strong>备份本地 redis</strong></p>
 
 <pre><code>redis-cli -h localhost -p 6379
 
@@ -498,7 +467,7 @@ OK
 
 </code></pre>
 
-<p><strong>恢复数据到production</strong></p>
+<p><strong>恢复数据到 production</strong></p>
 
 <p>只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可,获取 redis 目录可以使用 CONFIG 命令，如下</p>
 
@@ -512,11 +481,11 @@ OK
 
 </code></pre>
 
-<p><strong>如果还原的redis在Aws的ElastiCache</strong></p>
+<p><strong>如果还原的 redis 在 Aws 的 ElastiCache</strong></p>
 
-<p>在ElastiCache控制面板配置redis(<a href="https://console.amazonaws.cn/elasticache">https://console.amazonaws.cn/elasticache</a>)</p>
+<p>在 ElastiCache 控制面板配置 redis(<a href="https://console.amazonaws.cn/elasticache">https://console.amazonaws.cn/elasticache</a>)</p>
 
-<h5 id="1-创建redis集群">1.创建redis集群</h5>
+<h5 id="1-创建-redis-集群">1.创建 redis 集群</h5>
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/gitlab2.png" alt="gitlab2.png" /></p>
 
@@ -528,10 +497,10 @@ OK
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/gitlab4.png" alt="gitlab4.png" /></p>
 
-<h5 id="4-等待创建完成后重新配置gitlab">4. 等待创建完成后重新配置Gitlab</h5>
+<h5 id="4-等待创建完成后重新配置-gitlab">4. 等待创建完成后重新配置 Gitlab</h5>
 
 <pre><code>
-gitlab-ctl reconfigure 
+gitlab-ctl reconfigure
 
 </code></pre>
 
@@ -547,7 +516,7 @@ gitlab-ctl reconfigure
             <span class="button previous">
               <a href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Yahoo-screwdriver开源了</span>
+                <span class="button__text">Yahoo-screwdriver开源</span>
               </a>
             </span>
           

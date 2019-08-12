@@ -120,7 +120,7 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-10-27-aws-elb-502/">解决 AWS ELB 偶发的 502 Bad Gateway 错误</a></h1>
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/aws-elb-502/">解决 AWS ELB 偶发的 502 Bad Gateway 错误</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2017-10-30
@@ -144,16 +144,10 @@
 
       <div class="post-content">
         
-          
-            问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
-HTTP 数据流向如下：
- [Client] &mdash; [ELB] &mdash; [nginx] &mdash; [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
-先补充一个知识：如果后端支持的话，ELB 会使用保持连接（HTTP persistent/keep-alive connections）。来看看这一个保持连接的 TCP stream：
-其中，10.100.2.186 是 ELB 内部 IP，10.
-          
+          AWS ELB 502 Error
         
       </div>
-      <div><a class="read-more button" href="/posts/2017-10-27-aws-elb-502/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/aws-elb-502/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
@@ -162,7 +156,7 @@ HTTP 数据流向如下：
         <span class="post-date">
           2017-02-17
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 1 min read</span>
         
@@ -183,15 +177,74 @@ HTTP 数据流向如下：
 
       <div class="post-content">
         
-          
-            AWS Management Console 扩容ebs容量 原文连接：<a href="https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/">https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/</a>
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
- growpart /dev/xvdf 1  parted
- GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &lsquo;help&rsquo; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used.
-          
+          Amazon EBS Enables Live Volume Modifications with Elastic Volumes
         
       </div>
       <div><a class="read-more button" href="/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/">aws-ec2-双网卡问题y</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-12
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/ec2/">ec2</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          <code>aws ec2</code>
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">aws自定义AMI-UUID相同处理方法</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-12
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          AWS <code>UUID</code>
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">Read more →</a></div>
     </div>
     
     <div class="pagination">

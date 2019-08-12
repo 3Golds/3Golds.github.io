@@ -2,19 +2,18 @@
 <html lang="en">
   <head>
     
-      <title>aws-ec2-双网卡问题 :: 赵鑫的博客</title>
+      <title>aws-ec2-双网卡问题y :: 赵鑫的博客</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="问题描述 在已存在的EC2上新添加网卡后发现，凡是和eth0在同一个网段的只能通过eth0访问，不能通过eth1。同样的，在eth1网段的只能通过eth1访问，不能通过eth0访问。 如果既不在eth0也不再eth0 默认走eth0(在没有修改路由表的前提下，默认路由是eth0)
-问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡2进来的数据包从网卡1发送出去，或者从网卡1进来的数据包从网卡2发送出去，AWS底层会把这样的数据包丢弃。
-因此需要手动定义策略路由，在响应网卡1进来的数据包时通过网卡1发送，响应网卡2进来的数据包时通过网卡2发送。
+<meta name="description" content="问题描述 在已存在的 EC2 上新添加网卡后发现，凡是和 eth0 在同一个网段的只能通过 eth0 访问，不能通过 eth1。同样的，在 eth1 网段的只能通过 eth1 访问，不能通过 eth0 访问。 如果既不在 eth0 也不再 eth0 默认走 eth0(在没有修改路由表的前提下，默认路由是 eth0)
+问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡 2 进来的数据包从网卡 1 发送出去，或者从网卡 1 进来的数据包从网卡 2 发送出去，AWS 底层会把这样的数据包丢弃。
+因此需要手动定义策略路由，在响应网卡 1 进来的数据包时通过网卡 1 发送，响应网卡 2 进来的数据包时通过网卡 2 发送。
 解决方案 关于这个现象和解决方案，可以参考这遍文档：
 http://www.linuxjournal.com/article/7291
 该文档较长，这里介绍一个配置路由策略的事例，可以按照此事例的方法结合具体网络环境进行配置：
-1、首先为网卡1和2创建各自的路由表：  ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1 ip route add [子网2网段] via [您子网的网关IP] dev eth1 tab 2 可以通过ip route show table 1和ip route show table 2查看您刚刚完成的配置是否正确  2、然后创建策略路由  ip rule add from [eth0的IP]/32 tab 1 priority 500 ip rule add from [eth1的IP]/32 tab 2 priority 600  这个配置的意思是，将原地址为eth0的IP的包按照路由表1发送,将原地址为eth1的IP的包按照路由表2发送
-3、查看并刷新 可以通过 ip rule命令查看已经配置的路由策略。一个示例的策略如下："/>
-<meta name="keywords" content="aws,ec2"/>
+1、首先为网卡 1 和 2 创建各自的路由表：  ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1 ip route add [子网2网段] via [您子网的网关IP] dev eth1 tab 2 可以通过ip route show table 1和ip route show table 2查看您刚刚完成的配置是否正确  2、然后创建策略路由  ip rule add from [eth0的IP]/32 tab 1 priority 500 ip rule add from [eth1的IP]/32 tab 2 priority 600  这个配置的意思是，将原地址为 eth0 的 IP 的包按照路由表 1 发送,将原地址为 eth1 的 IP 的包按照路由表 2 发送"/>
+<meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/" />
 
@@ -33,16 +32,17 @@ http://www.linuxjournal.com/article/7291
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="aws-ec2-双网卡问题"/>
-<meta name="twitter:description" content="aws ec2"/>
+<meta name="twitter:title" content="aws-ec2-双网卡问题y"/>
+<meta name="twitter:description" content="`aws ec2`"/>
 
 
 
-<meta property="og:title" content="aws-ec2-双网卡问题" />
-<meta property="og:description" content="aws ec2" />
+<meta property="og:title" content="aws-ec2-双网卡问题y" />
+<meta property="og:description" content="`aws ec2`" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/" />
-<meta property="og:site_name" content="赵鑫的博客" />
+<meta property="article:published_time" content="2017-01-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-12T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
 
 
 
@@ -119,15 +119,27 @@ http://www.linuxjournal.com/article/7291
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/">aws-ec2-双网卡问题</a></h2>
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/">aws-ec2-双网卡问题y</a></h2>
     <div class="post-meta">
       
+        <span class="post-date">
+            2017-01-12
+        </span>
       
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 1 min read</span>
       
     </div>
 
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/ec2/">ec2</a>&nbsp;
+        
+      </span>
     
 
     
@@ -137,13 +149,13 @@ http://www.linuxjournal.com/article/7291
 
 <h4 id="问题描述">问题描述</h4>
 
-<p>在已存在的EC2上新添加网卡后发现，凡是和eth0在同一个网段的只能通过eth0访问，不能通过eth1。同样的，在eth1网段的只能通过eth1访问，不能通过eth0访问。 如果既不在eth0也不再eth0 默认走eth0(在没有修改路由表的前提下，默认路由是eth0)</p>
+<p>在已存在的 EC2 上新添加网卡后发现，凡是和 eth0 在同一个网段的只能通过 eth0 访问，不能通过 eth1。同样的，在 eth1 网段的只能通过 eth1 访问，不能通过 eth0 访问。 如果既不在 eth0 也不再 eth0 默认走 eth0(在没有修改路由表的前提下，默认路由是 eth0)</p>
 
 <h4 id="问题分析">问题分析</h4>
 
-<p>之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡2进来的数据包从网卡1发送出去，或者从网卡1进来的数据包从网卡2发送出去，AWS底层会把这样的数据包丢弃。</p>
+<p>之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡 2 进来的数据包从网卡 1 发送出去，或者从网卡 1 进来的数据包从网卡 2 发送出去，AWS 底层会把这样的数据包丢弃。</p>
 
-<p>因此需要手动定义策略路由，在响应网卡1进来的数据包时通过网卡1发送，响应网卡2进来的数据包时通过网卡2发送。</p>
+<p>因此需要手动定义策略路由，在响应网卡 1 进来的数据包时通过网卡 1 发送，响应网卡 2 进来的数据包时通过网卡 2 发送。</p>
 
 <h4 id="解决方案">解决方案</h4>
 
@@ -153,7 +165,7 @@ http://www.linuxjournal.com/article/7291
 
 <p>该文档较长，这里介绍一个配置路由策略的事例，可以按照此事例的方法结合具体网络环境进行配置：</p>
 
-<h5 id="1-首先为网卡1和2创建各自的路由表">1、首先为网卡1和2创建各自的路由表：</h5>
+<h5 id="1-首先为网卡-1-和-2-创建各自的路由表">1、首先为网卡 1 和 2 创建各自的路由表：</h5>
 
 <pre><code>
 ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1
@@ -173,11 +185,11 @@ ip rule add from [eth1的IP]/32 tab 2 priority 600
 
 </code></pre>
 
-<p>这个配置的意思是，将原地址为eth0的IP的包按照路由表1发送,将原地址为eth1的IP的包按照路由表2发送</p>
+<p>这个配置的意思是，将原地址为 eth0 的 IP 的包按照路由表 1 发送,将原地址为 eth1 的 IP 的包按照路由表 2 发送</p>
 
 <h5 id="3-查看并刷新">3、查看并刷新</h5>
 
-<p>可以通过 ip rule命令查看已经配置的路由策略。一个示例的策略如下：</p>
+<p>可以通过 ip rule 命令查看已经配置的路由策略。一个示例的策略如下：</p>
 
 <pre><code>
 $  ip rule
@@ -194,14 +206,14 @@ $  ip rule
 
 </code></pre>
 
-<p>最后刷新路由策略的cache，之后您可以继续测试。</p>
+<p>最后刷新路由策略的 cache，之后您可以继续测试。</p>
 
 <pre><code>
 ip route flush cache
 
 </code></pre>
 
-<p>如果希望实例重启后ip route 和 ip rule所配置的规则还在，需要按照以下方式进行配置</p>
+<p>如果希望实例重启后 ip route 和 ip rule 所配置的规则还在，需要按照以下方式进行配置</p>
 
 <pre><code>
 echo “[子网1网段] via [您子网的网关IP] dev eth0 table 1″ &gt; /etc/sysconfig/network-scripts/route-eth0
@@ -216,14 +228,14 @@ echo “from [eth1的IP]/32 table 2″ &gt; /etc/sysconfig/network-scripts/rule-
 
 </code></pre>
 
-<p>最后重启network service</p>
+<p>最后重启 network service</p>
 
 <pre><code>
 service network restart
 
 </code></pre>
 
-<p>需要注意的是，如果在重启服务的时候不成功，可以尝试关闭Network Manager。这个服务和默认的网络服务启动脚本经常有冲突，导致配置无法应用。</p>
+<p>需要注意的是，如果在重启服务的时候不成功，可以尝试关闭 Network Manager。这个服务和默认的网络服务启动脚本经常有冲突，导致配置无法应用。</p>
 
 <pre><code>
 chkconfig NetworkManger off
@@ -245,9 +257,9 @@ Q/A：如有问题请慷慨提出</p>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://zhaox.xyz/posts/2017-01-07-ss-client-config/">
+              <a href="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Ss-Client-Config</span>
+                <span class="button__text">IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</span>
               </a>
             </span>
           

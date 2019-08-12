@@ -177,22 +177,7 @@
 
       <div class="post-content">
         
-          
-            一、FastDFS 简介  FastDFS是由国人余庆所开发，其项目地址：<a href="https://github.com/happyfish100">https://github.com/happyfish100</a> &gt;FastDFS是一个轻量级的开源分布式文件系统，主要解决了大容量的文件存储和高并发访问的问题，文件存取时实现了负载均衡。 支持存储服务器在线扩容,支持相同的文件只保存一份,节约磁盘。 FastDFS只能通过 Client API 访问，不支持 POSIX 访问方式。 FastDFS 适合中大型网站使用，用来存储资源文件(如：图片、文档、视频等)
- 二、FastDFS 组成部分及其它名词 1、tracker server 跟踪服务器：用来调度来自客户端的请求。且在内存中记录所有存储组和存储服务器的信息状态。
-2、storage server 存储服务器：用来存储文件(data)和文件属性(metadata)
-3、client 客户端：业务请求发起方，通过专用接口基于 TCP 协议与tracker以及storage server进行交互
-group 组，也可称为卷：同组内上的文件是完全相同的
-文件标识 包括两部分：组名和文件名(包含路径)
-meta data 文件相关属性：键值对(Key Value Pair)方式
-fid 文件标识符：
-例如：
-group1/M00/00/00/CgEOxVegXB2AdYafAAAB0b8tBbQ9155303
-group_name：存储组的组名；上传完成后，需要客户端自行保存
-M##：服务器配置的虚拟路径，与磁盘选项 store_path#对应两级以两位 16 进制数字命名的目录
-文件名：与原文件名并不相同；由 storage server 根据特定信息生成。文件名包含：源存储服务器的 IP 地址、文件创建时间戳、文件大小、随机数和文件扩展名等
-三、FastDFS 同步机制  1、同一组内的 storage server 之间是对等的，文件上传、删除等操作可以在任意一台 storage server 上进行； 2、文件同步只在同组内的 storage server 之间进行，采用 push 方式，即源服务器同步给目标服务器； 3、源头数据才需要同步，备份数据不需要再次同步，否则就构成环路了； 上述第二条规则有个例外，就是新增加一台 storage server 时，由已有的一台 storage server 将已有的所有数据（包括源头数据和备份数据）同步给该新增服务器。
-          
+          FastDFS
         
       </div>
       <div><a class="read-more button" href="/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/">Read more →</a></div>
@@ -225,10 +210,7 @@ M##：服务器配置的虚拟路径，与磁盘选项 store_path#对应两级�
 
       <div class="post-content">
         
-          
-            一、安装并制作 rpm 包 libfastcommon 注意:生成的 rpm 包全都在/root/rpmbuild/RPMS/下面，可以再其他主机直接使用
-#!/bin/bash # Author: Antony # rpm build for fastdfs # Mail: zhaoxin@altamob.com,go80800@163.com # Desc: build libfastcommmon # 制作和安装libfastcommon cat &lt;&lt; EOF +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-+ | this is a rpmbuild libfastcommon script | | from Antony &hellip;&hellip;. | +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; EOF # 制作源码文件 建议手动安装yum #yum groupinstall &quot;Development Tools&quot; &quot;Server platform Development&quot; -y cd /root/ git clone <a href="https://github.com/happyfish100/libfastcommon.git">https://github.com/happyfish100/libfastcommon.git</a> if [ $? -ne 0 ];then exit 1 fi libversion=$(grep -i &quot;^version&quot; libfastcommon/libfastcommon.
-          
+          介绍如何制作和安装FastDFS的RPM
         
       </div>
       <div><a class="read-more button" href="/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/">Read more →</a></div>

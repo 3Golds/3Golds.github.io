@@ -6,10 +6,10 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="编译安装Nginx&amp;amp;PHP nginx编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
-启动命令 /usr/local/nginx/sbin/nginx 重载nginx /usr/local/nginx/sbin/nginx -s reload
-一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改conf文件 1. 修改主nginx.conf 1-1."/>
-<meta name="keywords" content="nginx,php,nginx&#43;php"/>
+<meta name="description" content="编译安装 Nginx&amp;amp;PHP nginx 编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
+启动命令 /usr/local/nginx/sbin/nginx 重载 nginx /usr/local/nginx/sbin/nginx -s reload
+一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改 conf 文件 1."/>
+<meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" />
 
@@ -29,15 +29,16 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nginx&#43;PHP编译安装"/>
-<meta name="twitter:description" content="Nginx&amp;PHP"/>
+<meta name="twitter:description" content="`nginx`和`php`编译安装"/>
 
 
 
 <meta property="og:title" content="Nginx&#43;PHP编译安装" />
-<meta property="og:description" content="Nginx&amp;PHP" />
+<meta property="og:description" content="`nginx`和`php`编译安装" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" />
-<meta property="og:site_name" content="赵鑫的博客" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
 
 
 
@@ -117,12 +118,24 @@
     <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">Nginx+PHP编译安装</a></h2>
     <div class="post-meta">
       
+        <span class="post-date">
+            2017-01-07
+        </span>
       
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 3 min read</span>
       
     </div>
 
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/nginx/">nginx</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/php/">php</a>&nbsp;
+        
+      </span>
     
 
     
@@ -130,16 +143,16 @@
     <div class="post-content">
       
 
-<h3 id="编译安装nginx-php">编译安装Nginx&amp;PHP</h3>
+<h3 id="编译安装-nginx-php">编译安装 Nginx&amp;PHP</h3>
 
-<h4 id="nginx编译安装"><strong>nginx编译安装</strong></h4>
+<h4 id="nginx-编译安装"><strong>nginx 编译安装</strong></h4>
 
 <p><strong>下载路径</strong>：(建议使用<code>Tengine</code>)
 <a href="http://nginx.org/">http://nginx.org/</a>
 <a href="http://tengine.taobao.org/">http://tengine.taobao.org/</a></p>
 
 <p><strong>启动命令</strong> /usr/local/nginx/sbin/nginx
-<strong>重载nginx</strong> /usr/local/nginx/sbin/nginx -s reload</p>
+<strong>重载 nginx</strong> /usr/local/nginx/sbin/nginx -s reload</p>
 
 <h5 id="一-安装环境">一、安装环境</h5>
 
@@ -157,13 +170,13 @@ nginx编译参数(红色部分可能不支持,可去掉)
 # sudo mkdir vhosts
 </code></pre>
 
-<h4 id="二-修改conf文件">二、修改conf文件</h4>
+<h4 id="二-修改-conf-文件">二、修改 conf 文件</h4>
 
-<p><strong>1. 修改主nginx.conf</strong>
-1-1. 开启log_format
-1-2. 在http上下文结尾增加 include vhosts/*;
-1-3. 需要注意nginx配置文件是按顺序读取
-1-5.修改nginx worker用户为webapps
+<p><strong>1. 修改主 nginx.conf</strong>
+1-1. 开启 log_format
+1-2. 在 http 上下文结尾增加 include vhosts/*;
+1-3. 需要注意 nginx 配置文件是按顺序读取
+1-5.修改 nginx worker 用户为 webapps
 1-6.修改/etc/security/limits.conf</p>
 
 <pre><code># vim /usr/local/nginx/conf/nginx.conf
@@ -216,10 +229,10 @@ include vhosts/*;
 	    index	index.php;
 	}
 
-	location ~ .*\.(html|htm|gif|jpg|jpeg|bmp|png|ico|txt|js|css)$ { 
+	location ~ .*\.(html|htm|gif|jpg|jpeg|bmp|png|ico|txt|js|css)$ {
             	root        /export/webapps/www.fraudect.com;
-    		expires      3d; 
-    	} 
+    		expires      3d;
+    	}
 	location ~ \.php$ {
                 fastcgi_pass     127.0.0.1:9000;
                 fastcgi_index    index.php;
@@ -228,9 +241,9 @@ include vhosts/*;
                 fastcgi_connect_timeout    300;
                 fastcgi_send_timeout       300;
                 fastcgi_read_timeout       300;
-		fastcgi_buffers 8 256k;                                               
-      		fastcgi_buffer_size 256k;                                             
-      		fastcgi_busy_buffers_size 256k; 
+		fastcgi_buffers 8 256k;
+      		fastcgi_buffer_size 256k;
+      		fastcgi_busy_buffers_size 256k;
 		fastcgi_intercept_errors on;
         }
 }
@@ -247,9 +260,9 @@ include vhosts/*;
                 fastcgi_connect_timeout    300;
                 fastcgi_send_timeout       300;
                 fastcgi_read_timeout       300;
-				fastcgi_buffers 8 256k;                                               
-	      		fastcgi_buffer_size 256k;                                             
-	      		fastcgi_busy_buffers_size 256k; 
+				fastcgi_buffers 8 256k;
+	      		fastcgi_buffer_size 256k;
+	      		fastcgi_busy_buffers_size 256k;
 				fastcgi_intercept_errors on;
         }
 
@@ -263,7 +276,7 @@ include vhosts/*;
 #	proxy_pass http://axis.prd.pzoom.com;
 
 	proxy_max_temp_file_size 0;
-	proxy_set_header   Host             $host;        
+	proxy_set_header   Host             $host;
 	proxy_set_header   X-Real-IP        $remote_addr;
     proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
     proxy_buffers 256 4k;
@@ -316,8 +329,8 @@ rewrite  ^(.*)$  /index.php last;
 break;
 </code></pre>
 
-<p>###<strong>php构建部分</strong>
-<code>centos  6.X</code>  <code>php-fpm方式</code></p>
+<p>###<strong>php 构建部分</strong>
+<code>centos 6.X</code> <code>php-fpm方式</code></p>
 
 <h4 id="一-依赖关系安装"><strong>一、依赖关系安装</strong></h4>
 
@@ -327,14 +340,14 @@ break;
 # sudo ln -s /usr/lib64/mysql /usr/lib/mysql
 </code></pre>
 
-<p><strong>php编译参数(如果make报ld之类的错误，尝试移除ldap和lntl编译模块)</strong>
+<p><strong>php 编译参数(如果 make 报 ld 之类的错误，尝试移除 ldap 和 lntl 编译模块)</strong>
 <strong>下载链接地址</strong>：<a href="http://docs.php.net/distributions/php-5.6.24.tar.bz2">http://docs.php.net/distributions/php-5.6.24.tar.bz2</a></p>
 
 <pre><code># sudo tar xf php-5.6.24.tar.bz2
 # sudo ./configure --prefix=/usr/local/php  --with-config-file-path=/usr/local/php/etc --with-config-file-scan-dir=/usr/local/php/etc/php.d --with-curl --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-openssl --enable-mbstring --with-freetype-dir --with-jpeg-dir --with-png-dir  --with-gd --with-libxml-dir --with-zlib --with-mcrypt --with-bz2 --enable-sysvshm --enable-sysvsem --enable-soap --with-recode --with-snmp --with-readline  --enable-intl --enable-dba --enable-bcmath --with-enchant --with-pspell --enable-xml --enable-sockets  --enable-exif --enable-inline-optimization --enable-fpm
 </code></pre>
 
-<h4 id="apache专用">apache专用</h4>
+<h4 id="apache-专用">apache 专用</h4>
 
 <p><code>--with-apxs2=/usr/sbin/apxs</code></p>
 
@@ -343,9 +356,9 @@ break;
 <pre><code>apt-get -y install  libpspell-dev build-essential libcurl3-openssl-dev libbz2-dev libenchant-dev libxml2-dev libjpeg-dev libpng-dev libfreetype6-dev libicu-dev libmcrypt-dev libncurses5-dev  librecode-dev libaspell-dev libreadline-dev
 </code></pre>
 
-<h5 id="若apache添加参数-with-apxs2-usr-sbin-apxs-apxs是apache的httpd-devel安装后生成的-yum安装后路径一般是-usr-sbin-apxs-如果是编译安装-一般位于apache的bin目录下">若apache添加参数   &ndash;with-apxs2=/usr/sbin/apxs  apxs是apache的httpd-devel安装后生成的，yum安装后路径一般是/usr/sbin/apxs，如果是编译安装，一般位于apache的bin目录下</h5>
+<h5 id="若-apache-添加参数-with-apxs2-usr-sbin-apxs-apxs-是-apache-的-httpd-devel-安装后生成的-yum-安装后路径一般是-usr-sbin-apxs-如果是编译安装-一般位于-apache-的-bin-目录下">若 apache 添加参数 &ndash;with-apxs2=/usr/sbin/apxs apxs 是 apache 的 httpd-devel 安装后生成的，yum 安装后路径一般是/usr/sbin/apxs，如果是编译安装，一般位于 apache 的 bin 目录下</h5>
 
-<h4 id="php-fpm启动脚本"><strong>php-fpm启动脚本</strong></h4>
+<h4 id="php-fpm-启动脚本"><strong>php-fpm 启动脚本</strong></h4>
 
 <p><strong><code>php源码包根目录</code></strong></p>
 
@@ -364,16 +377,16 @@ break;
 
 <p>脚本前几行注释结束后的首行部位加入<code>[ -f /etc/rc.d/init.d/functions ] &amp;&amp; . /etc/rc.d/init.d/functions</code></p>
 
-<p>在start函数的首行加入daemon</p>
+<p>在 start 函数的首行加入 daemon</p>
 
-<pre><code>case $1 in 
+<pre><code>case $1 in
     start)
     	$php_fpm_BIN --daemonize $php_opts
 </code></pre>
 
-<p>*<strong>修改php.ini 这一步骤需要根据开发来决定开启额外模块或者参数</strong></p>
+<p><strong>*修改 php.ini 这一步骤需要根据开发来决定开启额外模块或者参数</strong></p>
 
-<h4 id="修改-php-fpm-ini-相当于apache的配置文件"><strong>修改<code>php-fpm.ini</code>    ==&gt;相当于apache的配置文件</strong></h4>
+<h4 id="修改-php-fpm-ini-相当于-apache-的配置文件"><strong>修改<code>php-fpm.ini</code> ==&gt;相当于 apache 的配置文件</strong></h4>
 
 <pre><code>#vi /usr/local/php/etc/php-fpm.conf
 [global]
@@ -407,16 +420,16 @@ Q/A：如有问题请慷慨提出</p>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://zhaox.xyz/posts/2017-01-19-coredump/">
+              <a href="http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Linux系统异常-CoreDump详解</span>
+                <span class="button__text">Linux用户、用户组及权限管理</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/2017-01-07-ss-client-config/">
-                <span class="button__text">Ss-Client-Config</span>
+              <a href="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/">
+                <span class="button__text">ansible脚本</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

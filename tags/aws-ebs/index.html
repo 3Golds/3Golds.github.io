@@ -125,7 +125,7 @@
         <span class="post-date">
           2017-02-17
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 1 min read</span>
         
@@ -146,12 +146,7 @@
 
       <div class="post-content">
         
-          
-            AWS Management Console 扩容ebs容量 原文连接：<a href="https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/">https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/</a>
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
- growpart /dev/xvdf 1  parted
- GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &lsquo;help&rsquo; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used.
-          
+          Amazon EBS Enables Live Volume Modifications with Elastic Volumes
         
       </div>
       <div><a class="read-more button" href="/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">Read more →</a></div>

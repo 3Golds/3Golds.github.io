@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyenv on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/pyenv/</link>
+    <description>Recent content in pyenv on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/pyenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python-快速改造：基础知识</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>一、python 安装之 pyenv windows 下安装 Python （1）打开 web 浏览器，访问 Python 官方站点http://www.python.org
+（2）点击 Download，或者在首页点击下载
+（3）下载所需版本，目前最新版本为 3.5.2
+（4）下载完成后双击并执行安装
+CentOS 下安装 Python 和 pyenv  pyenv：pyenv 是一款 python 版本管理器，由于不同程序员可能使用不同的 python 进行开发，但还需在同一台机器又互不影响。pyenv 主要的作用就是可以设置不同的目录使用不同的版本，且可以很简单的安装 python。
+ 1、安装依赖包 yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server Plataform Development&amp;quot; -y  2、安装 pyenv （1）通过 git 克隆 pyenv 程序
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv  （2）设置 pyenv 的环境变量
+$ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile $ echo &#39;export PATH=&amp;quot;$PYENV_ROOT/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bash_profile  （3）添加pyenv init到环境变量中</description>
+    </item>
+    
+  </channel>
+</rss>

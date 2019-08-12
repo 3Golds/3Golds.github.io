@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/php/</link>
+    <description>Recent content in php on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx&#43;PHP编译安装</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</guid>
+      <description>编译安装 Nginx&amp;amp;PHP nginx 编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
+启动命令 /usr/local/nginx/sbin/nginx 重载 nginx /usr/local/nginx/sbin/nginx -s reload
+一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改 conf 文件 1.</description>
+    </item>
+    
+  </channel>
+</rss>

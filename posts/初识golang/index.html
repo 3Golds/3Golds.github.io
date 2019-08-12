@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Golang 常量 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Go 介绍 Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。
+Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。
+罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
+受欢迎程度 截止目前为止，越来越多的开发者开始使用 GO，并喜欢用 Go，目前在 Github 统计中，Go 排名第 9
+最受欢迎的 5 种语言和最想使用的语言之一 来源: https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted
+Go 是云基础架构语言 每个云计算公司都在用 Go 实现云基础架构关键组件，包括 Google Cloud, AWS, Microsoft Azure, DigitalOcean, Heroku。Go 是阿里巴巴，cloudflare 和 Drobox 等云计算公司的重要组成部分
+Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行，举几个常见并且正在用的例子"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 常量"/>
+<meta name="twitter:description" content="golang 简介"/>
+
+
+
+<meta property="og:title" content="Golang 常量" />
+<meta property="og:description" content="golang 简介" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/" />
+<meta property="article:published_time" content="2017-12-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-05T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/">Golang 常量</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-12-05
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 4 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/go/">go</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h1 id="go-介绍">Go 介绍</h1>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/go-icon.png" alt="go-icon" /></p>
+
+<p>Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。</p>
+
+<p>Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。</p>
+
+<p>罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。</p>
+
+<h1 id="受欢迎程度">受欢迎程度</h1>
+
+<p>截止目前为止，越来越多的开发者开始使用 GO，并喜欢用 Go，目前在 Github 统计中，Go 排名第 9</p>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/go-1.png" alt="go-1" /></p>
+
+<h1 id="最受欢迎的-5-种语言和最想使用的语言之一">最受欢迎的 5 种语言和最想使用的语言之一</h1>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/go-2.png" alt="go-2" /></p>
+
+<p>来源: <a href="https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted">https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted</a></p>
+
+<h1 id="go-是云基础架构语言">Go 是云基础架构语言</h1>
+
+<p>每个云计算公司都在用 Go 实现云基础架构关键组件，包括 Google Cloud, AWS, Microsoft Azure, DigitalOcean, Heroku。Go 是阿里巴巴，cloudflare 和 Drobox 等云计算公司的重要组成部分</p>
+
+<h1 id="go-开源软件的影响力">Go 开源软件的影响力</h1>
+
+<p>Go 有很多出色的开源软件，并且很流行，举几个常见并且正在用的例子</p>
+
+<ul>
+<li><p>kubernetes：容器编排系统，是一个自动化部署，扩展和管理容器的系统，最初由 Google 涉及并用于 GRE</p></li>
+
+<li><p>Moby(Docker)：容器</p></li>
+
+<li><p>Prometheus：是一个开源的监控解决方案和时间序列数据库，支持 metric 和 Alert</p></li>
+
+<li><p>Granfana：仪表盘和图形</p></li>
+</ul>
+
+<p>说了这么多，下面我们开始正式了解 Go 的语法及格式等。</p>
+
+<h1 id="hello-世界">Hello 世界</h1>
+
+<p>因为 Go 是二进制方式，所以安装比较简单，这里不做过多介绍，可以参照官方文档：<a href="https://golang.org/doc/install">https://golang.org/doc/install</a></p>
+
+<p>每个语言都以 Hello World 开始，Go 也不例外，我们先写一个 Hello World</p>
+
+<pre><code class="language-go">
+$ vim hello.go
+
+package main
+
+
+
+import(
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	fmt.Println(&quot;Hello 世界&quot;)
+
+}
+
+$ go run hello.go
+
+Hello 世界
+
+</code></pre>
+
+<h1 id="go-的目录组织结构-workspaces">Go 的目录组织结构(Workspaces)</h1>
+
+<ul>
+<li><p>src: 包含 Go 源文件，src 下有不同目录，每个目录可以理解为一个项目，在</p></li>
+
+<li><p>pkg: 包含 package object</p></li>
+
+<li><p>bin: 包含可执行命令文件</p>
+
+<pre><code>
+bin/
+
+hello                          # 可执行命令
+
+outyet                         # 可执行命令
+
+pkg/
+
+linux_amd64/
+
+    github.com/golang/example/
+
+        stringutil.a           # package object
+
+src/
+
+github.com/golang/example/
+
+    .git/                      # Git repository metadata
+
+	hello/
+
+	    hello.go               # 源码
+
+	outyet/
+
+	    main.go                # 源码
+
+	    main_test.go           # 测试源码
+
+	stringutil/
+
+	    reverse.go             # 源码
+
+	    reverse_test.go        # 测试源码
+
+golang.org/x/image/
+
+    .git/                      # Git repository metadata
+
+	bmp/
+
+	    reader.go              # package source
+
+	    writer.go              # package source
+
+... (many more repositories and packages omitted) ...
+
+</code></pre></li>
+</ul>
+
+<h1 id="go-基本命令介绍">Go 基本命令介绍</h1>
+
+<ul>
+<li><p>go run: 编译和执行 go 程序</p></li>
+
+<li><p>go build: 编译程序，生成二进制可执行文件</p></li>
+
+<li><p>go install: 编译和安装可执行程序到 bin 目录</p></li>
+
+<li><p>go test：执行单元测试或压力测试</p></li>
+
+<li><p>go env： 显示 go 相关的环境变量</p></li>
+
+<li><p>go fmt：格式化源代码</p></li>
+</ul>
+
+<h1 id="package-包">package(包)</h1>
+
+<p>每个 Go 程序都是由包组成的。程序运行的入口是包<code>main</code>。这个程序导入了包<code>fmt</code>和<code>math/rand</code>。</p>
+
+<p>按照惯例，包名与导入路径的最后一个目录一致。例如，<code>math/rand</code> 包由<code>package rand</code>语句开始</p>
+
+<ul>
+<li><p>math.rand: 包 rand 执行伪随机生成一个数字，为了安全考虑，建议使用 crypto/rand</p>
+
+<pre><code>
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+	&quot;math/rand&quot;
+
+)
+
+
+
+func main() {
+
+	fmt.Println(&quot;My favorite number is&quot;, rand.Intn(50))
+
+}
+
+</code></pre></li>
+</ul>
+
+<h1 id="导入">导入</h1>
+
+<p>使用圆括号组合导入，也可以写多个导入语句</p>
+
+<pre><code>
+import &quot;fmt&quot;
+
+import &quot;math&quot;
+
+</code></pre>
+
+<pre><code>
+import (
+
+    &quot;fmt&quot;
+
+    &quot;math&quot;
+
+)
+
+</code></pre>
+
+<h1 id="变量">变量</h1>
+
+<h2 id="定义及初始化变量">定义及初始化变量</h2>
+
+<p><code>var</code>语句定义了一个变量的列表；类型在后面，定义类型可以再函数外面，初始化值必须在函数内部</p>
+
+<pre><code>
+$ vim var.go
+
+package main
+
+
+
+import &quot;fmt&quot;
+
+
+
+var c, python, java bool  /./定义类型
+
+
+
+func main() {
+
+	c, python, java = true, false, true  //初始化值
+
+	var i int #不初始化默认为0
+
+	fmt.Println(c, python, java, i)
+
+}
+
+$ go run var.go
+
+true false true 0
+
+</code></pre>
+
+<h2 id="短变量声明">短变量声明</h2>
+
+<p>在函数中，<code>:=</code> 简洁赋值语句在明确类型的地方，可以用于替代<code>var</code>定义。</p>
+
+<p>函数外的每个语句都必须一关键字开始(<code>var</code>、<code>func</code>、等等)，<code>:=</code> 结构不能再函数外使用。</p>
+
+<pre><code>
+$ vim short-variable.go
+
+package main
+
+
+
+import &quot;fmt&quot;
+
+
+
+func main() {
+
+	var x string = &quot;你好&quot;
+
+	y := 3
+
+    c, python, java := true, false, true
+
+	fmt.Println(x, y, c, python, java)
+
+}
+
+$ go run short-variable.go
+
+你好 8 true false true
+
+</code></pre>
+
+<h2 id="变量基本类型-base-types">变量基本类型(Base types)</h2>
+
+<pre><code>
+
+bool  // 布尔值 true 和 false
+
+
+
+string // 字符串
+
+
+
+int  int8  int16  int32  int64  //整数, int8 表示8位二进制，最大为128 范围：-128 -&gt; 127，int64表示（-9,223,372,036,854,775,808 -&gt; 9,223,372,036,854,775,807）
+
+
+
+uint uint8 uint16 uint32 uint64 uintptr 无符号整数
+
+
+
+byte // uint8 的别名
+
+
+
+rune // int32 的别名
+
+     // 代表一个Unicode码
+
+
+
+float32 float64
+
+
+
+complex64 complex128
+
+</code></pre>
+
+<p>%T: 返回变量的类型值</p>
+
+<p>%v: 返回变量的值，默认的打印方式</p>
+
+<pre><code>
+$ vim basic-type.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+	&quot;math/cmplx&quot;
+
+)
+
+
+
+var (
+
+	ToBe   bool       = false
+
+	MaxInt uint64     = 1&lt;&lt;64 - 1
+
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+
+)
+
+
+
+func main() {
+
+	const f = &quot;%T(%v)\n&quot;
+
+	fmt.Printf(f, ToBe, ToBe)
+
+	fmt.Printf(f, MaxInt, MaxInt)
+
+	fmt.Printf(f, z, z)
+
+}
+
+$ go run basic-type.go
+
+bool(false)
+
+uint64(18446744073709551615)
+
+complex128((2+3i))
+
+</code></pre>
+
+<h2 id="零值">零值</h2>
+
+<p>变量在定义时没有明确的初始化变量值就会被赋予<code>零值</code></p>
+
+<p>对于不同类型的零值是:</p>
+
+<ul>
+<li><p>int 类型为<code>0</code></p></li>
+
+<li><p>bool 类型为<code>false</code></p></li>
+
+<li><p>string 类型为&rdquo;&ldquo;(空)</p></li>
+</ul>
+
+<h2 id="类型转换">类型转换</h2>
+
+<p>表达式 T(v) 将<code>v</code>转为为类型 T</p>
+
+<pre><code>
+$ vim type-con.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+    var i int = 88
+
+    var b float64 = float64(i)
+
+	fmt.Println(b)
+
+
+
+	//简单形式的写法
+
+	c := 99
+
+	f := float64(c)
+
+	u := uint(f)
+
+	fmt.Println(c, f, u)
+
+}
+
+$ go run type-con.go
+
+88
+
+99 99 99
+
+</code></pre>
+
+<h2 id="类型推导">类型推导</h2>
+
+<p>在定义一个变量却不指定其类型时，go 会根据变量的值来推导其类型</p>
+
+<pre><code>
+i := 42     //int
+
+f := 3.1415  //float64
+
+</code></pre>
+
+<h2 id="常量">常量</h2>
+
+<p>常量的定义与变量类似，只不过使用 const 关键字。</p>
+
+<p>常量可以是字符、字符串、布尔或数字类型的值。</p>
+
+<p>常量不能使用 := 语法定义。</p>
+
+<pre><code>
+$ vim const.go
+
+package main
+
+
+
+import &quot;fmt&quot;
+
+
+
+const nu = 3.14
+
+
+
+func main() {
+
+	const no = false
+
+	fmt.Println(nu, no)
+
+}
+
+$ go run const.go
+
+3.14 false
+
+</code></pre>
+
+<h2 id="函数">函数</h2>
+
+<p>函数定义关键字使用<code>func</code> 函数名() 中括号来进行定义，函数可以没有参数，也可以接受多个参数。</p>
+
+<pre><code>
+$ vim Add.go
+
+package main
+
+
+
+import(
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func Add(x int, y int) int {
+
+    return x + y
+
+}
+
+
+
+func main() {
+
+	fmt.Println(Add(8,9))
+
+}
+
+$ go run Add.go
+
+17
+
+</code></pre>
+
+<p>当两个或者多个连续的函数命名参数是同一类型，则除了最后一个类型之外，其他都可以省略</p>
+
+<pre><code>
+x int, y int
+
+// 可以写为
+
+x , y int
+
+</code></pre>
+
+<h2 id="多值返回">多值返回</h2>
+
+<p>函数可以返回任意数量的返回值。</p>
+
+<p><code>muti</code>函数返回了两个字符串</p>
+
+<pre><code>
+$ vim muti.go
+
+package main
+
+
+
+import &quot;fmt&quot;
+
+
+
+func Muti(x, y string) (string, string) {
+
+	return x, y
+
+}
+
+
+
+func main() {
+
+	fmt.Println(Muti(&quot;你好&quot;,&quot;Go&quot;))
+
+}
+
+$ go run muti.go
+
+你好 Go
+
+</code></pre>
+
+<h2 id="返回值命名">返回值命名</h2>
+
+<p>Go 的返回值可以被命名，并且就像在函数体开头声明的变量那样使用。</p>
+
+<p>没有参数的<code>return</code>返回函数中各个变量的值。这种用法被称作&rdquo;裸&rdquo;返回。</p>
+
+<pre><code>
+$ vim name-return.go
+
+package main
+
+
+
+import &quot;fmt&quot;
+
+
+
+func Split(sum int)(x, y int) {
+
+	x = sum - 3
+
+	y = sum * 5 / 2
+
+	return
+
+}
+
+
+
+func main() {
+
+	fmt.Println(Split(50))
+
+}
+
+$ go run name-return.go
+
+47 125
+
+</code></pre>
+
+<h1 id="总结">总结</h1>
+
+<p>关于 Go 的基本介绍就到这里了，上述的内容会在接下来的博客进行细分详解，感谢您的阅读，祝您早日成为一个出色的 Go 程序员</p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Golang 流程控制语句(for、if、else、switch)</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/">
+                <span class="button__text">Opentracing Zipkin</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

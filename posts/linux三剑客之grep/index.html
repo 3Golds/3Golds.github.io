@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>Linux三剑客之grep :: 赵鑫的博客</title>
+      <title>Linux grep :: 赵鑫的博客</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -30,21 +30,13 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux三剑客之grep"/>
-<meta name="twitter:description" content="一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
- 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
-grep 家族：
-  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
-alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?"/>
+<meta name="twitter:title" content="Linux grep"/>
+<meta name="twitter:description" content="linux command grep"/>
 
 
 
-<meta property="og:title" content="Linux三剑客之grep" />
-<meta property="og:description" content="一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
- 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
-grep 家族：
-  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
-alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?" />
+<meta property="og:title" content="Linux grep" />
+<meta property="og:description" content="linux command grep" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/" />
 <meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
@@ -125,7 +117,7 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Linux三剑客之grep</a></h2>
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Linux grep</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
@@ -572,8 +564,8 @@ Q/A：如有问题请慷慨提出
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/">
-                <span class="button__text">ansible脚本</span>
+              <a href="http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                <span class="button__text">Linux用户、用户组及权限管理</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

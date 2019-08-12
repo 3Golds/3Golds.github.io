@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+<meta name="description" content="AWS Management Console 扩容 ebs 容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到 100% 扩容磁盘分区 growpart
  growpart /dev/xvdf 1  parted
  GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used."/>
 <meta name="keywords" content=""/>
@@ -30,18 +30,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS EBS 在线扩容"/>
-<meta name="twitter:description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
- growpart /dev/xvdf 1  parted
- GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used."/>
+<meta name="twitter:description" content="Amazon EBS Enables Live Volume Modifications with Elastic Volumes"/>
 
 
 
 <meta property="og:title" content="AWS EBS 在线扩容" />
-<meta property="og:description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
-1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
- growpart /dev/xvdf 1  parted
- GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used." />
+<meta property="og:description" content="Amazon EBS Enables Live Volume Modifications with Elastic Volumes" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/" />
 <meta property="article:published_time" content="2017-02-17T00:00:00+00:00" />
@@ -129,7 +123,7 @@
             2017-02-17
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 1 min read</span>
       
@@ -150,7 +144,7 @@
     <div class="post-content">
       
 
-<h3 id="aws-management-console-扩容ebs容量">AWS Management Console 扩容ebs容量</h3>
+<h3 id="aws-management-console-扩容-ebs-容量">AWS Management Console 扩容 ebs 容量</h3>
 
 <p>原文连接：<a href="https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/">https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/</a></p>
 
@@ -162,7 +156,7 @@
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/ebs2.png" alt="ebs2" /></p>
 
-<h4 id="4-等待其状态达到100">4.等待其状态达到100%</h4>
+<h4 id="4-等待其状态达到-100">4.等待其状态达到 100%</h4>
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/ebs3.png" alt="ebs3" /></p>
 
@@ -217,16 +211,16 @@ End?  [53.7GB]? 80.7GB
 
 <h4 id="扩容文件系统">扩容文件系统</h4>
 
-<h5 id="1-ext系列">1.ext系列</h5>
+<h5 id="1-ext-系列">1.ext 系列</h5>
 
 <pre><code>
 fdisk -l /dev/xvdf # 查看扩容分区容量是否成功
 
-resize2fs /dev/xvdf1 
+resize2fs /dev/xvdf1
 
 </code></pre>
 
-<h5 id="2-xfs系列">2.xfs系列</h5>
+<h5 id="2-xfs-系列">2.xfs 系列</h5>
 
 <pre><code>
  xfs_growfs /dev/xvdf1
@@ -257,7 +251,7 @@ Q/A：如有问题请慷慨提出</p>
           
             <span class="button next">
               <a href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/">
-                <span class="button__text">Yahoo-screwdriver开源了</span>
+                <span class="button__text">Yahoo-screwdriver开源</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

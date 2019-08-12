@@ -6,10 +6,10 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="VPN原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
+<meta name="description" content="VPN 原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
 http://www.china-ccie.com/doc/vpn/vpn.html
-Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl."/>
-<meta name="keywords" content="vpn,ipsec,l2tp"/>
+Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用 ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl."/>
+<meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/" />
 
@@ -29,15 +29,16 @@ Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp"/>
-<meta name="twitter:description" content="Ipsec vpn"/>
+<meta name="twitter:description" content="`ipsec` `l2tp` `openswan`"/>
 
 
 
 <meta property="og:title" content="IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp" />
-<meta property="og:description" content="Ipsec vpn" />
+<meta property="og:description" content="`ipsec` `l2tp` `openswan`" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/" />
-<meta property="og:site_name" content="赵鑫的博客" />
+<meta property="article:published_time" content="2017-01-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-13T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
 
 
 
@@ -117,12 +118,26 @@ Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof
     <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/">IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</a></h2>
     <div class="post-meta">
       
+        <span class="post-date">
+            2017-01-13
+        </span>
       
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 3 min read</span>
       
     </div>
 
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/vpn/">vpn</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/ipsec/">ipsec</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/l2tp/">l2tp</a>&nbsp;
+        
+      </span>
     
 
     
@@ -130,7 +145,7 @@ Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof
     <div class="post-content">
       
 
-<h3 id="vpn原理">VPN原理</h3>
+<h3 id="vpn-原理">VPN 原理</h3>
 
 <p><a href="http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary">http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary</a></p>
 
@@ -152,7 +167,7 @@ iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE
 
 </code></pre>
 
-<h4 id="启用内核转发和禁用icp-redirects">启用内核转发和禁用ICP redirects</h4>
+<h4 id="启用内核转发和禁用-icp-redirects">启用内核转发和禁用 ICP redirects</h4>
 
 <pre><code>
 echo &quot;net.ipv4.ip_forward = 1&quot; |  tee -a /etc/sysctl.conf
@@ -194,7 +209,7 @@ iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE
 
 <h3 id="配置-openswan-ipsec">配置 Openswan(IPSEC)</h3>
 
-<p>使用你的编辑器打开ipsec的配置文件</p>
+<p>使用你的编辑器打开 ipsec 的配置文件</p>
 
 <pre><code>
 /etc/ipsec.conf
@@ -278,7 +293,7 @@ conn L2TP-PSK-noNAT
 
 </code></pre>
 
-<p>通过如下命令可以获取你本地的网络ip(当然，是外网ip，如果你想使用内网ip，请忽略)</p>
+<p>通过如下命令可以获取你本地的网络 ip(当然，是外网 ip，如果你想使用内网 ip，请忽略)</p>
 
 <pre><code>
 curl ifconfig.me
@@ -298,7 +313,7 @@ curl http://ip.mtak.nl
 
 </code></pre>
 
-<p>如果你想生成一个random key，使用openssl命令</p>
+<p>如果你想生成一个 random key，使用 openssl 命令</p>
 
 <pre><code>
 $ sudo openssl rand -hex 30
@@ -307,7 +322,7 @@ $ sudo openssl rand -hex 30
 
 </code></pre>
 
-<h4 id="校验ipsec设置">校验ipsec设置</h4>
+<h4 id="校验-ipsec-设置">校验 ipsec 设置</h4>
 
 <pre><code>
 ipsec verify
@@ -394,14 +409,14 @@ length bit = yes
 
 <li><p>local ip = vpn server ip</p></li>
 
-<li><p>refuse pap = refuse pap认证</p></li>
+<li><p>refuse pap = refuse pap 认证</p></li>
 
 <li><p>ppp debug = yes 测试的时候使用，不要再生产使用</p></li>
 </ul>
 
 <p>其他认证方式：<a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_14.04.html">https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_14.04.html</a></p>
 
-<h3 id="配置ppp">配置ppp</h3>
+<h3 id="配置-ppp">配置 ppp</h3>
 
 <pre><code>
 $ vim /etc/ppp/options.xl2tpd
@@ -445,11 +460,11 @@ lcp-echo-failure 4
 </code></pre>
 
 <ul>
-<li><p>ms-dns: 提供给客户端的dns地址</p></li>
+<li><p>ms-dns: 提供给客户端的 dns 地址</p></li>
 
-<li><p>proxyarp：添加一个加密给系统ARP表(Add an entry to this systems ARP [Address Resolution Protocol] table with the IP address of the peer and the Ethernet address of this system. This will have the effect of making the peer appear to other systems to be on the local ethernet.)</p></li>
+<li><p>proxyarp：添加一个加密给系统 ARP 表(Add an entry to this systems ARP [Address Resolution Protocol] table with the IP address of the peer and the Ethernet address of this system. This will have the effect of making the peer appear to other systems to be on the local ethernet.)</p></li>
 
-<li><p>name l2tpd: 用于ppp认证文件给l2tpd</p></li>
+<li><p>name l2tpd: 用于 ppp 认证文件给 l2tpd</p></li>
 </ul>
 
 <h4 id="添加一个用户">添加一个用户</h4>
@@ -465,7 +480,7 @@ $ sudo vim /etc/ppp/chap-secrets
 
 <pre><code>
 
-/etc/init.d/ipsec restart 
+/etc/init.d/ipsec restart
 
 /etc/init.d/xl2tpd restart
 
@@ -519,16 +534,16 @@ Q/A：如有问题请慷慨提出</p>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/">
+              <a href="http://zhaox.xyz/posts/2017-01-19-coredump/">
                 <span class="button__icon">←</span>
-                <span class="button__text">制作并安装FastDFS的RPM程序包</span>
+                <span class="button__text">Linux系统异常-CoreDump详解</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
-                <span class="button__text">Linux用户、用户组及权限管理</span>
+              <a href="http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/">
+                <span class="button__text">aws-ec2-双网卡问题y</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

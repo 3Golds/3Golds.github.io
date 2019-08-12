@@ -125,7 +125,7 @@
         <span class="post-date">
           2017-11-09
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 2 min read</span>
         
@@ -144,12 +144,7 @@
 
       <div class="post-content">
         
-          
-            Zipkin是一个开源分布式的追踪系统 <a href="http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google">http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google</a> Dagger](<a href="http://research.google.com/pubs/pub36356.html)论文">http://research.google.com/pubs/pub36356.html)论文</a>
-架构 查看您的平台是否已经在instrumentation, 查看列表existing instrumentations
-示例流程 以下是User Code调用资源/foo的示例http跟踪序列，讲一个span在User Code收到http响应之后异步发送给zipkin
- ┌─────────────┐ ┌───────────────────────┐ ┌─────────────┐ ┌──────────────────┐ │ User Code │ │ Trace Instrumentation │ │ Http Client │ │ Zipkin Collector │ └─────────────┘ └───────────────────────┘ └─────────────┘ └──────────────────┘ │ │ │ │ ┌─────────┐ │ ──┤GET /foo ├─▶ │ ────┐ │ │ └─────────┘ │ record tags │ │ ◀───┘ │ │ ────┐ │ │ │ add trace headers │ │ ◀───┘ │ │ ────┐ │ │ │ record timestamp │ │ ◀───┘ │ │ ┌─────────────────┐ │ │ ──┤GET /foo ├─▶ │ │ │X-B3-TraceId: aa │ ────┐ │ │ │X-B3-SpanId: 6b │ │ │ │ └─────────────────┘ │ invoke │ │ │ │ request │ │ │ │ │ │ │ ┌────────┐ ◀───┘ │ │ ◀─────┤200 OK ├─────── │ │ ────┐ └────────┘ │ │ │ record duration │ │ ┌────────┐ ◀───┘ │ ◀──┤200 OK ├── │ │ │ └────────┘ ┌────────────────────────────────┐ │ │ ──┤ asynchronously report span ├────▶ │ │ │ │{ │ │ &quot;traceId&quot;: &quot;aa&quot;, │ │ &quot;id&quot;: &quot;6b&quot;, │ │ &quot;name&quot;: &quot;get&quot;, │ │ &quot;timestamp&quot;: 1483945573944000,│ │ &quot;duration&quot;: 386000, │ │ &quot;annotations&quot;: [ │ │&ndash;snip&ndash; │ └────────────────────────────────┘  Transport instrumentation(装配库)发送的Span必须由装配的服务传输到Collector。有三种主要的传输类型：HTTP、Scribe和Kafka.
-          
+          opentracing zipkin
         
       </div>
       <div><a class="read-more button" href="/posts/2017-11-09-opentracing-zipkin/">Read more →</a></div>

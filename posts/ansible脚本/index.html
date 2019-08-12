@@ -28,14 +28,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ansible脚本"/>
-<meta name="twitter:description" content="这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
- #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh	# like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &lt;&lt; EOF &#43;---------------------------------------&#43; | this is a ansible script | | from Altamob....... | &#43;--------------------------------------- EOF read -p &quot;pelease input your service name: &quot; SER read -p &quot;pelease input your hostgroup name: &quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;&gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}."/>
+<meta name="twitter:description" content="ansible shell"/>
 
 
 
 <meta property="og:title" content="ansible脚本" />
-<meta property="og:description" content="这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
- #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh	# like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &lt;&lt; EOF &#43;---------------------------------------&#43; | this is a ansible script | | from Altamob....... | &#43;--------------------------------------- EOF read -p &quot;pelease input your service name: &quot; SER read -p &quot;pelease input your hostgroup name: &quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;&gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}." />
+<meta property="og:description" content="ansible shell" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/" />
 <meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
@@ -225,16 +223,16 @@ cd /opt/;ansible-playbook ${SER}.yaml
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">
+              <a href="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Linux三剑客之grep</span>
+                <span class="button__text">Nginx&#43;PHP编译安装</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">
-                <span class="button__text">为什么你的Linux物理内存还有很多，却开始使用swap?</span>
+              <a href="http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <span class="button__text">python-快速改造：基础知识</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

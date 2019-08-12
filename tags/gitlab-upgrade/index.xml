@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gitlab-upgrade on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/gitlab-upgrade/</link>
+    <description>Recent content in gitlab-upgrade on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/gitlab-upgrade/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
+      <link>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <description>升级场景 由于公司要通过 gitlab 接入 ci 和 cd 功能，经测试一个 repo 不能正常使用，且 gitlab9.5 之后增加了很多新功能，比较吸引我们
+ GPG Commit Verification: GPG 密钥允许您验证签名提交
+ New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
+ Project Template: 新增了更多的项目模板
+ Automatic Retry for Failed CI Jobs：自动重试失败的 ci job
+ Automatically Monitor Auto Deployed Apps：自动监控自动部署应用程序
+ Merge Request Diff File Navigation：查看 merge request 时更清晰
+  更多的特性请查阅：https://about.gitlab.com/2017/08/22/gitlab-9-5-released/
+考虑的点及问题  1.postgresql 版本问题： 由于我们公司使用的是外部的 postgresql 和 redis，postgresql 的版本为 9.3，而 gitlab9.5.9 依赖 postgresql 9.6 以上的版本，所以在升级 gitlab 的时候他会升级数据库，但是我们是外部的(AWS RDS)，所以他并不能升级，会抛出异常。</description>
+    </item>
+    
+  </channel>
+</rss>

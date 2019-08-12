@@ -125,7 +125,7 @@
         <span class="post-date">
           2017-03-17
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 4 min read</span>
         
@@ -146,9 +146,7 @@
 
       <div class="post-content">
         
-          
-            AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user &ndash;user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy &ndash;user-name yum-repo-user &ndash;policy-name yum-repo-s3-Bucket-Access &ndash;policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Stmt1489722431765&quot;, &quot;Action&quot;: &quot;s3:*&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot; } ] }  4.查看其权限  $ aws iam list-user-policies &ndash;user-name yum-repo-user { &quot;PolicyNames&quot;: [ &quot;yum-repo-s3-Bucket-Access&quot; ] }  5.
-          
+          yum storage to amzon s3
         
       </div>
       <div><a class="read-more button" href="/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/">Read more →</a></div>

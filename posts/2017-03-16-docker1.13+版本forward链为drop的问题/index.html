@@ -6,15 +6,15 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content=" 本地网络容器访问漏洞 这个问题出现在docker的issue中
-其主要影响：允许与docker主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
-当docker启动时，它启用net.ipv4.ip_forward而不改变iptables FORWARD链默认策略DROP。这意味着与docker主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该docker主机上运行的任何容器。
-例如，如果docker0子网是172.17.0.0/16（默认子网），并且docker主机的IP地址是192.168.0.10，则从网络上的另一个主机运行：
- ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的IP地址和运行的服务。
-要解决这个问题，docker需要将FORWARD策略设置为DROP启用net.ipv4.ip_forwardsysctl参数。
-带来的其他问题 带来的问题主要出现在docker 配合kubernetes使用时，kubernetes的网络使用flannel，flannel可以使不同主机间的容器通信。如下图
-但是带来的问题是：一旦DROP后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
-1.将FORWARD改为ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2.仅允许flannel网段  $ iptables -I FORWARD -s 172.1.0.0/16 -j ACCEPT  3.在/usr/lib/systemd/system/docker.service中添加  [Service] #在这下面添加 ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT  "/>
+<meta name="description" content="本地网络容器访问漏洞 这个问题出现在 docker 的issue中
+其主要影响：允许与 docker 主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
+当 docker 启动时，它启用 net.ipv4.ip_forward 而不改变 iptables FORWARD 链默认策略 DROP。这意味着与 docker 主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该 docker 主机上运行的任何容器。
+例如，如果 docker0 子网是 172.17.0.0/16（默认子网），并且 docker 主机的 IP 地址是 192.168.0.10，则从网络上的另一个主机运行：
+ ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的 IP 地址和运行的服务。
+要解决这个问题，docker 需要将 FORWARD 策略设置为 DROP 启用 net.ipv4.ip_forwardsysctl 参数。
+带来的其他问题 带来的问题主要出现在 docker 配合 kubernetes 使用时，kubernetes 的网络使用 flannel，flannel 可以使不同主机间的容器通信。如下图
+但是带来的问题是：一旦 DROP 后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
+1.将 FORWARD 改为 ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/" />
@@ -35,28 +35,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker 1.13&#43; FORWARD链为DROP的问题"/>
-<meta name="twitter:description" content=" 本地网络容器访问漏洞 这个问题出现在docker的issue中
-其主要影响：允许与docker主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
-当docker启动时，它启用net.ipv4.ip_forward而不改变iptables FORWARD链默认策略DROP。这意味着与docker主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该docker主机上运行的任何容器。
-例如，如果docker0子网是172.17.0.0/16（默认子网），并且docker主机的IP地址是192.168.0.10，则从网络上的另一个主机运行：
- ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的IP地址和运行的服务。
-要解决这个问题，docker需要将FORWARD策略设置为DROP启用net.ipv4.ip_forwardsysctl参数。
-带来的其他问题 带来的问题主要出现在docker 配合kubernetes使用时，kubernetes的网络使用flannel，flannel可以使不同主机间的容器通信。如下图
-但是带来的问题是：一旦DROP后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
-1.将FORWARD改为ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2.仅允许flannel网段  $ iptables -I FORWARD -s 172.1.0.0/16 -j ACCEPT  3.在/usr/lib/systemd/system/docker.service中添加  [Service] #在这下面添加 ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT  "/>
+<meta name="twitter:description" content="Docker 安全漏洞"/>
 
 
 
 <meta property="og:title" content="docker 1.13&#43; FORWARD链为DROP的问题" />
-<meta property="og:description" content=" 本地网络容器访问漏洞 这个问题出现在docker的issue中
-其主要影响：允许与docker主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
-当docker启动时，它启用net.ipv4.ip_forward而不改变iptables FORWARD链默认策略DROP。这意味着与docker主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该docker主机上运行的任何容器。
-例如，如果docker0子网是172.17.0.0/16（默认子网），并且docker主机的IP地址是192.168.0.10，则从网络上的另一个主机运行：
- ip route add 172.17.0.0/16 via 192.168.0.10 nmap 172.17.0.0/16  上面将扫描主机上运行的容器，并报告找到的IP地址和运行的服务。
-要解决这个问题，docker需要将FORWARD策略设置为DROP启用net.ipv4.ip_forwardsysctl参数。
-带来的其他问题 带来的问题主要出现在docker 配合kubernetes使用时，kubernetes的网络使用flannel，flannel可以使不同主机间的容器通信。如下图
-但是带来的问题是：一旦DROP后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。
-1.将FORWARD改为ACCEPT  $ iptables -P FORWARD ACCEPT 这种方式不适合重启，一重启就需要修改  2.仅允许flannel网段  $ iptables -I FORWARD -s 172.1.0.0/16 -j ACCEPT  3.在/usr/lib/systemd/system/docker.service中添加  [Service] #在这下面添加 ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT  " />
+<meta property="og:description" content="Docker 安全漏洞" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/" />
 <meta property="article:published_time" content="2017-03-16T00:00:00+00:00" />
@@ -144,7 +128,7 @@
             2017-03-16
         </span>
       
-      <span class="post-author">— Written by Antony</span>
+      <span class="post-author">— Written by zhaoxin</span>
       
         <span class="post-read-time">— 1 min read</span>
       
@@ -154,8 +138,6 @@
       <span class="post-tags">
         
           #<a href="http://zhaox.xyz/tags/docker/">docker</a>&nbsp;
-        
-          #<a href="http://zhaox.xyz/tags/docker-forward-drop/">docker-forward-drop</a>&nbsp;
         
       </span>
     
@@ -167,13 +149,13 @@
 
 <h3 id="本地网络容器访问漏洞">本地网络容器访问漏洞</h3>
 
-<p>这个问题出现在docker的<a href="https://github.com/docker/docker/issues/14041">issue</a>中</p>
+<p>这个问题出现在 docker 的<a href="https://github.com/docker/docker/issues/14041">issue</a>中</p>
 
-<p>其主要影响：允许与docker主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。</p>
+<p>其主要影响：允许与 docker 主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。</p>
 
-<p>当docker启动时，它启用net.ipv4.ip_forward而不改变iptables FORWARD链默认策略DROP。这意味着与docker主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该docker主机上运行的任何容器。</p>
+<p>当 docker 启动时，它启用 net.ipv4.ip_forward 而不改变 iptables FORWARD 链默认策略 DROP。这意味着与 docker 主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该 docker 主机上运行的任何容器。</p>
 
-<p><strong>例如，如果docker0子网是172.17.0.0/16（默认子网），并且docker主机的IP地址是192.168.0.10，则从网络上的另一个主机运行：</strong></p>
+<p><strong>例如，如果 docker0 子网是 172.17.0.0/16（默认子网），并且 docker 主机的 IP 地址是 192.168.0.10，则从网络上的另一个主机运行：</strong></p>
 
 <pre><code>
 ip route add 172.17.0.0/16 via 192.168.0.10
@@ -182,19 +164,19 @@ nmap 172.17.0.0/16
 
 </code></pre>
 
-<p>上面将扫描主机上运行的容器，并报告找到的IP地址和运行的服务。</p>
+<p>上面将扫描主机上运行的容器，并报告找到的 IP 地址和运行的服务。</p>
 
-<p>要解决这个问题，docker需要将FORWARD策略设置为DROP启用net.ipv4.ip_forwardsysctl参数。</p>
+<p>要解决这个问题，docker 需要将 FORWARD 策略设置为 DROP 启用 net.ipv4.ip_forwardsysctl 参数。</p>
 
 <h3 id="带来的其他问题">带来的其他问题</h3>
 
-<p>带来的问题主要出现在docker 配合kubernetes使用时，kubernetes的网络使用flannel，flannel可以使不同主机间的容器通信。如下图</p>
+<p>带来的问题主要出现在 docker 配合 kubernetes 使用时，kubernetes 的网络使用 flannel，flannel 可以使不同主机间的容器通信。如下图</p>
 
 <p><img src="http://obbogqhb1.bkt.clouddn.com/docker-bug.png" alt="docker-forward-drop" /></p>
 
-<p>但是带来的问题是：一旦DROP后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。</p>
+<p>但是带来的问题是：一旦 DROP 后，不同主机间就不能正常通信了，为了保证其能正常通信，可以选择三种方案。</p>
 
-<h4 id="1-将forward改为accept">1.将FORWARD改为ACCEPT</h4>
+<h4 id="1-将-forward-改为-accept">1.将 FORWARD 改为 ACCEPT</h4>
 
 <pre><code>
 $ iptables -P FORWARD ACCEPT
@@ -203,14 +185,14 @@ $ iptables -P FORWARD ACCEPT
 
 </code></pre>
 
-<h4 id="2-仅允许flannel网段">2.仅允许flannel网段</h4>
+<h4 id="2-仅允许-flannel-网段">2.仅允许 flannel 网段</h4>
 
 <pre><code>
 $ iptables -I FORWARD -s 172.1.0.0/16 -j ACCEPT
 
 </code></pre>
 
-<h4 id="3-在-usr-lib-systemd-system-docker-service中添加">3.在/usr/lib/systemd/system/docker.service中添加</h4>
+<h4 id="3-在-usr-lib-systemd-system-docker-service-中添加">3.在/usr/lib/systemd/system/docker.service 中添加</h4>
 
 <pre><code>
 [Service] #在这下面添加

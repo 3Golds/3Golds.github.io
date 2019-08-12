@@ -121,7 +121,7 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/">Golang 常量</a></h1>
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/">Golang 常量</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2017-12-14
@@ -145,10 +145,10 @@
 
       <div class="post-content">
         
-          
+          golang <code>const</code>
         
       </div>
-      <div><a class="read-more button" href="/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/golang-%E5%B8%B8%E9%87%8F/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
@@ -176,30 +176,19 @@
 
       <div class="post-content">
         
-          
-            for 循环 在 Go 中，只有一种循环结构 &mdash;&gt; for循环
-基本的for循环包含三个由分号分开的组成部分：
- 初始化语句：在第一次循环执行前被执行
- 循环条件表达式：每轮迭代开始前被求值
- 后置语句：每轮迭代后被执行
-  初始化语句一般是一个短变量声明，这里声明的变量仅在整个for循环语句可见。
-如果条件表达式的值变为false，那么迭代将终止。
-注意：不像 C，Java，或者 Javascript 等其他语言，for 语句的三个组成部分 并不需要用括号括起来，但循环体必须用 { } 括起来。
-package main import &quot;fmt&quot; func main() { sum := 0 for i := 0; i &lt; 10; i++ { sum += i } fmt.Println(sum) }  for 的另一种格式 循环初始化语句和后置语句都是可选的
-package main import &quot;fmt&quot; func main() { sum := 1 for ; sum &lt; 1000; { sum += sum } fmt.
-          
+          介绍golang的 <code>for</code>, <code>if</code>, <code>else</code>, <code>switch</code>
         
       </div>
       <div><a class="read-more button" href="/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/">初识Go</a></h1>
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/">Golang 常量</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2017-12-05
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 4 min read</span>
         
@@ -218,18 +207,10 @@ package main import &quot;fmt&quot; func main() { sum := 1 for ; sum &lt; 1000; 
 
       <div class="post-content">
         
-          
-            Go 介绍 Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。
-Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。
-罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
-受欢迎程度 截止目前为止，越来越多的开发者开始使用 GO，并喜欢用 Go，目前在 Github 统计中，Go 排名第 9
-最受欢迎的 5 种语言和最想使用的语言之一 来源: <a href="https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted">https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted</a>
-Go 是云基础架构语言 每个云计算公司都在用 Go 实现云基础架构关键组件，包括 Google Cloud, AWS, Microsoft Azure, DigitalOcean, Heroku。Go 是阿里巴巴，cloudflare 和 Drobox 等云计算公司的重要组成部分
-Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行，举几个常见并且正在用的例子
-          
+          golang 简介
         
       </div>
-      <div><a class="read-more button" href="/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/%E5%88%9D%E8%AF%86golang/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
@@ -238,7 +219,7 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
         <span class="post-date">
           2017-11-09
         </span>
-        <span class="post-author">— Written by Antony</span>
+        <span class="post-author">— Written by zhaoxin</span>
         
           <span class="post-read-time">— 2 min read</span>
         
@@ -257,19 +238,14 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
 
       <div class="post-content">
         
-          
-            Zipkin是一个开源分布式的追踪系统 <a href="http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google">http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google</a> Dagger](<a href="http://research.google.com/pubs/pub36356.html)论文">http://research.google.com/pubs/pub36356.html)论文</a>
-架构 查看您的平台是否已经在instrumentation, 查看列表existing instrumentations
-示例流程 以下是User Code调用资源/foo的示例http跟踪序列，讲一个span在User Code收到http响应之后异步发送给zipkin
- ┌─────────────┐ ┌───────────────────────┐ ┌─────────────┐ ┌──────────────────┐ │ User Code │ │ Trace Instrumentation │ │ Http Client │ │ Zipkin Collector │ └─────────────┘ └───────────────────────┘ └─────────────┘ └──────────────────┘ │ │ │ │ ┌─────────┐ │ ──┤GET /foo ├─▶ │ ────┐ │ │ └─────────┘ │ record tags │ │ ◀───┘ │ │ ────┐ │ │ │ add trace headers │ │ ◀───┘ │ │ ────┐ │ │ │ record timestamp │ │ ◀───┘ │ │ ┌─────────────────┐ │ │ ──┤GET /foo ├─▶ │ │ │X-B3-TraceId: aa │ ────┐ │ │ │X-B3-SpanId: 6b │ │ │ │ └─────────────────┘ │ invoke │ │ │ │ request │ │ │ │ │ │ │ ┌────────┐ ◀───┘ │ │ ◀─────┤200 OK ├─────── │ │ ────┐ └────────┘ │ │ │ record duration │ │ ┌────────┐ ◀───┘ │ ◀──┤200 OK ├── │ │ │ └────────┘ ┌────────────────────────────────┐ │ │ ──┤ asynchronously report span ├────▶ │ │ │ │{ │ │ &quot;traceId&quot;: &quot;aa&quot;, │ │ &quot;id&quot;: &quot;6b&quot;, │ │ &quot;name&quot;: &quot;get&quot;, │ │ &quot;timestamp&quot;: 1483945573944000,│ │ &quot;duration&quot;: 386000, │ │ &quot;annotations&quot;: [ │ │&ndash;snip&ndash; │ └────────────────────────────────┘  Transport instrumentation(装配库)发送的Span必须由装配的服务传输到Collector。有三种主要的传输类型：HTTP、Scribe和Kafka.
-          
+          opentracing zipkin
         
       </div>
       <div><a class="read-more button" href="/posts/2017-11-09-opentracing-zipkin/">Read more →</a></div>
     </div>
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-10-27-aws-elb-502/">解决 AWS ELB 偶发的 502 Bad Gateway 错误</a></h1>
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/aws-elb-502/">解决 AWS ELB 偶发的 502 Bad Gateway 错误</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2017-10-30
@@ -293,16 +269,76 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
 
       <div class="post-content">
         
-          
-            问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
-HTTP 数据流向如下：
- [Client] &mdash; [ELB] &mdash; [nginx] &mdash; [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
-先补充一个知识：如果后端支持的话，ELB 会使用保持连接（HTTP persistent/keep-alive connections）。来看看这一个保持连接的 TCP stream：
-其中，10.100.2.186 是 ELB 内部 IP，10.
-          
+          AWS ELB 502 Error
         
       </div>
-      <div><a class="read-more button" href="/posts/2017-10-27-aws-elb-502/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/aws-elb-502/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/">Gitlab omnibus 8.15.1 upgrade to 9.5.9</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-10-27
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/gitlab/">gitlab</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/gitlab-upgrade/">gitlab-upgrade</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          gitlab <code>8.15.1</code> 升级到 <code>9.5.9</code>
+        
+      </div>
+      <div><a class="read-more button" href="/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/">七个对我最重要的职业建议-译文</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-06-09
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/">思想</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/%E4%BA%BA%E7%94%9F/">人生</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          做一个有趣的人
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/">Read more →</a></div>
     </div>
     
     <div class="pagination">
