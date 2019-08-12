@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="VPN原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
+http://www.china-ccie.com/doc/vpn/vpn.html
+Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl."/>
+<meta name="keywords" content="vpn,ipsec,l2tp"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp"/>
+<meta name="twitter:description" content="Ipsec vpn"/>
+
+
+
+<meta property="og:title" content="IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp" />
+<meta property="og:description" content="Ipsec vpn" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/" />
+<meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/">IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</a></h2>
+    <div class="post-meta">
+      
+      
+      
+        <span class="post-read-time">— 3 min read</span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="vpn原理">VPN原理</h3>
+
+<p><a href="http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary">http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary</a></p>
+
+<p><a href="http://www.china-ccie.com/doc/vpn/vpn.html">http://www.china-ccie.com/doc/vpn/vpn.html</a></p>
+
+<h3 id="install-ppp-openswan-and-xl2tpd">Install ppp openswan and xl2tpd</h3>
+
+<pre><code>
+$ sudo apt-get install openswan xl2tpd ppp lsof
+
+</code></pre>
+
+<h3 id="firewall-and-sysctl">Firewall and sysctl</h3>
+
+<h4 id="配置一条防火墙语句">配置一条防火墙语句</h4>
+
+<pre><code>
+iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE
+
+</code></pre>
+
+<h4 id="启用内核转发和禁用icp-redirects">启用内核转发和禁用ICP redirects</h4>
+
+<pre><code>
+echo &quot;net.ipv4.ip_forward = 1&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.conf.all.accept_redirects = 0&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.conf.all.send_redirects = 0&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.conf.default.rp_filter = 0&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.conf.default.accept_source_route = 0&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.conf.default.send_redirects = 0&quot; |  tee -a /etc/sysctl.conf
+
+echo &quot;net.ipv4.icmp_ignore_bogus_error_responses = 1&quot; |  tee -a /etc/sysctl.conf
+
+</code></pre>
+
+<h4 id="设置如下参数到其他网络接口">设置如下参数到其他网络接口</h4>
+
+<pre><code>
+$ for vpn in /proc/sys/net/ipv4/conf/*; do echo 0 &gt; $vpn/accept_redirects; echo 0 &gt; $vpn/send_redirects; done
+$ sysctl -p
+
+</code></pre>
+
+<h4 id="设置重启后执行-etc-rc-local">设置重启后执行<code>/etc/rc.local</code></h4>
+
+<pre><code>
+$ sudo vim /etc/rc.local
+
+for vpn in /proc/sys/net/ipv4/conf/*; do echo 0 &gt; $vpn/accept_redirects; echo 0 &gt; $vpn/send_redirects; done
+
+
+
+iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE
+
+</code></pre>
+
+<h3 id="配置-openswan-ipsec">配置 Openswan(IPSEC)</h3>
+
+<p>使用你的编辑器打开ipsec的配置文件</p>
+
+<pre><code>
+/etc/ipsec.conf
+
+</code></pre>
+
+<p>配置如下</p>
+
+<pre><code>
+config setup
+
+      nat_traversal=yes
+
+      virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12,%v4:!10.152.2.0/24
+
+      # 这里包含的网络地址允许配置为远程客户端所在的子网。换句话说，
+
+      # 这些地址范围应该是你的NAT路由器后面的客户端的地址。
+
+      oe=off
+
+      protostack=netkey
+
+
+
+conn L2TP-PSK-NAT
+
+      rightsubnet=vhost:%priv
+
+      also=L2TP-PSK-noNAT
+
+
+
+conn L2TP-PSK-noNAT
+
+      authby=secret
+
+      pfs=no
+
+      auto=add
+
+      keyingtries=3
+
+      rekey=no
+
+      # Apple 的 iOS 不会发送 delete 提醒，
+
+      # 所以我们需要通过死亡对端（dead peer）检测来识别断掉的客户端
+
+      dpddelay=30
+
+      dpdtimeout=120
+
+      dpdaction=clear
+
+      # 设置 ikelifetime 和 keylife 和 Windows 的默认设置一致
+
+      ikelifetime=8h
+
+      keylife=1h
+
+      type=transport
+
+      # 替换 IP 地址为你的本地IP （一般是，私有地址、NAT内的地址）
+
+      left=10.100.1.217
+
+      # 用于升级过的 Windows 2000/XP 客户端
+
+      leftprotoport=17/1701
+
+      # 要支持老的客户端，需要设置 leftprotoport=17/%any
+
+      right=%any
+
+      rightprotoport=17/%any
+
+      # 强制所有连接都NAT，因为 iOS
+
+      forceencaps=yes
+
+</code></pre>
+
+<p>通过如下命令可以获取你本地的网络ip(当然，是外网ip，如果你想使用内网ip，请忽略)</p>
+
+<pre><code>
+curl ifconfig.me
+
+# 或者
+
+curl http://ip.mtak.nl
+
+</code></pre>
+
+<h4 id="配置共享密钥">配置共享密钥</h4>
+
+<p><code>/etc/ipsec.secrets</code> file,确保其长度够</p>
+
+<pre><code>
+%SERVER_IP%  %any  : PSK &quot;BC2BCKALFJKAJFKAMCJKFKSJKNCMZJKAK443&quot;
+
+</code></pre>
+
+<p>如果你想生成一个random key，使用openssl命令</p>
+
+<pre><code>
+$ sudo openssl rand -hex 30
+
+39651bbc2c459109410b3b28e3507d27799feb5e8e0dc25532d29274abb7
+
+</code></pre>
+
+<h4 id="校验ipsec设置">校验ipsec设置</h4>
+
+<pre><code>
+ipsec verify
+
+Verifying installed system and configuration files
+
+
+
+Version check and ipsec on-path                   	[OK]
+
+Libreswan 3.18 (netkey) on 3.13.0-101-generic
+
+Checking for IPsec support in kernel              	[OK]
+
+ NETKEY: Testing XFRM related proc values
+
+         ICMP default/send_redirects              	[OK]
+
+         ICMP default/accept_redirects            	[OK]
+
+         XFRM larval drop                         	[OK]
+
+Pluto ipsec.conf syntax                           	[OK]
+
+Hardware random device                            	[N/A]
+
+Two or more interfaces found, checking IP forwarding	[OK]
+
+Checking rp_filter                                	[OK]
+
+Checking that pluto is running                    	[OK]
+
+ Pluto listening for IKE on udp 500               	[OK]
+
+ Pluto listening for IKE/NAT-T on udp 4500        	[OK]
+
+ Pluto ipsec.secret syntax                        	[OK]
+
+Checking 'ip' command                             	[OK]
+
+Checking 'iptables' command                       	[OK]
+
+Checking 'prelink' command does not interfere with FIPSChecking for obsolete ipsec.conf options          	[OK]
+
+Opportunistic Encryption                          	[DISABLED]
+
+</code></pre>
+
+<h3 id="配置-xl2tpd">配置 xl2tpd</h3>
+
+<p><code>/etc/xl2tpd/xl2tpd.conf</code> 配置文件</p>
+
+<h4 id="修改其配置">修改其配置</h4>
+
+<pre><code>
+[global]
+
+ipsec saref = no
+
+
+
+[lns default]
+
+ip range = 10.0.1.230-10.0.1.240
+
+local ip = 10.0.1.217
+
+require chap = yes
+
+refuse pap = yes
+
+require authentication = yes
+
+ppp debug = yes
+
+pppoptfile = /etc/ppp/options.xl2tpd
+
+length bit = yes
+
+</code></pre>
+
+<ul>
+<li><p>ip range = 主要提供给连接的客户端使用</p></li>
+
+<li><p>local ip = vpn server ip</p></li>
+
+<li><p>refuse pap = refuse pap认证</p></li>
+
+<li><p>ppp debug = yes 测试的时候使用，不要再生产使用</p></li>
+</ul>
+
+<p>其他认证方式：<a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_14.04.html">https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_14.04.html</a></p>
+
+<h3 id="配置ppp">配置ppp</h3>
+
+<pre><code>
+$ vim /etc/ppp/options.xl2tpd
+
+refuse-mschap-v2
+
+refuse-mschap
+
+ms-dns 114.114.114.114
+
+ms-dns 202.106.0.20
+
+asyncmap 0
+
+auth
+
+crtscts
+
+idle 1800
+
+mtu 1200
+
+mru 1200
+
+lock
+
+hide-password
+
+local
+
+#debug
+
+name l2tpd
+
+proxyarp
+
+lcp-echo-interval 30
+
+lcp-echo-failure 4
+
+</code></pre>
+
+<ul>
+<li><p>ms-dns: 提供给客户端的dns地址</p></li>
+
+<li><p>proxyarp：添加一个加密给系统ARP表(Add an entry to this systems ARP [Address Resolution Protocol] table with the IP address of the peer and the Ethernet address of this system. This will have the effect of making the peer appear to other systems to be on the local ethernet.)</p></li>
+
+<li><p>name l2tpd: 用于ppp认证文件给l2tpd</p></li>
+</ul>
+
+<h4 id="添加一个用户">添加一个用户</h4>
+
+<pre><code>
+$ sudo vim /etc/ppp/chap-secrets
+
+&quot;test&quot; l2tpd &quot;test@123..$$_@&quot; *
+
+</code></pre>
+
+<h3 id="重启服务并测试">重启服务并测试</h3>
+
+<pre><code>
+
+/etc/init.d/ipsec restart 
+
+/etc/init.d/xl2tpd restart
+
+</code></pre>
+
+<p>日志存储路径</p>
+
+<pre><code>
+/var/log/syslog
+
+/var/log/auth.log
+
+</code></pre>
+
+<h3 id="其他平台配置">其他平台配置</h3>
+
+<ul>
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_vpn_with_CentOS_7.html">CentOS 7, Scientific Linux 7 or Red Hat Enterprise Linux 7 (IKEv2,no L2TP)</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_on_CentOS_-_Red_Hat_Enterprise_Linux_or_Scientific_-_Linux_6.html">CentOS 6, Scientific Linux 6 or Red Hat Enterprise Linux 6</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_on_a_Raspberry_Pi_with_Arch_Linux.html">Raspberry Pi with Arch Linux ARM</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_vpn_with_Ubuntu_16.04.html">Ubuntu 16.04, (IKEv2,no L2TP)</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_vpn_with_Ubuntu_15.10.html">Ubuntu 15.10, (IKEv2,no L2TP)</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_vpn_with_Ubuntu_15.04.html">Ubuntu 15.04, (IKEv2,no L2TP)</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_13.10.html">Ubuntu 13.10</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_13.04.html">Ubuntu 13.04</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_12.10.html">Ubuntu 12.10</a></p></li>
+
+<li><p><a href="https://raymii.org/s/tutorials/IPSEC_L2TP_vpn_with_Ubuntu_12.04.html">Ubuntu 12.04 LTS</a></p></li>
+</ul>
+
+<blockquote>
+<p>作者：<code>Antony</code> WX&amp;QQ：<code>1257465991</code>
+Q/A：如有问题请慷慨提出</p>
+</blockquote>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/">
+                <span class="button__icon">←</span>
+                <span class="button__text">制作并安装FastDFS的RPM程序包</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                <span class="button__text">Linux用户、用户组及权限管理</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Golang 常量 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=" 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
+常量定义 通过 const 关键字定义，有以下三种方式
+ const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
+ const ( c0 = iota // iota被重设为0 c1 = iota // c1 = 1 c2 // c2 = 2 )  "/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 常量"/>
+<meta name="twitter:description" content=" 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
+常量定义 通过 const 关键字定义，有以下三种方式
+ const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
+ const ( c0 = iota // iota被重设为0 c1 = iota // c1 = 1 c2 // c2 = 2 )  "/>
+
+
+
+<meta property="og:title" content="Golang 常量" />
+<meta property="og:description" content=" 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
+常量定义 通过 const 关键字定义，有以下三种方式
+ const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
+ const ( c0 = iota // iota被重设为0 c1 = iota // c1 = 1 c2 // c2 = 2 )  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/" />
+<meta property="article:published_time" content="2017-12-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-14T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/">Golang 常量</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-12-14
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 1 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/go/">go</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<p>在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。</p>
+
+<h3 id="常量定义">常量定义</h3>
+
+<p>通过 const 关键字定义，有以下三种方式</p>
+
+<pre><code>
+const v int = 8989
+
+const fu = 0.2
+
+const (
+
+    long int64 = 2048
+
+    size = -1
+
+)
+
+</code></pre>
+
+<h3 id="预定义常量">预定义常量</h3>
+
+<p>Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。</p>
+
+<pre><code>
+const (
+
+	c0 = iota    // iota被重设为0
+
+	c1 = iota    // c1 = 1
+
+	c2           // c2 = 2
+
+)
+
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/">
+                <span class="button__text">Golang 流程控制语句(for、if、else、switch)</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

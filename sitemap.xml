@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://zhaox.xyz/about/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/</loc>
+    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-12-14-golang-%E5%B8%B8%E9%87%8F/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/go/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-12-05-%E5%88%9D%E8%AF%86golang/</loc>
+    <lastmod>2017-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</loc>
+    <lastmod>2017-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/opentracing/</loc>
+    <lastmod>2017-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/aws/</loc>
+    <lastmod>2017-10-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-10-27-aws-elb-502/</loc>
+    <lastmod>2017-10-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/gitlab/</loc>
+    <lastmod>2017-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</loc>
+    <lastmod>2017-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/%E4%BA%BA%E7%94%9F/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-06-09-%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/nginx/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/nginx-conf/</loc>
+    <lastmod>2017-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/aws-s3/</loc>
+    <lastmod>2017-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/yum/</loc>
+    <lastmod>2017-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</loc>
+    <lastmod>2017-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/docker/</loc>
+    <lastmod>2017-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-03-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/docker-forward-drop/</loc>
+    <lastmod>2017-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</loc>
+    <lastmod>2017-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/docker-ee/</loc>
+    <lastmod>2017-03-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/cow/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/ss/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</loc>
+    <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/aws-ebs/</loc>
+    <lastmod>2017-02-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/</loc>
+    <lastmod>2017-02-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
+    <lastmod>2017-02-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</loc>
+    <lastmod>2017-02-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</loc>
+    <lastmod>2017-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/ruby/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/shell/</loc>
+    <lastmod>2017-01-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</loc>
+    <lastmod>2017-01-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/fastdfs/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/fastdfs-unti-for-systemd/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/git/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/linux/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/ansible/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/filesystem/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/git/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/grep/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/memory/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/tags/swap/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/aws/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/linux/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-19-coredump/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/nginx/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-07-ss-client-config/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/vpn/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/cate1/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/cate2/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/python/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/categories/ssss-client/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://zhaox.xyz/posts/template/</loc>
+  </url>
+  
+</urlset>

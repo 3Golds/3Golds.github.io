@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Yahoo-screwdriver开源了 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=" screwdriver 介绍 screwdriver 是yahoo开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
+这应该是目前最完整拥有CI(持续集成Continuous integration)和CD(持续交付Continuous delivery)的专案.
+ 官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)
+ 2.优化主干开发(Optimizing for trunk development)
+ 3.回滚更加容易(Making rolling back easy)
+  详情请阅:yahooeng.tumblr.com
+Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cluster-management/
+组件:  1.REST API(与流水线协同工作的接口)
+ 2.Web UI(用于流水线API的可视化接口)
+ 3.Launcher（启动器）: 设置环境并执行shell命令的工具
+ 4.Execution Engine（执行引擎）：可插拔的构建执行器，支持在容器（Jenkins、Kubernetes、Mesos、Docker Swarm）内执行命令。
+ 5.Datastore（数据存储）：可插拔的NoSQL存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。
+   作者：Antony WX&amp;amp;QQ：1257465991 Q/A：如有问题请慷慨提出
+ "/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Yahoo-screwdriver开源了"/>
+<meta name="twitter:description" content=" screwdriver 介绍 screwdriver 是yahoo开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
+这应该是目前最完整拥有CI(持续集成Continuous integration)和CD(持续交付Continuous delivery)的专案.
+ 官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)
+ 2.优化主干开发(Optimizing for trunk development)
+ 3.回滚更加容易(Making rolling back easy)
+  详情请阅:yahooeng.tumblr.com
+Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cluster-management/
+组件:  1.REST API(与流水线协同工作的接口)
+ 2.Web UI(用于流水线API的可视化接口)
+ 3.Launcher（启动器）: 设置环境并执行shell命令的工具
+ 4.Execution Engine（执行引擎）：可插拔的构建执行器，支持在容器（Jenkins、Kubernetes、Mesos、Docker Swarm）内执行命令。
+ 5.Datastore（数据存储）：可插拔的NoSQL存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。
+   作者：Antony WX&amp;QQ：1257465991 Q/A：如有问题请慷慨提出
+ "/>
+
+
+
+<meta property="og:title" content="Yahoo-screwdriver开源了" />
+<meta property="og:description" content=" screwdriver 介绍 screwdriver 是yahoo开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
+这应该是目前最完整拥有CI(持续集成Continuous integration)和CD(持续交付Continuous delivery)的专案.
+ 官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)
+ 2.优化主干开发(Optimizing for trunk development)
+ 3.回滚更加容易(Making rolling back easy)
+  详情请阅:yahooeng.tumblr.com
+Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cluster-management/
+组件:  1.REST API(与流水线协同工作的接口)
+ 2.Web UI(用于流水线API的可视化接口)
+ 3.Launcher（启动器）: 设置环境并执行shell命令的工具
+ 4.Execution Engine（执行引擎）：可插拔的构建执行器，支持在容器（Jenkins、Kubernetes、Mesos、Docker Swarm）内执行命令。
+ 5.Datastore（数据存储）：可插拔的NoSQL存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。
+   作者：Antony WX&amp;QQ：1257465991 Q/A：如有问题请慷慨提出
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/" />
+<meta property="article:published_time" content="2017-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-02-08T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/">Yahoo-screwdriver开源了</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-02-08
+        </span>
+      
+      <span class="post-author">— Written by Antony</span>
+      
+        <span class="post-read-time">— 1 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">CI(持续集成)</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/">CD(持续交付)</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="screwdriver-介绍">screwdriver 介绍</h3>
+
+<p><strong>screwdriver 是yahoo开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.</strong></p>
+
+<p><strong>这应该是目前最完整拥有CI(持续集成Continuous integration)和CD(持续交付Continuous delivery)的专案.</strong></p>
+
+<ul>
+<li><strong>官网</strong>: <a href="http://screwdriver.cd/">http://screwdriver.cd/</a></li>
+<li><strong>Doc</strong>: <a href="http://docs.screwdriver.cd/user-guide/quickstart/">http://docs.screwdriver.cd/user-guide/quickstart/</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/screwdriver-cd">https://github.com/screwdriver-cd</a></li>
+<li><strong>Docker</strong>: <a href="https://hub.docker.com/u/screwdrivercd/">https://hub.docker.com/u/screwdrivercd/</a></li>
+</ul>
+
+<h4 id="特色">特色</h4>
+
+<ul>
+<li><p>1.使部署通道更容易 (Making deployment pipelines easy)</p></li>
+
+<li><p>2.优化主干开发(Optimizing for trunk development)</p></li>
+
+<li><p>3.回滚更加容易(Making rolling back easy)</p></li>
+</ul>
+
+<p>详情请阅:<a href="https://yahooeng.tumblr.com/post/155765242061/open-sourcing-screwdriver-yahoos-continuous">yahooeng.tumblr.com</a></p>
+
+<h3 id="screwdrive-架构和开发流程">Screwdrive 架构和开发流程</h3>
+
+<p>详情请查看：<a href="http://docs.screwdriver.cd/cluster-management/">http://docs.screwdriver.cd/cluster-management/</a></p>
+
+<h4 id="组件">组件:</h4>
+
+<ul>
+<li><p><strong>1.REST API</strong>(与流水线协同工作的接口)</p></li>
+
+<li><p><strong>2.Web UI</strong>(用于流水线API的可视化接口)</p></li>
+
+<li><p><strong>3.Launcher</strong>（启动器）: 设置环境并执行shell命令的工具</p></li>
+
+<li><p><strong>4.Execution Engine</strong>（执行引擎）：可插拔的构建执行器，支持在容器（Jenkins、Kubernetes、Mesos、Docker Swarm）内执行命令。</p></li>
+
+<li><p><strong>5.Datastore</strong>（数据存储）：可插拔的NoSQL存储，用于维护流水线配置数据（DynamoDB、MongoDB、CouchDB、Postgres）。执行引擎和数据存储都使用了可插拔的架构，使得用户可按自身意向选用引擎。</p></li>
+</ul>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/yahoo.png" alt="Yahho png" /></p>
+
+<blockquote>
+<p>作者：Antony WX&amp;QQ：1257465991
+Q/A：如有问题请慷慨提出</p>
+</blockquote>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">
+                <span class="button__icon">←</span>
+                <span class="button__text">AWS EBS 在线扩容</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/">
+                <span class="button__text">Gitlab-Omnibus</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

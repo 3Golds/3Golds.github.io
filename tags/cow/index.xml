@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cow on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/cow/</link>
+    <description>Recent content in cow on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/cow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>COW (Climb Over the Wall) Proxy</title>
+      <link>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</guid>
+      <description>COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
+ 功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
+ 作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
+ 支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
+ 可使用多个二级代理，支持简单的负载均衡
+ 自动检测网站是否被墙，仅对被墙网站使用二级代理
+ 自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
+ 内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
+  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 `COW_INSTALLDIR` 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/.</description>
+    </item>
+    
+    <item>
+      <title>Cow-rc-样例配置文件</title>
+      <link>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description># 配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = http://127.0.0.1:7777 # # 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0.</description>
+    </item>
+    
+  </channel>
+</rss>

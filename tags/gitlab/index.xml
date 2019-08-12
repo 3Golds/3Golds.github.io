@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitlab on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/gitlab/</link>
+    <description>Recent content in Gitlab on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
+      <link>http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <description>升级场景 由于公司要通过gitlab接入ci和cd功能，经测试一个repo不能正常使用，且gitlab9.5之后增加了很多新功能，比较吸引我们
+ GPG Commit Verification: GPG密钥允许您验证签名提交
+ New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
+ Project Template: 新增了更多的项目模板
+ Automatic Retry for Failed CI Jobs：自动重试失败的ci job
+ Automatically Monitor Auto Deployed Apps：自动监控自动部署应用程序
+ Merge Request Diff File Navigation：查看merge request时更清晰
+  更多的特性请查阅：https://about.gitlab.com/2017/08/22/gitlab-9-5-released/
+考虑的点及问题  1.postgresql版本问题： 由于我们公司使用的是外部的postgresql和redis，postgresql的版本为9.3，而gitlab9.5.9依赖postgresql 9.6以上的版本，所以在升级gitlab的时候他会升级数据库，但是我们是外部的(AWS RDS)，所以他并不能升级，会抛出异常。
+ 2.postgresql的表结构问题：在升级期间，由于版本变化比较大，所以会涉及表结构及表字段的更改，如果使用外部的postgresql，可能会导致不成功
+ 3.gitlab有可能升级失败，失败后必须理解还原，且不影响线上数据
+  解决方案 根据上述问题，新启动一台实例，首先保持和线上的版本相同，其次将线上的数据还原到这台实例，然后在将新启动的实例进行升级，不过在这其中有几个点必须注意：
+ 1.新启动的实例必须使用本地的postgresql和redis
+ 2.必须将线上的postgresql的数据还原到当前实例的postgresql
+ 3.当前实例上面的psql和pg_dump工具必须和线上版本保持一致(AWS RDS POSTGRESQL)
+ 4.在测试期间，绝对不能和线上使用同一个redis，必须保持redis只有一个connect
+ 5.在gitlab还原数据的时候，其必须在running状态
+  实施步骤 一、新实例安装线上同版本gitlab  $ curl -s https://packages.</description>
+    </item>
+    
+    <item>
+      <title>Gitlab-Omnibus</title>
+      <link>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</link>
+      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
+      <description>一、Gitlab简介 组件说明
+ 前端：Nginx，用于页面及Git tool走http或https协议
+ 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
+ SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
+ 数据库：目前仅支持MySQL和PostgreSQL
+ Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+  版本说明
+ CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
+ OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
+ EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
+  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
+sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
+https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab</description>
+    </item>
+    
+  </channel>
+</rss>

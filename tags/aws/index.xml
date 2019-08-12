@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/aws/</link>
+    <description>Recent content in aws on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决 AWS ELB 偶发的 502 Bad Gateway 错误</title>
+      <link>http://zhaox.xyz/posts/2017-10-27-aws-elb-502/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-10-27-aws-elb-502/</guid>
+      <description>问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
+HTTP 数据流向如下：
+ [Client] --- [ELB] --- [nginx] --- [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
+先补充一个知识：如果后端支持的话，ELB 会使用保持连接（HTTP persistent/keep-alive connections）。来看看这一个保持连接的 TCP stream：
+其中，10.100.2.186 是 ELB 内部 IP，10.</description>
+    </item>
+    
+    <item>
+      <title>AWS EBS 在线扩容</title>
+      <link>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
+      <description>AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+ growpart /dev/xvdf 1  parted
+ GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used.</description>
+    </item>
+    
+  </channel>
+</rss>

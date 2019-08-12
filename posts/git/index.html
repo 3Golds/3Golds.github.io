@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Git基础 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="一、git install  Ubuntu sudo apt-get install git Centos yum install git Mac brew install git  二、git initialization configure  git config --global user.name &amp;quot;Your Name&amp;quot; git config --global user.email &amp;quot;email@example.com&amp;quot;  注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址 三、git create repository  git 版本库，也叫仓库，英文为repository，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。  1、创建一个目录  $ mkdir gitrepo $ cd gitrepo $ pwd /Users/antony/gitrepo  注意：目录不要包含中文
+2、通过 git init 命令把这个目录变成 Git 可以管理的仓库  $ git init Initialized empty Git repository in /Users/antony/gitrepo/."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/git/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git基础"/>
+<meta name="twitter:description" content="一、git install  Ubuntu sudo apt-get install git Centos yum install git Mac brew install git  二、git initialization configure  git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;email@example.com&quot;  注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址 三、git create repository  git 版本库，也叫仓库，英文为repository，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。  1、创建一个目录  $ mkdir gitrepo $ cd gitrepo $ pwd /Users/antony/gitrepo  注意：目录不要包含中文
+2、通过 git init 命令把这个目录变成 Git 可以管理的仓库  $ git init Initialized empty Git repository in /Users/antony/gitrepo/."/>
+
+
+
+<meta property="og:title" content="Git基础" />
+<meta property="og:description" content="一、git install  Ubuntu sudo apt-get install git Centos yum install git Mac brew install git  二、git initialization configure  git config --global user.name &quot;Your Name&quot; git config --global user.email &quot;email@example.com&quot;  注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址 三、git create repository  git 版本库，也叫仓库，英文为repository，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。  1、创建一个目录  $ mkdir gitrepo $ cd gitrepo $ pwd /Users/antony/gitrepo  注意：目录不要包含中文
+2、通过 git init 命令把这个目录变成 Git 可以管理的仓库  $ git init Initialized empty Git repository in /Users/antony/gitrepo/." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/git/" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/git/">Git基础</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-01-07
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 3 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/git/">git</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="一-git-install">一、git install</h3>
+
+<pre><code>
+Ubuntu
+
+sudo apt-get install git
+
+Centos
+
+yum install git
+
+Mac
+
+brew install git
+
+</code></pre>
+
+<h3 id="二-git-initialization-configure">二、git initialization configure</h3>
+
+<pre><code>
+git config --global user.name &quot;Your Name&quot;
+
+git config --global user.email &quot;email@example.com&quot;
+
+</code></pre>
+
+<h6 id="注意-git-config-命令的-global-参数-用了这个参数-表示你这台机器上所有的-git-仓库都会使用这个配置-当然也可以对某个仓库指定不同的用户名和-email-地址">注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址</h6>
+
+<h3 id="三-git-create-repository">三、git create repository</h3>
+
+<ul>
+<li>git 版本库，也叫仓库，英文为<code>repository</code>，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。</li>
+</ul>
+
+<h5 id="1-创建一个目录">1、创建一个目录</h5>
+
+<pre><code>
+$ mkdir gitrepo
+
+$ cd gitrepo
+
+$ pwd
+
+/Users/antony/gitrepo
+
+</code></pre>
+
+<p><code>注意：目录不要包含中文</code></p>
+
+<h5 id="2-通过-git-init-命令把这个目录变成-git-可以管理的仓库">2、通过 <code>git init</code> 命令把这个目录变成 Git 可以管理的仓库</h5>
+
+<pre><code>
+$ git init
+
+Initialized empty Git repository in /Users/antony/gitrepo/.git/
+
+</code></pre>
+
+<p>瞬间 Git 就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个<code>.git</code>的目录，这个目录是 Git 来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把 Git 仓库给破坏了。</p>
+
+<h3 id="四-提交一个文件到仓库">四、提交一个文件到仓库</h3>
+
+<h5 id="1-创建一个文件">1、创建一个文件</h5>
+
+<pre><code>
+$ vim readme.txt
+
+This is a test file
+
+Git is a opensource app
+
+</code></pre>
+
+<p>此文件一定要放在刚才创建的仓库下，即<code>gitrepo</code></p>
+
+<h5 id="2-用命令-git-add-将文件添加到仓库">2、用命令<code>git add</code>将文件添加到仓库</h5>
+
+<pre><code>
+$ git add readme.txt
+
+</code></pre>
+
+<h5 id="3-用命令-git-commit-告诉-git-把文件提交到-git-仓库">3、用命令<code>git commit</code>告诉 Git，把文件提交到 git 仓库</h5>
+
+<pre><code>
+$ git commit -m &quot;up a readme file&quot;
+
+[master (root-commit) ba4d5a3] up a readme file
+
+ 1 file changed, 2 insertions(+)
+
+ create mode 100644 readme.txt
+
+</code></pre>
+
+<p><code>-m</code> 添加描述，一般用来告诉此次提交的说明</p>
+
+<p>为什么添加文件需要<code>add</code>,<code>commit</code>两步呢？ 因为<code>commit</code>一次可以提交多个文件，所以你可以多次<code>add</code>不同文件,比如</p>
+
+<pre><code>
+$ git add file1
+
+$ git add file2 file3
+
+$ git commit -m &quot;file2 file3&quot;
+
+</code></pre>
+
+<h3 id="五-git-status-diff-状态-对比">五、Git Status、diff（状态、对比）</h3>
+
+<h5 id="1-status">1、Status</h5>
+
+<p><code>修改文件</code></p>
+
+<pre><code>
+$ vim readme.txt #在最后一行新添加一行
+
+New line
+
+</code></pre>
+
+<p><code>查看状态</code></p>
+
+<pre><code>
+$ git status
+
+On branch master
+
+Changes not staged for commit:
+
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+
+
+	modified:   readme.txt
+
+
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+</code></pre>
+
+<p><code>git status</code> 时刻查看文件的状态，通过返回信息告诉我们文件被修改了</p>
+
+<h5 id="2-diff-查看具体修改内容">2、diff（查看具体修改内容）</h5>
+
+<pre><code>
+$ git diff readme.txt
+
+diff --git a/readme.txt b/readme.txt
+
+index 194380c..e8e4b8b 100644
+
+--- a/readme.txt
+
++++ b/readme.txt
+
+@@ -1,2 +1,3 @@
+
+ This is a test file
+
+ Git is a opensource app
+
++New line
+
+(END)
+
+</code></pre>
+
+<h5 id="3-查看-add-及-commit-后的状态">3、查看 add 及 commit 后的状态</h5>
+
+<p><code>git add后的状态</code></p>
+
+<pre><code>
+$ git add readme.txt
+
+$ git status
+
+On branch master
+
+Changes to be committed:
+
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+
+
+	modified:   readme.txt
+
+</code></pre>
+
+<p><code>git commit后的状态</code></p>
+
+<pre><code>
+$ git commit -m &quot;add new line&quot;
+
+[master a782d05] add new line
+
+ 1 file changed, 1 insertion(+)
+
+$ git status
+
+
+On branch master
+
+nothing to commit, working tree clean
+
+</code></pre>
+
+<h3 id="六-版本回退">六、版本回退</h3>
+
+<p><strong>先修改一次文件</strong></p>
+
+<pre><code>
+$ vim readme.txt
+
+New line 2
+
+</code></pre>
+
+<p><strong>提交文件</strong></p>
+
+<pre><code>
+$ git add readme.txt
+
+$ git commit -m &quot;New line 2&quot;
+
+[master def33d7] New line 2
+
+ 1 file changed, 1 insertion(+)
+
+</code></pre>
+
+<h5 id="1-版本提交历史记录-git-log">1、版本提交历史记录<code>git log</code></h5>
+
+<pre><code>
+$ git log
+
+commit def33d73a1ded1b673f2b994bddedce9f8409a33
+
+Author: ZAntony &lt;zantony.top@gmail.com&gt;
+
+Date:   Sun Dec 11 22:36:53 2016 +0800
+
+
+
+    New line 2
+
+
+
+commit a782d05f438ca21a2d2336e97256bf9d7e35c058
+
+Author: ZAntony &lt;zantony.top@gmail.com&gt;
+
+Date:   Sun Dec 11 22:19:43 2016 +0800
+
+
+
+    add new line
+
+
+
+commit ba4d5a316c0e915e768d0a793999ff9f5f41447b
+
+Author: ZAntony &lt;zantony.top@gmail.com&gt;
+
+Date:   Sun Dec 11 22:00:13 2016 +0800
+
+
+
+    up a readme file
+
+</code></pre>
+
+<p>git 最近显示的是<code>New line 2</code>,上一次是<code>add new line</code>,第一次是<code>up a readme file</code></p>
+
+<p><strong>可以通过<code>--pretty=oneline</code>参数控制输出内容的数量</strong></p>
+
+<pre><code>
+$ git log --pretty=oneline
+
+def33d73a1ded1b673f2b994bddedce9f8409a33 New line 2
+
+a782d05f438ca21a2d2336e97256bf9d7e35c058 add new line
+
+ba4d5a316c0e915e768d0a793999ff9f5f41447b up a readme file
+
+</code></pre>
+
+<p><strong>前面的一串数字是 16 进制的 commit id</strong></p>
+
+<h5 id="2-git-reset-版本回退">2、git reset 版本回退</h5>
+
+<p>首先，Git 必须知道当前版本是哪个版本，在 Git 中，用 HEAD 表示当前版本，也就是最新的提交 def33d&hellip;&hellip;..9a33（注意我的提交 ID 和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
+
+<pre><code>
+$ git reset --hard HEAD^
+
+HEAD is now at a782d05 add new line
+
+This is a test file
+
+Git is a opensource app
+
+New line
+
+# 此时版本已经回退
+
+</code></pre>
+
+<h5 id="3-当返回到上一个版本后-突然想返回到为返回前的版本-即-new-line-2">3、当返回到上一个版本后，突然想返回到为返回前的版本，即<code>New line 2</code></h5>
+
+<p>查看日志，发现并未找到回退前的版本的 commit id</p>
+
+<pre><code>
+$ git log
+
+
+commit a782d05f438ca21a2d2336e97256bf9d7e35c058
+
+Author: ZAntony &lt;zantony.top@gmail.com&gt;
+
+Date:   Sun Dec 11 22:19:43 2016 +0800
+
+
+
+    add new line
+
+
+
+commit ba4d5a316c0e915e768d0a793999ff9f5f41447b
+
+Author: ZAntony &lt;zantony.top@gmail.com&gt;
+
+Date:   Sun Dec 11 22:00:13 2016 +0800
+
+
+
+    up a readme file
+
+</code></pre>
+
+<h6 id="当通过-git-reset-hard-head-恢复到-add-new-line-时-在想恢复到之前的-new-line-2-就必须找到他的-commit-id-可以通过查看之前的命令历史来查找-也可以通过-git-reflog-来查看-commit-id">当通过<code>git reset --hard HEAD^</code>恢复到<code>add new line</code>时，在想恢复到之前的<code>New line 2</code>,就必须找到他的<code>commit id</code>，可以通过查看之前的命令历史来查找，也可以通过<code>git reflog</code>来查看 commit id</h6>
+
+<p><strong>git reflog</strong></p>
+
+<pre><code>
+$ git reflog # 通过命令来查看commit id，id是不完整的，但是可以使用，只要保证id唯一性。
+
+a782d05 HEAD@{0}: reset: moving to HEAD^
+
+def33d7 HEAD@{1}: commit: New line 2
+
+a782d05 HEAD@{2}: commit: add new line
+
+ba4d5a3 HEAD@{3}: commit (initial): up a readme file
+
+</code></pre>
+
+<p><strong>恢复版本</strong></p>
+
+<pre><code>
+$ git reset --hard def33d7
+
+HEAD is now at def33d7 New line 2
+
+$ cat readme.txt
+
+This is a test file
+
+Git is a opensource app
+
+New line
+
+New line 2
+
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/fastdfs-unti-for-systemd/">
+                <span class="button__icon">←</span>
+                <span class="button__text">FastDFS unti for systemd</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/">
+                <span class="button__text">Golang 数组和切片</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

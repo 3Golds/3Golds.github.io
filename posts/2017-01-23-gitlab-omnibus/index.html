@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Gitlab-Omnibus :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="一、Gitlab简介 组件说明
+ 前端：Nginx，用于页面及Git tool走http或https协议
+ 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
+ SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
+ 数据库：目前仅支持MySQL和PostgreSQL
+ Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+  版本说明
+ CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
+ OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
+ EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
+  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
+sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
+https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitlab-Omnibus"/>
+<meta name="twitter:description" content="一、Gitlab简介 组件说明
+ 前端：Nginx，用于页面及Git tool走http或https协议
+ 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
+ SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
+ 数据库：目前仅支持MySQL和PostgreSQL
+ Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+  版本说明
+ CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
+ OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
+ EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
+  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
+sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
+https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab"/>
+
+
+
+<meta property="og:title" content="Gitlab-Omnibus" />
+<meta property="og:description" content="一、Gitlab简介 组件说明
+ 前端：Nginx，用于页面及Git tool走http或https协议
+ 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
+ SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
+ 数据库：目前仅支持MySQL和PostgreSQL
+ Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+  版本说明
+ CE(GitLab Community Edition)：社区版(源码安装方式) https://docs.gitlab.com/ce/README.html
+ OM(Omnibus GitLab)：综合版(包安装方式) https://docs.gitlab.com/omnibus/README.html
+ EE(GitLab Enterprise Edition)：企业版 https://docs.gitlab.com/ee/README.html
+  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
+sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
+https://packages.gitlab.com/gitlab/gitlab-ce/install  3. 配置gitlab" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/" />
+<meta property="article:published_time" content="2017-02-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-02-04T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/">Gitlab-Omnibus</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-02-04
+        </span>
+      
+      <span class="post-author">— Written by Antony</span>
+      
+        <span class="post-read-time">— 2 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/gitlab/">Gitlab</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="一-gitlab简介">一、Gitlab简介</h3>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/Gitlab1.png" alt="Gitlab1.png" /></p>
+
+<p><strong>组件说明</strong></p>
+
+<ul>
+<li><p><strong>前端</strong>：Nginx，用于页面及Git tool走http或https协议</p></li>
+
+<li><p><strong>后端</strong>：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程</p></li>
+
+<li><p><strong>SSHD</strong>：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中</p></li>
+
+<li><p><strong>数据库</strong>：目前仅支持MySQL和PostgreSQL</p></li>
+
+<li><p><strong>Redis</strong>：用于存储用户session和任务，任务包括新建仓库、发送邮件等等</p></li>
+
+<li><p><strong>Sidekiq</strong>：Rails框架自带的，订阅redis中的任务并执行</p></li>
+</ul>
+
+<p><strong>版本说明</strong></p>
+
+<ul>
+<li><p><strong>CE(GitLab Community Edition)</strong>：社区版(源码安装方式) <a href="https://docs.gitlab.com/ce/README.html">https://docs.gitlab.com/ce/README.html</a></p></li>
+
+<li><p><strong>OM(Omnibus GitLab)</strong>：综合版(包安装方式) <a href="https://docs.gitlab.com/omnibus/README.html">https://docs.gitlab.com/omnibus/README.html</a></p></li>
+
+<li><p><strong>EE(GitLab Enterprise Edition)</strong>：企业版 <a href="https://docs.gitlab.com/ee/README.html">https://docs.gitlab.com/ee/README.html</a></p></li>
+</ul>
+
+<h3 id="二-gitlab-omnibus-安装和配置">二、Gitlab Omnibus 安装和配置</h3>
+
+<p><strong>1. 安装和配置依赖环境</strong></p>
+
+<pre><code>sudo apt-get install curl openssh-server ca-certificates postfix
+</code></pre>
+
+<p><strong>2. 添加gitlab 包并安装</strong></p>
+
+<pre><code>curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+sudo apt-get install gitlab-ce
+</code></pre>
+
+<p>如果安装很慢，可以选择下载程序包后安装</p>
+
+<pre><code>https://packages.gitlab.com/gitlab/gitlab-ce/install
+</code></pre>
+
+<p><strong>3. 配置gitlab</strong></p>
+
+<pre><code>sudo gitlab-ctl reconfigure
+</code></pre>
+
+<p><strong>4.配置Nginx</strong></p>
+
+<p><a href="https://docs.gitlab.com/omnibus/settings/nginx.html">https://docs.gitlab.com/omnibus/settings/nginx.html</a></p>
+
+<p><code>配置https</code></p>
+
+<pre><code>$ mkdir -p /etc/gitlab/ssl
+
+$ chmod 700 /etc/gitlab/ssl
+
+$ cp /etc/gitlab/ssl/* /etc/gitlab/trusted-certs/ # 注意：ssl下面的是证书文件
+
+$ vim /etc/gitlab/gitlab.rb
+
+external_url &quot;https://git.xxx.com&quot;
+
+nginx['redirect_http_to_https'] = true
+
+nginx['ssl_certificate'] = &quot;/etc/gitlab/ssl/xxx.com.chain.crt&quot;
+
+nginx['ssl_certificate_key'] = &quot;/etc/gitlab/ssl/xxx.com.key&quot;
+
+ nginx['proxy_set_headers'] = {
+
+  &quot;X-Forwarded-Proto&quot; =&gt; &quot;http&quot;,
+
+  &quot;CUSTOM_HEADER&quot; =&gt; &quot;VALUE&quot;
+
+ }
+
+</code></pre>
+
+<p><strong>5.配置LDAP</strong></p>
+
+<p>参考配置：<a href="https://docs.gitlab.com/ce/administration/auth/ldap.html">https://docs.gitlab.com/ce/administration/auth/ldap.html</a></p>
+
+<pre><code>
+gitlab_rails['ldap_enabled'] = true
+
+gitlab_rails['ldap_servers'] = YAML.load &lt;&lt;-'EOS' # remember to close this block with 'EOS' below
+
+  main: # 'main' is the GitLab 'provider ID' of this LDAP server
+
+     label: 'xxx-ldap'
+
+
+
+     host: 'LDAP_HOST'
+
+     port: 389
+
+     uid: 'uid'
+
+     bind_dn: 'cn=Directory Manager'
+
+     password: 'PASSWORD'
+
+     base: 'ou=People,dc=xxx,dc=com'
+
+     active_directory: false
+
+     method: 'plain' # &quot;tls&quot; or &quot;ssl&quot; or &quot;plain&quot;
+
+     user_filter: '(objectClass=xxx-ldap)'
+
+EOS
+
+</code></pre>
+
+<p><strong>6.配置EMAIL</strong></p>
+
+<p>参考配置：<a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md">https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md</a></p>
+
+<pre><code>
+$ sudo vim /etc/gitlab/gitlab.rb
+
+gitlab_rails['smtp_enable'] = true
+
+gitlab_rails['smtp_address'] = &quot;Your_EMAIL_SERVER_ADDRESS&quot;
+
+gitlab_rails['smtp_port'] = 25
+
+gitlab_rails['smtp_user_name'] = &quot;EMAIL_SERVER_USER&quot;
+
+gitlab_rails['smtp_password'] = &quot;EMAIL_SERVER_PASSWORD&quot;
+
+gitlab_rails['smtp_authentication'] = &quot;login&quot;
+
+gitlab_rails['gitlab_email_from'] = 'xxx@xx.com'
+
+</code></pre>
+
+<p><strong>7.重新加载配置</strong></p>
+
+<pre><code>
+$ sudo gitlab-ctl reconfigure
+
+</code></pre>
+
+<p><strong>Testing the SMTP configuration</strong></p>
+
+<pre><code>
+$ sudo gitlab-rails console
+
+irb(main):003:0&gt; Notify.test_email('destination_email@address.com', 'Message Subject', 'Message Body').deliver_now
+
+</code></pre>
+
+<h3 id="三-gitlab-备份及恢复">三、Gitlab 备份及恢复</h3>
+
+<p><code>backup</code></p>
+
+<pre><code>
+sudo gitlab-rake gitlab:backup:create
+
+可选参数：SKIP=db,upload 或者SKIP=db或者SKIP=upload
+
+</code></pre>
+
+<p><code>resotre</code></p>
+
+<p><strong>a. 停止服务</strong></p>
+
+<pre><code>
+sudo cp 1393513186_gitlab_backup.tar /var/opt/gitlab/backups/
+
+sudo gitlab-ctl stop unicorn
+
+sudo gitlab-ctl stop sidekiq
+
+</code></pre>
+
+<p><strong>b.查看其状态</strong></p>
+
+<pre><code>
+sudo gitlab-ctl status
+
+</code></pre>
+
+<p><strong>c.还原</strong></p>
+
+<pre><code>
+$ sudo gitlab-rake gitlab:backup:restore BACKUP=1393513186_2014_02_27
+
+ 可选参数
+
+ $ sudo gitlab-rake gitlab:backup:restore SKIP=db,upload BACKUP=1342713186_2014_02_27
+
+</code></pre>
+
+<p><strong>d. 重启并检查</strong></p>
+
+<pre><code>
+sudo gitlab-ctl start 
+
+sudo gitlab-rake gitlab:check SANITIZE=true
+
+</code></pre>
+
+<h3 id="四-禁用gitlab-nginx使用production-nginx">四、禁用Gitlab nginx使用production-nginx</h3>
+
+<p><strong>禁用gitlab nginx</strong></p>
+
+<pre><code>
+vim /etc/gitlab/gitlab.rb
+
+nginx['enable'] = false
+
+</code></pre>
+
+<p><strong>重新配置gitlab</strong></p>
+
+<pre><code>
+gitlab-ctl reconfigure
+
+</code></pre>
+
+<p><strong>使用production配置</strong>
+<code>建议：将/var/opt/gitlab/nginx/conf下面的配置文件直接复制过来，稍作修改即可</code>
+参考配置：<a href="http://docs.gitlab.com/omnibus/settings/nginx.html">http://docs.gitlab.com/omnibus/settings/nginx.html</a></p>
+
+<pre><code>#注意：拷贝前备份
+cp /var/opt/gitlab/ngin/conf/* /usr/local/nginx/conf/
+</code></pre>
+
+<h3 id="五-禁用gitlab-postgresql使用production-pgsql">五、禁用Gitlab postgresql使用production-pgsql</h3>
+
+<p><strong>1.禁用Gitlab postgresql</strong></p>
+
+<pre><code>
+$ vim /etc/gitlab/gitlab.rb
+
+postgresql['enable'] = false
+
+</code></pre>
+
+<p><strong>2.导入Gitlab 备份sql到production postgresql</strong></p>
+
+<p>连接数据库并创建(注意，在最后创建数据库的时候，如果出现报错，请使用gitlab用户登录并创建)</p>
+
+<pre><code>
+$ psql -U PSQL_USER -h PSQL_HOST -p 5432 -d template1
+
+template1 &gt; CREATE USER gitlab CREATEDB WITH PASSWORD 'PASSWORD';
+
+template1 &gt; CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+template1 &gt; CREATE DATABASE gitlabhq_production OWNER gitlab
+
+# 导入备份文件
+
+psql -U PSQL_USER -h PSQL_HOST -p 5432 -d DATABASE &lt; SQL_FILE
+
+</code></pre>
+
+<p><strong>3.修改gitlab配置，添加production</strong></p>
+
+<pre><code>$ vim /etc/gitlab/gitlab.rb
+gitlab_rails['db_adapter'] = &quot;postgresql&quot;
+
+gitlab_rails['db_encoding'] = 'utf8'
+
+gitlab_rails['db_host'] = 'HOST'
+
+gitlab_rails['db_port'] = '5432'
+
+gitlab_rails['db_username'] = 'User_Name'
+
+gitlab_rails['db_password'] = 'Password'
+
+</code></pre>
+
+<p><strong>4.重新配置Gitlab</strong></p>
+
+<pre><code>
+gitlab-ct reconfigure
+
+</code></pre>
+
+<h3 id="六-禁用gitlab-redis使用production-redis">六、禁用Gitlab Redis使用production Redis</h3>
+
+<p><strong>配置gitlab</strong></p>
+
+<pre><code>$ vim /etc/gitlab/gitlab.rb
+
+redis['enable'] = false
+
+gitlab_rails['redis_host'] = 'REDIS_HOST'
+
+gitlab_rails['redis_port'] = 6379
+</code></pre>
+
+<p><strong>备份本地redis</strong></p>
+
+<pre><code>redis-cli -h localhost -p 6379
+
+redis 127.0.0.1:6379 &gt; SAVE
+
+OK
+
+该命令将在 redis 安装目录中创建dump.rdb文件。
+
+</code></pre>
+
+<p><strong>恢复数据到production</strong></p>
+
+<p>只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可,获取 redis 目录可以使用 CONFIG 命令，如下</p>
+
+<pre><code>redis 127.0.0.1:6379&gt; CONFIG GET dir
+
+1) &quot;dir&quot;
+
+2) &quot;/usr/local/redis/bin&quot;
+
+以上命令 CONFIG GET dir 输出的 redis 安装目录为 /usr/local/redis/bin。
+
+</code></pre>
+
+<p><strong>如果还原的redis在Aws的ElastiCache</strong></p>
+
+<p>在ElastiCache控制面板配置redis(<a href="https://console.amazonaws.cn/elasticache">https://console.amazonaws.cn/elasticache</a>)</p>
+
+<h5 id="1-创建redis集群">1.创建redis集群</h5>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/gitlab2.png" alt="gitlab2.png" /></p>
+
+<h5 id="2-配置基本配置">2.配置基本配置</h5>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/gitlab3.png" alt="gitlab3.png" /></p>
+
+<h5 id="3-配置高级配置">3.配置高级配置</h5>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/gitlab4.png" alt="gitlab4.png" /></p>
+
+<h5 id="4-等待创建完成后重新配置gitlab">4. 等待创建完成后重新配置Gitlab</h5>
+
+<pre><code>
+gitlab-ctl reconfigure 
+
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Yahoo-screwdriver开源了</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/">
+                <span class="button__text">Ruby 环境那些坑</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

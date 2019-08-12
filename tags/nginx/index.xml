@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/nginx/</link>
+    <description>Recent content in nginx on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx配置文件安全分析工具Gixy</title>
+      <link>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</guid>
+      <description>Nginx配置文件安全分析工具Gixy Gixy是一个分析Nginx配置的工具。Gixy的主要目的是防止安全的错误配置和自动化探伤。
+目前支持Python版本2.7和3.5 +。
+免责声明:Gixy只在GNU / Linux Gixy测试良好,其他的操作系统可能有问题。
+Gixy的特性  找出服务器端请求伪造。 验证HTTP拆分。 验证referrer/origin问题。 验证是否正确通过add_header指令重新定义Response Headers。 验证请求的主机头是否伪造。 验证valid_referers是否为空。 验证是否存在多行主机头。  Github地址：https://github.com/yandex/gixy
+Gixy安装 安装步骤很简单，直接使用pip安装即可
+$ sudo pip install gixy # 注意：目前支持Python版本2.7和3.5 +。  Gixy使用 Gixy默认检查/etc/nginx/nginx.conf文件
+$ gixy  可以指定nginx配置文件所在位置
+$ gixy /usr/local//nginx/nginx.conf ==================== Results =================== Problem: [http_splitting] Possible HTTP-Splitting vulnerability. Description: Using variables that can contain &amp;quot;\n&amp;quot; may lead to http injection. Additional info: https://github.com/yandex/gixy/blob/master/docs/ru/plugins/httpsplitting.md Reason: At least variable &amp;quot;$action&amp;quot; can contain &amp;quot;\n&amp;quot; Pseudo config: include /etc/nginx/sites/default.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/ruby/</link>
+    <description>Recent content in ruby on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ruby 环境那些坑</title>
+      <link>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</guid>
+      <description>最近接触了很多ruby程序，除了java之外，让我感觉第二耗时、不是很舒服的语言。但是ruby不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装ruby程序变得飞快，不用一安装一天。本文做个总结和梳理
+先介绍下Ruby相关的各种概念（rvm, gem, bundle, rake, rails等） Ruby 这个就不用多说了
+RVM 用于帮你安装Ruby环境，帮你管理多个Ruby环境，帮你管理你开发的每个Ruby应用使用机器上哪个Ruby环境。Ruby环境不仅仅是Ruby本身，还包括依赖的第三方Ruby插件。都由RVM管理。
+Rails 这个也不用多说，著名开发框架。详细看 http://zh.wikipedia.org/wiki/Ruby_on_Rails
+RubyGems RubyGems是一个方便而强大的Ruby程序包管理器（ package manager），类似RedHat的RPM.它将一个Ruby应用程序打包到一个gem里，作为一个安装单元。无需安装，最新的Ruby版本已经包含RubyGems了。
+Gem Gem是封装起来的Ruby应用程序或代码库。
+注：在终端使用的gem命令，是指通过RubyGems管理Gem包。
+Gemfile 定义你的应用依赖哪些第三方包，bundle根据该配置去寻找这些包。
+Rake Rake是一门构建语言，和make类似。Rake是用Ruby写的，它支持自己的DSL用来处理和维护Ruby程序。 Rails用rake扩展来完成多种不容任务，如数据库初始化、更新等。
+Rake is a build language, similar in purpose to make and ant. Like make and ant it’s a Domain Specific Language, unlike those two it’s an internal DSL programmed in the Ruby language.
+PS：个人感觉有点类似Symfony2中的app/console
+Rakefile Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。 &amp;gt; In a gem’s context, the Rakefile is extremely useful.</description>
+    </item>
+    
+  </channel>
+</rss>

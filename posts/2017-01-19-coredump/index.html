@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Linux系统异常-CoreDump详解 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="CoreDump http://linux.die.net/man/5/core
+什么是core dump core dump又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个core文件中, 叫core dump。core dump在应用 crash掉之后对问题的诊断是很有帮助的。而在默认安装的时候core dump是关闭状 态的。
+如何查看系统是否打开了core dump  Note：使用ulimit -c查看core dump是否打开。如果结果为0，则表示此功能处于关闭 状态，不会生成core文件
+  $ ulimit -c  如何打开core dump  方法一:命令行方式
+ $ ulimit -c 1024 # 避免一下生成几G的大文件 $ ulimit -c unlimited #无限制  方法二:配置profile文件: 将ulimit -S -c 0 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1改成ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+ $ vim /etc/profile ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1  方法三:修改/etc/security/limits."/>
+<meta name="keywords" content="coredump"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-01-19-coredump/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux系统异常-CoreDump详解"/>
+<meta name="twitter:description" content="Linux coreDump"/>
+
+
+
+<meta property="og:title" content="Linux系统异常-CoreDump详解" />
+<meta property="og:description" content="Linux coreDump" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-01-19-coredump/" />
+<meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-19-coredump/">Linux系统异常-CoreDump详解</a></h2>
+    <div class="post-meta">
+      
+      
+      
+        <span class="post-read-time">— 1 min read</span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="coredump">CoreDump</h3>
+
+<p><a href="http://linux.die.net/man/5/core">http://linux.die.net/man/5/core</a></p>
+
+<h4 id="什么是core-dump">什么是core dump</h4>
+
+<p>core dump又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个core文件中, 叫core dump。core dump在应用 crash掉之后对问题的诊断是很有帮助的。而在默认安装的时候core dump是关闭状 态的。</p>
+
+<h4 id="如何查看系统是否打开了core-dump">如何查看系统是否打开了core dump</h4>
+
+<blockquote>
+<p>Note：使用ulimit -c查看core dump是否打开。如果结果为0，则表示此功能处于关闭 状态，不会生成core文件</p>
+</blockquote>
+
+<pre><code>
+$ ulimit -c
+
+</code></pre>
+
+<h4 id="如何打开core-dump">如何打开core dump</h4>
+
+<ul>
+<li><p><strong>方法一</strong>:命令行方式</p>
+
+<pre><code>
+$ ulimit -c 1024  # 避免一下生成几G的大文件
+
+$ ulimit -c unlimited  #无限制
+
+</code></pre></li>
+
+<li><p><strong>方法二</strong>:配置profile文件:  将<code>ulimit -S -c 0 &gt; /dev/null 2&gt;&amp;1</code>改成<code>ulimit -S -c unlimited &gt; /dev/null 2&gt;&amp;1</code></p>
+
+<pre><code>
+$ vim /etc/profile
+
+ulimit -S -c unlimited &gt; /dev/null 2&gt;&amp;1
+
+</code></pre></li>
+
+<li><p><strong>方法三</strong>:修改/etc/security/limits.conf文件：添加<code>* soft core 0</code>，这个方法可以 针对指定用户或用户组打开core dump，<code>user soft core 0或@group soft core 0</code>。不 过要使用这个方法一定要将方法二提到的那行注释掉，不可同时存在</p>
+
+<pre><code>
+$ vim /etc/security/limits.conf
+
+* soft core 0
+
+</code></pre></li>
+</ul>
+
+<h4 id="如何查看core文件的保存路径和文件名格式">如何查看core文件的保存路径和文件名格式</h4>
+
+<p>默认情况下，在打开core后，如果应用发生crash，那么会在应用所在位置，产生 一个core.【应用pid】的文件，文件名的可读性不高，管理也不方便。</p>
+
+<h4 id="查看正在使用的core文件路径和格式">查看正在使用的core文件路径和格式</h4>
+
+<p><code>more /proc/sys/kernel/core_pattern</code> 后面自动添加pid的配置是在<code>more /proc/sys/kernel/core_uses_pid</code>里面配置的， 如果为1就是自动添加</p>
+
+<h4 id="如何修改core文件的保存路径和文件名格式">如何修改core文件的保存路径和文件名格式</h4>
+
+<p>修改/etc/sysctl.conf文件</p>
+
+<pre><code>
+$ vi /etc/sysctl.conf
+
+$ kernel.core_pattern = /tmp/corefile/core.%e.%t
+
+$ sysctl -p
+
+#添加需要保存的路径,需要注意的是该路径必须应用 有写的权限，不然core文件是不会生成的。关 于core_users_pid默认在sysctl文件里面已经存在，不需要更改，pid还是很重要的信息。
+
+</code></pre>
+
+<h4 id="附上core文件支持的格式列表">附上core文件支持的格式列表:</h4>
+
+<ul>
+<li><p><strong>%p – insert pid into filename 【pid】</strong></p></li>
+
+<li><p><strong>%u – insert current uid into filename 【uid】</strong></p></li>
+
+<li><p><strong>%g – insert current gid into filename 【gid】</strong></p></li>
+
+<li><p><strong>%s – insert signal that caused the coredump into the filename 【core信号】</strong></p></li>
+
+<li><p><strong>%t – insert UNIX time that the coredump occurred into filename 【core文件生成时的 unix时间】</strong></p></li>
+
+<li><p><strong>%h – insert hostname where the coredump happened into filename 【主机名】</strong></p></li>
+
+<li><p><strong>%e – insert coredumping executable name into filename 【应用的名字】</strong></p></li>
+</ul>
+
+<h4 id="如何使用测试程序生成的core">如何使用测试程序生成的core</h4>
+
+<pre><code>
+[c-sharp] view plaincopy
+
+#include &lt;iostream&gt;using namespace std;int main() { *(char *)1=1; return 0;}
+
+</code></pre>
+
+<h4 id="online-core-设置">Online core 设置:</h4>
+
+<pre><code>
+$ vim /etc/sysctl.conf
+
+kernel.core_uses_pid = 1
+
+kernel.core_pattern = core.%e.%p.%t
+
+$ sysctl -p
+
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Linux用户、用户组及权限管理</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">
+                <span class="button__text">Nginx&#43;PHP编译安装</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

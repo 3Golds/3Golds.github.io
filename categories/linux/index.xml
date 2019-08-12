@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/categories/linux/</link>
+    <description>Recent content in Linux on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="http://zhaox.xyz/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux用户、用户组及权限管理</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>一、Linux用户及用户组的基本概念 用户：用户是实现能够将有限的资源在多个使用者之间进行分配；、 用户组：用户组是指多个用户的集合，方便对一类需要同样权限的用户授权 Linux是多用户、多任务的操作系统。 多用户指：多人同时使用系统资源；多任务：同时运行多个进程
+二、用户及用户组类别 1、用户：名称解析库 /etc/passwd a、管理员 root 用户标识（UID）为0 b、普通用户及系统用户 普通用户的用户标识（既UID）： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户用户标识（既UID）： CentOS 5,6: 1-499 CentOS 7: 1-999
+2、用户组：名称解析库 /etc/group a、管理员组 组标识为：0 b、普通用户组及系统用户组 普通用户组标识： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户组标识： CentOS 5,6: 1-499 CentOS 7: 1-999 3、用户组类别： 以用户为核心分为： 用户的主组：基本组； 用户的附加组：额外组； 以容纳的用户来划分： 私有组：与用户名相同，且只有一个用户； 共有组：组内包含了多个用户；
+三、用户及用户组的认证机制 Linux的用户密码认证方式在centos7中使用sha512 认证信息库存储位置： 用户的认证信息库：/etc/shadow 组的认证信息库：/etc/gshadow 密码：加密存放，使用单向加密机制 算法： md5: message digest, 128bits sha1: secure hash algorithm, 160bits sha224 sha256 sha384 sha512</description>
+    </item>
+    
+    <item>
+      <title>Linux系统异常-CoreDump详解</title>
+      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
+      <description>CoreDump http://linux.die.net/man/5/core
+什么是core dump core dump又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个core文件中, 叫core dump。core dump在应用 crash掉之后对问题的诊断是很有帮助的。而在默认安装的时候core dump是关闭状 态的。
+如何查看系统是否打开了core dump  Note：使用ulimit -c查看core dump是否打开。如果结果为0，则表示此功能处于关闭 状态，不会生成core文件
+  $ ulimit -c  如何打开core dump  方法一:命令行方式
+ $ ulimit -c 1024 # 避免一下生成几G的大文件 $ ulimit -c unlimited #无限制  方法二:配置profile文件: 将ulimit -S -c 0 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1改成ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+ $ vim /etc/profile ulimit -S -c unlimited &amp;gt; /dev/null 2&amp;gt;&amp;amp;1  方法三:修改/etc/security/limits.</description>
+    </item>
+    
+  </channel>
+</rss>

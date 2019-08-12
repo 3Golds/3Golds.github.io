@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/</link>
+    <description>Recent content in Tags on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go</title>
+      <link>http://zhaox.xyz/tags/go/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opentracing</title>
+      <link>http://zhaox.xyz/tags/opentracing/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/opentracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>http://zhaox.xyz/tags/aws/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gitlab</title>
+      <link>http://zhaox.xyz/tags/gitlab/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>人生</title>
+      <link>http://zhaox.xyz/tags/%E4%BA%BA%E7%94%9F/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/%E4%BA%BA%E7%94%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>思想</title>
+      <link>http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>http://zhaox.xyz/tags/nginx/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx-conf</title>
+      <link>http://zhaox.xyz/tags/nginx-conf/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/nginx-conf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws-s3</title>
+      <link>http://zhaox.xyz/tags/aws-s3/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/aws-s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yum</title>
+      <link>http://zhaox.xyz/tags/yum/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/yum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://zhaox.xyz/tags/docker/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-forward-drop</title>
+      <link>http://zhaox.xyz/tags/docker-forward-drop/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/docker-forward-drop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-ee</title>
+      <link>http://zhaox.xyz/tags/docker-ee/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/docker-ee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cow</title>
+      <link>http://zhaox.xyz/tags/cow/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/cow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ss</title>
+      <link>http://zhaox.xyz/tags/ss/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws ebs</title>
+      <link>http://zhaox.xyz/tags/aws-ebs/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/aws-ebs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CD(持续交付)</title>
+      <link>http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/cd%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI(持续集成)</title>
+      <link>http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>http://zhaox.xyz/tags/ruby/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>http://zhaox.xyz/tags/shell/</link>
+      <pubDate>Sat, 21 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FastDFS</title>
+      <link>http://zhaox.xyz/tags/fastdfs/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/fastdfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://zhaox.xyz/tags/linux/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>http://zhaox.xyz/tags/ansible/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filesystem</title>
+      <link>http://zhaox.xyz/tags/filesystem/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/filesystem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>http://zhaox.xyz/tags/git/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grep</title>
+      <link>http://zhaox.xyz/tags/grep/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/grep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memory</title>
+      <link>http://zhaox.xyz/tags/memory/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swap</title>
+      <link>http://zhaox.xyz/tags/swap/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/tags/swap/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

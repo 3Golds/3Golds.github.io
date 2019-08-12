@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>aws :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/tags/aws/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="aws"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="aws" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://zhaox.xyz/tags/aws/" />
+
+<meta property="og:updated_time" content="2017-10-30T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/aws/index.xml" title="赵鑫的博客" />
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+    
+    
+
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-10-27-aws-elb-502/">解决 AWS ELB 偶发的 502 Bad Gateway 错误</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-10-30
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
+HTTP 数据流向如下：
+ [Client] &mdash; [ELB] &mdash; [nginx] &mdash; [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
+先补充一个知识：如果后端支持的话，ELB 会使用保持连接（HTTP persistent/keep-alive connections）。来看看这一个保持连接的 TCP stream：
+其中，10.100.2.186 是 ELB 内部 IP，10.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-10-27-aws-elb-502/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">AWS EBS 在线扩容</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-02-17
+        </span>
+        <span class="post-author">— Written by Antony</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/aws-ebs/">aws ebs</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            AWS Management Console 扩容ebs容量 原文连接：<a href="https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/">https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/</a>
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+ growpart /dev/xvdf 1  parted
+ GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &lsquo;help&rsquo; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">Read more →</a></div>
+    </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

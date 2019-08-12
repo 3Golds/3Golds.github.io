@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>基于amazon-s3创建yum仓库 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于amazon-s3创建yum仓库"/>
+<meta name="twitter:description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Stmt1489722431765&quot;, &quot;Action&quot;: &quot;s3:*&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &quot;PolicyNames&quot;: [ &quot;yum-repo-s3-Bucket-Access&quot; ] }  5."/>
+
+
+
+<meta property="og:title" content="基于amazon-s3创建yum仓库" />
+<meta property="og:description" content="AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Stmt1489722431765&quot;, &quot;Action&quot;: &quot;s3:*&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &quot;PolicyNames&quot;: [ &quot;yum-repo-s3-Bucket-Access&quot; ] }  5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/" />
+<meta property="article:published_time" content="2017-03-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-03-17T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/">基于amazon-s3创建yum仓库</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-03-17
+        </span>
+      
+      <span class="post-author">— Written by Antony</span>
+      
+        <span class="post-read-time">— 4 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/aws-s3/">aws-s3</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/yum/">yum</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h2 id="aws-配置">AWS 配置</h2>
+
+<h3 id="1-创建s3-仓库">1.创建s3 仓库</h3>
+
+<pre><code>
+aws s3 mb s3://yum-repo-s3
+
+make_bucket: yum-repo-s3
+
+</code></pre>
+
+<h3 id="2-创建s3用户">2.创建s3用户</h3>
+
+<pre><code>
+$~ aws iam create-user --user-name yum-repo-user
+
+</code></pre>
+
+<h3 id="3-赋予s3用户权限">3.赋予s3用户权限</h3>
+
+<pre><code>
+$ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json
+
+$ cat demo-s3-rpm-repo_policy.json
+
+{
+
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+
+  &quot;Statement&quot;: [
+
+    {
+
+      &quot;Sid&quot;: &quot;Stmt1489722431765&quot;,
+
+      &quot;Action&quot;: &quot;s3:*&quot;,
+
+      &quot;Effect&quot;: &quot;Allow&quot;,
+
+      &quot;Resource&quot;: &quot;arn:aws-cn:s3:::yum-repo-s3&quot;
+
+    }
+
+  ]
+
+}
+
+</code></pre>
+
+<h3 id="4-查看其权限">4.查看其权限</h3>
+
+<pre><code>
+
+$ aws iam list-user-policies --user-name yum-repo-user
+
+{
+
+    &quot;PolicyNames&quot;: [
+
+        &quot;yum-repo-s3-Bucket-Access&quot;
+
+    ]
+
+}
+
+
+
+</code></pre>
+
+<h3 id="5-创建access-key">5.创建access key</h3>
+
+<pre><code>
+$ aws iam create-access-key --user-name yum-repo-user
+
+{
+
+    &quot;AccessKey&quot;: {
+
+        &quot;UserName&quot;: &quot;yum-repo-user&quot;,
+
+        &quot;Status&quot;: &quot;Active&quot;,
+
+        &quot;AccessKeyId&quot;: &quot;KEYID&quot;,
+
+        &quot;SecretAccessKey&quot;: &quot;SECRET_KEY&quot;,
+
+        &quot;CreateDate&quot;: &quot;2017-03-17T04:16:55.969Z&quot;
+
+    }
+
+}
+
+</code></pre>
+
+<h2 id="仓库配置">仓库配置</h2>
+
+<h3 id="1-安装需要的程序包">1.安装需要的程序包</h3>
+
+<pre><code>
+$ sudo yum groupinstall &quot;Development Tools&quot; -y
+
+$ sudo yum install s3cmd --enablerepo=epel -y
+
+$ sudo yum install createrepo pinentry -y
+
+</code></pre>
+
+<h3 id="2-添加用户-此处也可以使用root">2.添加用户(此处也可以使用root)</h3>
+
+<pre><code>
+$ sudo adduser builder
+
+$ sudo echo -e &quot;builder\tALL=(ALL) NOPASSWD:ALL&quot;&gt;/etc/sudoers.d/builder
+
+</code></pre>
+
+<h3 id="3-配置用户access-key">3.配置用户access key</h3>
+
+<pre><code>
+$ aws configure
+
+AWS Access Key ID [None]: KEY
+
+AWS Secret Access Key [None]: SECRET_KEY
+
+Default region name [None]: cn-north-1
+
+Default output format [None]: json
+
+</code></pre>
+
+<h3 id="4-配置一个专用的public-private-gpg密钥对">4.配置一个专用的Public/Private GPG密钥对</h3>
+
+<p><strong>生成一个新的GPG密钥对</strong></p>
+
+<p>这里要等一段时间，他需要从随机数库里面去数字，在此期间可以敲击键盘或者点击鼠标来生成随机数(注意：不要ctrl+c)</p>
+
+<pre><code>
+gpg --gen-key
+
+gpg (GnuPG) 2.0.22; Copyright (C) 2013 Free Software Foundation, Inc.
+
+This is free software: you are free to change and redistribute it.
+
+There is NO WARRANTY, to the extent permitted by law.
+
+
+
+Please select what kind of key you want:
+
+   (1) RSA and RSA (default)
+
+   (2) DSA and Elgamal
+
+   (3) DSA (sign only)
+
+   (4) RSA (sign only)
+
+Your selection?
+
+RSA keys may be between 1024 and 4096 bits long.
+
+What keysize do you want? (2048)
+
+Requested keysize is 2048 bits
+
+Please specify how long the key should be valid.
+
+         0 = key does not expire
+
+      &lt;n&gt;  = key expires in n days
+
+      &lt;n&gt;w = key expires in n weeks
+
+      &lt;n&gt;m = key expires in n months
+
+      &lt;n&gt;y = key expires in n years
+
+Key is valid for? (0)
+
+Key does not expire at all
+
+Is this correct? (y/N) y
+
+
+
+GnuPG needs to construct a user ID to identify your key.
+
+
+
+Real name: repo-for-me
+
+Email address: repo@repo.com
+
+Comment: my repo
+
+You selected this USER-ID:
+
+    &quot;repo-for-me (my repo) &lt;repo@repo.com&gt;&quot;
+
+
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
+
+You need a Passphrase to protect your secret key.
+
+
+
+We need to generate a lot of random bytes. It is a good idea to perform
+
+some other action (type on the keyboard, move the mouse, utilize the
+
+disks) during the prime generation; this gives the random number
+
+generator a better chance to gain enough entropy.
+
+</code></pre>
+
+<p><strong>查看生成的GPG密钥对</strong></p>
+
+<pre><code>
+# gpg --list-keys
+
+/root/.gnupg/pubring.gpg
+
+------------------------
+
+pub   2048R/AE355D 2017-03-17
+
+uid                 repo-for-me (my repo) &lt;repo@repo.com&gt;
+
+sub   2048R/45DEQAD 2017-03-17
+
+</code></pre>
+
+<p><strong>导出public key</strong></p>
+
+<pre><code>
+gpg --output ~/RPM-GPG-KEY-my-repo --armor --export AE355D
+
+</code></pre>
+
+<p><strong>导出private key</strong></p>
+
+<pre><code>
+gpg --output ~/RPM-GPG-KEY-my-repo.private --export-secret-key -armor AE355D
+
+</code></pre>
+
+<p><strong>rpm 导入key</strong></p>
+
+<pre><code>
+rpm --import ~/RPM-GPG-KEY-my-repo
+
+</code></pre>
+
+<p><strong>确认被正确安装</strong></p>
+
+<pre><code>
+rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt; %{summary}\n'
+
+gpg-pubkey-f4a80eb5-53a7ff4b --&gt; gpg(CentOS-7 Key (CentOS 7 Official Signing Key) &lt;security@centos.org&gt;)
+
+gpg-pubkey-621e9f35-58adea78 --&gt; gpg(Docker Release (CE rpm) &lt;docker@docker.com&gt;)
+
+gpg-pubkey-4a7cz49d-533129b --&gt; gpg(repo-for-me (my repo) &lt;repo@repo.com&gt;)
+
+</code></pre>
+
+<h3 id="5-构建rpm-packages">5.构建RPM packages</h3>
+
+<p><strong>创建rpmbuild目录</strong></p>
+
+<pre><code>
+mkdir -pv ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+
+</code></pre>
+
+<p><strong>创建一个repo文件</strong></p>
+
+<pre><code>
+$ cat ~/repo-for-me.repo
+
+[repo-for-me]
+
+name=name=Extra Packages from Celingest Demo S3 RPM Repository - $basearch
+
+baseurl=https://s3.cn-north-1.amazonaws.com.cn/repo-for-me/yum-repo/$basearch/
+
+enabled=1
+
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-my-repo
+
+gpgcheck=1
+
+</code></pre>
+
+<p><strong>配置.spec文件</strong></p>
+
+<pre><code>
+$ cat repo-for-me.spec
+
+# S3 RPM Repository configuration files and GPG key
+
+
+
+%define name    repo-for-me
+
+%define version   1
+
+%define release   0.1
+
+
+
+%define buildroot %{_topdir}/%{name}-%{version}-root
+
+
+
+BuildArch:  x86_64
+
+BuildRoot:  %{buildroot}
+
+Summary:    S3 RPM Repository
+
+License:    GPLv3
+
+Name:       %{name}
+
+Version:    %{version}
+
+Release:    %{release}
+
+Group:      Development/Tools
+
+
+
+%description
+
+Package containing antony amzon S3 RPM Repository configuration files and GPG key.
+
+
+
+%prep
+
+exit 0
+
+
+
+%build
+
+
+
+%install
+
+rm -rf $RPM_BUILD_ROOT
+
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
+
+cp -p ~/repo-for-me.repo $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+
+cp -p ~/RPM-GPG-KEY-my-repo $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
+
+
+
+%clean
+
+rm -rf $RPM_BUILD_ROOT
+
+
+
+%files
+
+%defattr(-,root,root,-)
+
+/etc/yum.repos.d/repo-for-me.repo
+
+/etc/pki/rpm-gpg/RPM-GPG-KEY-my-repo
+
+
+
+
+
+%changelog
+
+* Fri Mar 17 2017 Builder &lt;my@my.repo.com&gt; 1.0.1
+
+- First release.
+
+</code></pre>
+
+<p><strong>配置rpm macros</strong></p>
+
+<pre><code>
+cat .rpmmacros
+
+%_signature gpg
+
+%_gpg_path /root/.gnupg
+
+%_gpg_name repo-for-me (my repo) &lt;repo@repo.com&gt; # 此处的名字通过# gpg --list-keys 查看uid
+
+%_gpgbin /usr/bin/gpg
+
+%packager meiqia &lt;repo@repo.com&gt;
+
+%_topdir /root/rpmbuild
+
+</code></pre>
+
+<p><strong>制作rpm</strong></p>
+
+<pre><code>
+rpmbuild -v -ba --sign --clean repo-for-me.spec
+
+...
+
+Enter pass phrase:  #这里的密码是gpg --gen-key生成的密码
+
+Pass phrase is good.
+
+
+
+/home/root/rpmbuild/SRPMS/repo-for-me-1-0.1.x86_64.rpm
+
+/home/root/rpmbuild/RPMS/noarch/repo-for-me-1-0.1.x86_64.rpm
+
+</code></pre>
+
+<p><strong>检查包的正确性</strong></p>
+
+<pre><code>
+rpm --checksig /home/builder/rpmbuild/SRPMS/repo-for-me-1-0.1.x86_64.rpm
+
+/root/rpmbuild/RPMS/repo-for-me-1-0.1.x86_64.rpm: rsa sha1 (md5) pgp md5 ok
+
+</code></pre>
+
+<h3 id="更新到s3">更新到s3</h3>
+
+<pre><code>
+mkdir -pv ~/yum-repo/{x86_64,noarch} # 注意 yum-repo这个目录必须和repo文件中的一一对应
+
+</code></pre>
+
+<p><strong>拷贝rpm包到/yum-repo/x86_64</strong></p>
+
+<pre><code>
+cp /home/root/rpmbuild/SRPMS/*.rpm ~/yum-repo/x86-64
+
+</code></pre>
+
+<p><strong>创建metadata file（最重要的一步）</strong></p>
+
+<pre><code>
+for a in /root/repo-for-me/x86_64; do createrepo -v --update --deltas $a/ ; done
+
+...
+
+</code></pre>
+
+<p><strong>上传到s3</strong></p>
+
+<pre><code>
+aws s3 sync yum-repo/ s3://repo-for-me/yum-repo/
+
+</code></pre>
+
+<p><strong>安装并测试</strong></p>
+
+<pre><code>
+rpm -ivh https://s3.cn-north-1.amazonaws.com.cn/repo-for-me/yum-repo/x86_64/tools/repo-for-me-1-0.1.x86_64.rpm
+
+</code></pre>
+
+<p><strong>本文主要介绍如何管理仓库，如制作rpm包、创建依赖关系、上传rpm到s3等，如果想了解实现方式，请查阅：<a href="http://wiki.meiqia.com/pages/viewpage.action?pageId=5701661">repo-for-s3</a></strong></p>
+
+<h3 id="公开s3">公开s3</h3>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/yum-s3.png" alt="s3-yum" /></p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Nginx配置文件安全分析工具Gixy</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/">
+                <span class="button__text">docker 1.13&#43; FORWARD链为DROP的问题</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

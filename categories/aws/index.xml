@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/categories/aws/</link>
+    <description>Recent content in AWS on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="http://zhaox.xyz/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>aws-ec2-双网卡问题</title>
+      <link>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <description>问题描述 在已存在的EC2上新添加网卡后发现，凡是和eth0在同一个网段的只能通过eth0访问，不能通过eth1。同样的，在eth1网段的只能通过eth1访问，不能通过eth0访问。 如果既不在eth0也不再eth0 默认走eth0(在没有修改路由表的前提下，默认路由是eth0)
+问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡2进来的数据包从网卡1发送出去，或者从网卡1进来的数据包从网卡2发送出去，AWS底层会把这样的数据包丢弃。
+因此需要手动定义策略路由，在响应网卡1进来的数据包时通过网卡1发送，响应网卡2进来的数据包时通过网卡2发送。
+解决方案 关于这个现象和解决方案，可以参考这遍文档：
+http://www.linuxjournal.com/article/7291
+该文档较长，这里介绍一个配置路由策略的事例，可以按照此事例的方法结合具体网络环境进行配置：
+1、首先为网卡1和2创建各自的路由表：  ip route add [子网1网段] via [您子网的网关IP] dev eth0 tab 1 ip route add [子网2网段] via [您子网的网关IP] dev eth1 tab 2 可以通过ip route show table 1和ip route show table 2查看您刚刚完成的配置是否正确  2、然后创建策略路由  ip rule add from [eth0的IP]/32 tab 1 priority 500 ip rule add from [eth1的IP]/32 tab 2 priority 600  这个配置的意思是，将原地址为eth0的IP的包按照路由表1发送,将原地址为eth1的IP的包按照路由表2发送
+3、查看并刷新 可以通过 ip rule命令查看已经配置的路由策略。一个示例的策略如下：</description>
+    </item>
+    
+    <item>
+      <title>aws自定义AMI-UUID相同处理方法</title>
+      <link>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
+      <description>Note: 在制作Centos 7 AMI并进行使用时，我们发现：如果将两个相同AMI挂载到一个操作系统的时候，会出现因为UUID相同，导致不能挂载的问题(至于为什么将两个相同的AMI挂载到一个操作系统：当误删除用户的密钥文件或者不能登录系统时，我们不得不将其挂载到其他操作系统)
+ 问题重现  $ sudo fdisk -l Disk /dev/xvda: 53.7 GB, 53687091200 bytes, 104857600 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x0001783d Device Boot Start End Blocks Id System /dev/xvda1 * 2048 104856254 52427103+ 83 Linux Disk /dev/mapper/docker-202:1-84149041-pool: 107.</description>
+    </item>
+    
+  </channel>
+</rss>

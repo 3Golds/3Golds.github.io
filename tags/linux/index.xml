@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/linux/</link>
+    <description>Recent content in Linux on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux三剑客之grep</title>
+      <link>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
+      <description>一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
+ 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
+grep 家族：
+  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &amp;ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
+alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?</description>
+    </item>
+    
+    <item>
+      <title>为什么你的Linux物理内存还有很多，却开始使用swap?</title>
+      <link>http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</guid>
+      <description>#Swap
+现在的机器上都是有多个CPU和多个内存块的。以前我们都是将内存块看成是一大块内存，所有CPU到这个共享内存的访问消息是一样的。
+这就是之前普遍使用的SMP模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。NUMA（Non-Uniform Memory Access）就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个NUMA node，这样这个机器就会有两个NUMA node。在物理分布上，NUMA node的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（cpu1, cpu2），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样NUMA node1的 cpu1 访问memory1.1和memory1.2就比访问memory2.1和memory2.2更快。所以使用NUMA的模式如果能尽量保证本node内的CPU只访问本node内的内存块，那这样的效率就是最高的。
+在运行程序的时候使用numactl -m和-physcpubind就能制定将这个程序运行在哪个cpu和哪个memory中。玩转cpu-topology给了一个表格，当程序只使用一个node资源和使用多个node资源的比较表（差不多是 38s 与 28s 的差距）。所以限定程序在numa node中运行是有实际意义的。
+但是呢，话又说回来了，制定numa就一定好吗？--numa的陷阱。SWAP的罪与罚文章就说到了一个numa的陷阱的问题。现象是当你的服务器还有内存的时候，发现它已经在开始使用swap了，甚至已经导致机器出现停滞的现象。这个就有可能是由于numa的限制，如果一个进程限制它只能使用自己的numa节点的内存，那么当自身numa node内存使用光之后，就不会去使用其他numa node的内存了，会开始使用swap，甚至更糟的情况，机器没有设置swap的时候，可能会直接死机！所以你可以使用numactl --interleave=all来取消numa node的限制。
+综上所述得出的结论就是，根据具体业务决定NUMA的使用。
+如果你的程序是会占用大规模内存的，你大多应该选择关闭numa node的限制。因为这个时候你的程序很有几率会碰到numa陷阱。
+另外，如果你的程序并不占用大内存，而是要求更快的程序运行时间。你大多应该选择限制只访问本numa node的方法来进行处理。
+ 转载：http://lib.csdn.net/article/linux/28546
+ </description>
+    </item>
+    
+  </channel>
+</rss>

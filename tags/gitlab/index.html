@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Gitlab :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/tags/gitlab/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitlab"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="Gitlab" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://zhaox.xyz/tags/gitlab/" />
+
+<meta property="og:updated_time" content="2017-10-27T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/gitlab/index.xml" title="赵鑫的博客" />
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+    
+    
+
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/">Gitlab omnibus 8.15.1 upgrade to 9.5.9</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-10-27
+        </span>
+        <span class="post-author">— Written by Antony</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/gitlab/">gitlab</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            升级场景 由于公司要通过gitlab接入ci和cd功能，经测试一个repo不能正常使用，且gitlab9.5之后增加了很多新功能，比较吸引我们
+ GPG Commit Verification: GPG密钥允许您验证签名提交
+ New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
+ Project Template: 新增了更多的项目模板
+ Automatic Retry for Failed CI Jobs：自动重试失败的ci job
+ Automatically Monitor Auto Deployed Apps：自动监控自动部署应用程序
+ Merge Request Diff File Navigation：查看merge request时更清晰
+  更多的特性请查阅：<a href="https://about.gitlab.com/2017/08/22/gitlab-9-5-released/">https://about.gitlab.com/2017/08/22/gitlab-9-5-released/</a>
+考虑的点及问题  1.postgresql版本问题： 由于我们公司使用的是外部的postgresql和redis，postgresql的版本为9.3，而gitlab9.5.9依赖postgresql 9.6以上的版本，所以在升级gitlab的时候他会升级数据库，但是我们是外部的(AWS RDS)，所以他并不能升级，会抛出异常。
+ 2.postgresql的表结构问题：在升级期间，由于版本变化比较大，所以会涉及表结构及表字段的更改，如果使用外部的postgresql，可能会导致不成功
+ 3.gitlab有可能升级失败，失败后必须理解还原，且不影响线上数据
+  解决方案 根据上述问题，新启动一台实例，首先保持和线上的版本相同，其次将线上的数据还原到这台实例，然后在将新启动的实例进行升级，不过在这其中有几个点必须注意：
+ 1.新启动的实例必须使用本地的postgresql和redis
+ 2.必须将线上的postgresql的数据还原到当前实例的postgresql
+ 3.当前实例上面的psql和pg_dump工具必须和线上版本保持一致(AWS RDS POSTGRESQL)
+ 4.在测试期间，绝对不能和线上使用同一个redis，必须保持redis只有一个connect
+ 5.在gitlab还原数据的时候，其必须在running状态
+  实施步骤 一、新实例安装线上同版本gitlab  $ curl -s <a href="https://packages">https://packages</a>.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-10-27-gitlab-omnibus-8.15.1-upgrade-to-9.5.9/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/">Gitlab-Omnibus</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-02-04
+        </span>
+        <span class="post-author">— Written by Antony</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/gitlab/">Gitlab</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            一、Gitlab简介 组件说明
+ 前端：Nginx，用于页面及Git tool走http或https协议
+ 后端：Gitlab服务，采用Ruby on Rails框架，通过unicorn实现后台服务及多进程
+ SSHD：开启sshd服务，用于用户上传ssh key进行版本克隆及上传。注：用户上传的ssh key是保存到git账户中
+ 数据库：目前仅支持MySQL和PostgreSQL
+ Redis：用于存储用户session和任务，任务包括新建仓库、发送邮件等等
+ Sidekiq：Rails框架自带的，订阅redis中的任务并执行
+  版本说明
+ CE(GitLab Community Edition)：社区版(源码安装方式) <a href="https://docs.gitlab.com/ce/README.html">https://docs.gitlab.com/ce/README.html</a>
+ OM(Omnibus GitLab)：综合版(包安装方式) <a href="https://docs.gitlab.com/omnibus/README.html">https://docs.gitlab.com/omnibus/README.html</a>
+ EE(GitLab Enterprise Edition)：企业版 <a href="https://docs.gitlab.com/ee/README.html">https://docs.gitlab.com/ee/README.html</a>
+  二、Gitlab Omnibus 安装和配置 1. 安装和配置依赖环境
+sudo apt-get install curl openssh-server ca-certificates postfix  2. 添加gitlab 包并安装
+curl -sS <a href="https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh">https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</a> | sudo bash sudo apt-get install gitlab-ce  如果安装很慢，可以选择下载程序包后安装
+<a href="https://packages.gitlab.com/gitlab/gitlab-ce/install">https://packages.gitlab.com/gitlab/gitlab-ce/install</a>  3. 配置gitlab
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-01-23-gitlab-omnibus/">Read more →</a></div>
+    </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

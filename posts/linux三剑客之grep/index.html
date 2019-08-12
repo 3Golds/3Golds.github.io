@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Linux三剑客之grep :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
+ 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
+grep 家族：
+  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &amp;ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
+alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux三剑客之grep"/>
+<meta name="twitter:description" content="一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
+ 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
+grep 家族：
+  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
+alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?"/>
+
+
+
+<meta property="og:title" content="Linux三剑客之grep" />
+<meta property="og:description" content="一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
+ 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
+grep 家族：
+  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
+alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l.=&#39;ls -d .* --color=auto&#39; alias ll=&#39;ls -l --color=auto&#39; alias ls=&#39;ls --color=auto&#39; alias mv=&#39;mv -i&#39; alias rm=&#39;rm -i&#39; alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;  -i：忽略字符大小写； # cat test Hello World How are you?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Linux三剑客之grep</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-01-07
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 4 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/linux/">linux</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/grep/">grep</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="一-linux-文本处理三剑客">一、Linux 文本处理三剑客</h3>
+
+<blockquote>
+<p>Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。</p>
+</blockquote>
+
+<h3 id="二-grep-是什么">二、grep 是什么？</h3>
+
+<blockquote>
+<p><code>grep</code> 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。</p>
+
+<p>grep 家族：</p>
+</blockquote>
+
+<pre><code>    1.grep：支持使用基本正则表达式；
+    2.egrep：支持使用扩展正则表达式；
+    3.fgrep：不支持使用正则表达式；
+   # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）
+</code></pre>
+
+<h3 id="三-grep-与-egrep-的主要参数">三、grep 与 egrep 的主要参数</h3>
+
+<p>在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！
+常用选项：
+&ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）</p>
+
+<h4 id="alias">alias</h4>
+
+<pre><code>alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+</code></pre>
+
+<h4 id="i-忽略字符大小写">-i：忽略字符大小写；</h4>
+
+<pre><code># cat test
+Hello World
+How are you?
+Mageedu is very good!
+# grep &quot;^H&quot; test
+Hello World
+How are you?
+# grep &quot;^h&quot; test
+# grep -i &quot;^h&quot; test
+Hello World
+How are you?
+</code></pre>
+
+<h4 id="o-仅显示匹配-到的文本自身">-o：仅显示匹配 到的文本自身；</h4>
+
+<pre><code># grep &quot;good&quot; test
+Mageedu is very good!
+[root@localhost ~]# grep -o &quot;good&quot; test
+good
+-v，反向匹配；
+# cat test
+Hello World
+How are you?
+Mageedu is very good!
+[root@localhost ~]# grep  &quot;M.*[[:punct:]]$&quot; test
+Mageedu is very good!
+[root@localhost ~]# grep -v &quot;M.*[[:punct:]]$&quot; test
+Hello World
+How are you?
+</code></pre>
+
+<h4 id="q-静默模式-不输出任何信息-省得把输出放到-dev-null-节省系统资源">-q, 静默模式，不输出任何信息；（省得把输出放到/dev/null，节省系统资源）</h4>
+
+<p>此处只是为了得到一个返回状态</p>
+
+<pre><code># grep -q &quot;good&quot; test
+# echo $?
+0
+# grep -q &quot;goodddddddd&quot; test
+# echo $?
+1
+</code></pre>
+
+<h4 id="p-支持使用-pcre-正则表达式-per-语言">-P, 支持使用 pcre 正则表达式（per 语言）；</h4>
+
+<h4 id="e-pattern-可以同时匹配多个模式">-e PATTERN 可以同时匹配多个模式</h4>
+
+<pre><code># cat test
+Hello World
+How are you?
+Mageedu is very good!
+[root@localhost ~]# grep -e &quot;good&quot; -e &quot;you&quot; test
+How are you?
+Mageedu is very good!
+</code></pre>
+
+<h4 id="f-filefile-为每行包含了一个-pattern-的文本文件-即-grep-script-读取文件中的每一行-pattern-来对指定-file-进行过滤">-f FILEFILE 为每行包含了一个 pattern 的文本文件，即 grep script；（读取文件中的每一行 pattern 来对指定 FILE 进行过滤）</h4>
+
+<p>-f 与-e 类似，都是匹配多个模式，只是-f 选项读取的是文本文件中的模式，逐行匹配。</p>
+
+<h4 id="a-num-显示匹配出的后-行">-A NUM 显示匹配出的后#行</h4>
+
+<h4 id="b-num-显示匹配出的前-行">-B NUM 显示匹配出的前#行</h4>
+
+<h4 id="c-num-显示匹配出的前后-行">-C NUM 显示匹配出的前后#行</h4>
+
+<pre><code># cat test
+Hello World
+How are you?
+Mageedu is very good!
+# grep -A 1 &quot;you&quot; test
+How are you?
+Mageedu is very good!
+# grep -B 1 &quot;you&quot; test
+Hello World
+How are you?
+# grep -C 1 &quot;you&quot; test
+Hello World
+How are you?
+Mageedu is very good!
+</code></pre>
+
+<h4 id="其他参数">其他参数</h4>
+
+<p>下面参数针对 grep 命令而言：
+-E：支持扩展的正则表达式相当与 egrep；
+-F, &ndash;fixed-strings：支持使用固定字符串，不支持正则表达式，相当于 fgrep；</p>
+
+<h3 id="四-grep-使用及正则表达式">四、grep 使用及正则表达式</h3>
+
+<h4 id="1-正则表达式的组成">1.正则表达式的组成</h4>
+
+<p>a、一般字符：没有特殊意义的字符
+b、特殊字符（meta 字符）：元字符，有在正则表达式中有特殊意义</p>
+
+<h4 id="2-下面讲下正则表达式中常见的-meta-字符-元字符">2.下面讲下正则表达式中常见的 meta 字符(元字符)</h4>
+
+<h5 id="a-基本正则表达式-meta-字符">a、基本正则表达式 meta 字符</h5>
+
+<h5 id="1-字符匹配">（1）字符匹配</h5>
+
+<h6 id="匹配任意单个字符">&rdquo;.&rdquo;:匹配任意单个字符；</h6>
+
+<pre><code># grep r..t /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+</code></pre>
+
+<h6 id="匹配方位内的任意单个数字">[ ]:匹配方位内的任意单个数字；</h6>
+
+<pre><code># fdisk -l |grep &quot;[sh]d[a-z]\&gt;&quot;
+Disk /dev/sda: 128.8 GB, 128849018880 bytes, 251658240 sectors
+</code></pre>
+
+<h6 id="匹配范围外的任意单个数字-托字符指取反之意-下面会讲到">[^]匹配范围外的任意单个数字：托字符指取反之意,下面会讲到</h6>
+
+<pre><code># cat test
+Hello World
+how are you?
+Mageedu is very good!
+</code></pre>
+
+<h6 id="upper-所有大写字母">[[:upper:]]：所有大写字母</h6>
+
+<pre><code># grep &quot;^[^[:upper:]]&quot; test
+how are you?
+```
+###### 其他表示数字的元字符
+[[:upper:]]：所有大写字母；
+[[:lower:]]：所有小写字母；
+[[:digit:]]：所有的数字；
+[[:alpha:]]：所有字母；
+[[:alnum:]]：所有字母和数字；
+[[:space:]]：空白字符；
+[[:punct:]]：标点符号；
+```
+# cat test
+Hello World
+how are you?
+Mageedu is very good!
+# grep &quot;[[:upper:]][[:lower:]].*[[:space:]]&quot; test
+Hello World
+Mageedu is very good!
+```
+###### （2）匹配次数
+主要用于限制字符要出现的次数，一般放在出现的次数的字符后面。
+######   `*`：匹配前面的字符任意次（0,1或多次）；
+此处*表示前面的字符可以出现也可以不出现，所以将文件中所有的行都匹配出来了
+```
+# grep &quot;a*&quot; test1
+ab
+aaaabcd
+bcd
+cd
+axxxxxxxd
+```
+###### `.*`：任意长度的任意字符（.为匹配单个字符，*为任意次）
+此处.表示匹配任意单个字符，所以在过滤时，文件中的a必须出现至少一次
+```
+# grep &quot;a.*&quot; test1
+ab
+aaaabcd
+axxxxxxxd
+cccabbbd
+```
+######  `\+`：匹配前面的字符至少1次；
+```
+# grep &quot;a\+&quot; test1
+ab
+aaaabcd
+axxxxxxxd
+cccabbbd
+```
+######  \?：匹配前面的0次或1次，即前面的字符可有可无；
+```
+# grep &quot;a\?&quot; test1
+ab
+aaaabcd
+bcd
+cd
+axxxxxxxd
+cccabbbd
+```
+###### \{\m}：固定匹配前面的字符出现m次，m为非负数；
+```
+# grep &quot;a\{2\}&quot; test1
+aaaabcd
+aaxxxxxxxd
+cccaabbbd
+```
+###### \{m,n\}:至少出现m次，至多出现n次；
+```
+# grep &quot;a\{1,3\}&quot; test1
+ab
+aaaabcd
+aaxxxxxxxd
+cccaabbbd
+    \{0,n\}:至多n次；
+    \{m,\}：至少m次；
+```
+##### （3）位置锚定
+限制使用模式搜索文本，限制模式所匹配到的文本只能出现于目标文本的哪个位置；
+
+`^`：行首锚定；用于模式的最左侧，^PATTERN
+`$`：行尾锚定；用于模式的最右侧，PATTERN$
+```
+# ps -ef|grep &quot;^root.*bash$&quot;
+root       1143   1141  0 09:20 pts/0    00:00:00 -bash
+^PATTERN$：要让PATTERN完全匹配一整行；
+# grep &quot;^hello&quot; /tmp/fstab
+hello
+hello world
+# grep &quot;^hello$&quot; /tmp/fstab
+hello
+```
+###### ^$：空行；
+```
+常用语在文档中过滤多余的空行，-v指取反之意
+# cat test
+Hello World
+
+how are you?
+
+Mageedu is very good!
+
+# grep -v &quot;^$&quot; test
+Hello World
+how are you?
+Mageedu is very good!
+```
+###### ^[[:space:]]*$：用来在^$匹配不到的时候使用；
+此处指有的时候空行中包含空白字符，比如空格、制表符等，用^$就过滤不出来了，此处可以使用此命令过滤
+```
+# grep -v &quot;^$&quot; test
+Hello World
+
+
+how are you?
+
+
+Mageedu is very good!
+# grep -v &quot;^[[:space:]]*$&quot; test
+Hello World
+how are you?
+Mageedu is very good!
+```
+###### \&lt;或\b：词首锚定，用于单词模式的左侧，格式为\&lt;PATTERN, \bPATTERN
+```
+# fdisk -l|grep &quot;/dev/[sh]d[a-z]&quot;
+Disk /dev/sda: 128.8 GB, 128849018880 bytes, 251658240 sectors
+/dev/sda1   *        2048     1026047      512000   83  Linux
+/dev/sda2         1026048    84912127    41943040   83  Linux
+/dev/sda3        84912128   126855167    20971520   83  Linux
+/dev/sda4       126855168   251658239    62401536    5  Extended
+/dev/sda5       126859264   131055615     2098176   82  Linux swap / Solaris
+# fdisk -l|grep &quot;/dev/[sh]d[a-z]\&gt;&quot;
+Disk /dev/sda: 128.8 GB, 128849018880 bytes, 251658240 sectors
+```
+###### \&gt;或\b：词尾锚定，用于单词模式的右侧，格式为PATTERN\&gt;, PATTERN\b
+```
+# grep &quot;\&lt;root&quot; /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+```
+###### \&lt;PATTERN\&gt;：单词锚定
+```
+单词：由非特殊字符组成的连续字符（字符串）都称为单词；
+# cat /tmp/ifconfig.test
+/usr/sbin/ifconfig
+/usr/sbin/ifconfig2
+/usr/sbin/ifconfig3
+# grep &quot;ifconfig&quot; /tmp/ifconfig.test
+/usr/sbin/ifconfig
+/usr/sbin/ifconfig2
+/usr/sbin/ifconfig3
+# grep &quot;\&lt;ifconfig\&gt;&quot; /tmp/ifconfig.test
+/usr/sbin/ifconfig
+```
+##### （4）分组与引用
+\(PATTERN\):将次PATTERN匹配到的字符当做一个整体处理；分组括号中的模式匹配到的字符会被正则表达式引擎自动纪录于变量中，这些变量分别是\1，\2，\3
+    \1：第一组括号中的pattern匹配到的字符串；
+    \2：第二组括号中的pattern匹配到的字符串；
+```
+# grep &quot;^\([[:alnum:]]\+\)\&gt;.*\1$&quot; /etc/passwd
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+nologin:x:5010:5010::/home/nologin:/sbin/nologin
+```
+##### b、扩展正则表达式meta字符
+注意：与基本正则表达式不同，扩展表达式在一些参数上可以不使用转意符（\），但是在使用上没有什么区别，这里我举几个例子，其他基本与基本正则表达式使用相同！
+
+##### 此处表示过滤1-255的所有整数
+![enter image description here](http://zantony.top/uploads/grep.png)
+##### 此处表示取出绝对路径中的基名
+```
+# echo `which pwd`|egrep &quot;[^/]+/?$&quot;
+/usr/bin/pwd
+# echo `which pwd`|egrep &quot;[^/]+/?$&quot; -o
+pwd
+```
+##### 此处表示查看root、mageedu、centos用户的详细信息
+```
+# egrep &quot;^(root|mageedu|centos)\&gt;&quot; /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+mageedu:x:1000:1000:mageedu:/home/mageedu:/bin/bash
+centos:x:5008:5008::/home/centos:/bin/bash
+```
+#### 总结
+（1）字符匹配
+.:匹配任意单个字符；
+`[ ]`:匹配方位内的任意单个数字；
+`[^]`匹配范围外的任意单个数字；
+`[[:upper:]]`：所有大写字母；
+`[[:lower:]]`：所有小写字母；
+`[[:digit:]]`：所有的数字；
+`[[:alpha:]]`：所有字母；
+`[[:alnum:]]`：所有字母和数字；
+`[[:space:]]`：空白字符；
+`[[:punct:]]`：标点符号；
+（2）匹配次数
+主要用于限制字符要出现的次数，一般放在出现的次数的字符后面。
+`*`：匹配前面的字符任意次（0,1或多次）；
+`.*`：任意长度的任意字符（.为匹配单个字符，*为任意次）
+`+`：匹配前面的字符至少1次；
+`?`：匹配前面的0次或1次，即前面的字符可有可无；
+`{m}`：固定匹配前面的字符出现m次，m为非负数；
+`{m,n}`:至少出现m次，至多出现n次；
+`{0,n}`:至多n次；
+`{m,}`：至少m次；
+（3）位置锚定
+扩展正则表达式中：单词锚定符（\&lt;,\&gt;）不能去除转意符(\)
+`^`：行首锚定；用于模式的最左侧，^PATTERN
+`$`：行尾锚定；用于模式的最右侧，PATTERN$
+`^PATTERN$`：要让PATTERN完全匹配一整行；
+`^$`：空行；
+`^[[:space:]]*$`: 用来在^$匹配不到的时候使用；
+`\&lt;或\b`：词首锚定，用于单词模式的左侧，格式为\&lt;PATTERN, \bPATTERN
+`\&gt;或\b`：词尾锚定，用于单词模式的右侧，格式为PATTERN\&gt;, PATTERN\b
+`\&lt;PATTERN\&gt;`：单词锚定
+单词：由非特殊字符组成的连续字符（字符串）都称为单词；
+（4）分组与引用
+(PATTERN):将次PATTERN匹配到的字符当做一个整体处理；分组括号中的模式匹配到的字符会被正则表达式引擎自动纪录于变量中，这些变量分别是\1，\2，\3
+`\1`：第一组括号中的pattern匹配到的字符串；
+` \2`：第二组括号中的pattern匹配到的字符串
+这里的\1 \2不能省略转意符；
+（5）或者
+   ` a|b`：a或者b
+    `C|cat`：表示C或cat
+   `(C|c)at`：表示Cat或cat
+```
+# fdisk -l|grep -E &quot;/dev/(s|h)d[a-z]\&gt;&quot;
+Disk /dev/sda: 128.8 GB, 128849018880 bytes, 251658240 sectors
+```
+&gt;作者：Antony WX&amp;QQ：1257465991
+Q/A：如有问题请慷慨提出
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Golang 数组和切片</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/">
+                <span class="button__text">ansible脚本</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

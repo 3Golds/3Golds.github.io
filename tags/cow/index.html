@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>cow :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/tags/cow/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="cow"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="cow" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://zhaox.xyz/tags/cow/" />
+
+<meta property="og:updated_time" content="2017-02-20T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/cow/index.xml" title="赵鑫的博客" />
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+    
+    
+
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/">COW (Climb Over the Wall) Proxy</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-02-20
+        </span>
+        <span class="post-author">— Written by Antony</span>
+        
+          <span class="post-read-time">— 2 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/ss/">ss</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/cow/">cow</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            COW简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW的二级代理用来访问海外的server，支持sock5、shadowsocks、cow(采用shadowsock协议)三种方式. Github地址
+ 功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
+ 作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
+ 支持 HTTP, SOCKS5, shadowsocks 和 cow 自身作为二级代理
+ 可使用多个二级代理，支持简单的负载均衡
+ 自动检测网站是否被墙，仅对被墙网站使用二级代理
+ 自动生成包含直连网站的 PAC，访问这些网站时可绕过 COW
+ 内置常见可直连网站，如国内社交、视频、银行、电商等网站（可手工添加）
+  一、安装 1. OS X, Linux (x86, ARM): 执行以下命令（也可用于更新） curl -L git.io/cow | bash # 环境变量 <code>COW_INSTALLDIR</code> 可以指定安装的路径，若该环境变量不是目录则询问用户  2.Windows: 从 release 页面下载 3.熟悉 Go 的用户可用 go get github.com/cyfdecyf/cow 从源码安装 go get github.com/cyfdecyf/cow  二、配置 编辑 ~/.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-02-20-cow-climb-over-the-wall-proxy/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">Cow-rc-样例配置文件</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-02-20
+        </span>
+        <span class="post-author">— Written by Antony</span>
+        
+          <span class="post-read-time">— 3 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/ss/">ss</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/cow/">cow</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            <h1 id="配置文件中-开头的行为注释-代理服务器监听地址-重复多次来指定多个监听地址-语法-listen-protocol-optional-server-address-server-port-支持的-protocol-如下-http-提供-http-代理-listen-http-127-0-0-1-7777-上面的例子中-cow-生成的-pac-url-为-http-127-0-0-1-7777-pac-配置浏览器或系统-http-和-https-代理时请填入该地址-若配置代理时有对所有协议使用该代理的选项-且你不清楚此选项的含义-请勾选-cow-需两个-cow-服务器配合使用-listen-cow-encrypt-method-password-1-2-3-4-5678-若-1-2-3-4-5678-在国外-位于国内的-cow-配置其为二级代理后-两个-cow-之间可以-通过加密连接传输-http-代理流量-目前的加密采用与-shadowsocks-相同的方式-其他说明-若-server-address-为-0">配置文件中 # 开头的行为注释 # # 代理服务器监听地址，重复多次来指定多个监听地址，语法： # # listen = protocol://[optional@]server_address:server_port # # 支持的 protocol 如下： # # HTTP (提供 http 代理): # listen = <a href="http://127.0.0.1:7777">http://127.0.0.1:7777</a> # # 上面的例子中，cow 生成的 PAC url 为 <a href="http://127.0.0.1:7777/pac">http://127.0.0.1:7777/pac</a> # 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 # 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 # # cow (需两个 cow 服务器配合使用): # listen = cow://encrypt_method:password@1.2.3.4:5678 # # 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 # 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 # # 其他说明： # - 若 server_address 为 0.</h1>
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">Read more →</a></div>
+    </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ss,ss-client on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/categories/ssss-client/</link>
+    <description>Recent content in ss,ss-client on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="http://zhaox.xyz/categories/ssss-client/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ss-Client-Config</title>
+      <link>http://zhaox.xyz/posts/2017-01-07-ss-client-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-01-07-ss-client-config/</guid>
+      <description> Mac local configure  $ sudo pip install shadowsocks $ sudo vim /etc/shadowsock-cient.json { &amp;quot;server&amp;quot;:&amp;quot;SERVER_IP&amp;quot;, &amp;quot;server_port&amp;quot;:PORT, &amp;quot;password&amp;quot;:&amp;quot;PASSWORD&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot;, &amp;quot;fast_open&amp;quot;: false } $ sudo sslocal -c /etc/shadowsock-client.json -d start  Windows local configure 待补充。。。。
+SwitchyOmega 配置 1、下载chrom浏览器插件 https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=zh-CN
+2、导入我的备份文件 先下载我的备份：http://zantony.top:8088/antony.bak
+3、配置情景 4、设置为自动切换 5、畅游自由网络的海洋 </description>
+    </item>
+    
+  </channel>
+</rss>

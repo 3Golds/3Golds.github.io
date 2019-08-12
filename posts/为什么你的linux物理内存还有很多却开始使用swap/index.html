@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>为什么你的Linux物理内存还有很多，却开始使用swap? :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="#Swap
+现在的机器上都是有多个CPU和多个内存块的。以前我们都是将内存块看成是一大块内存，所有CPU到这个共享内存的访问消息是一样的。
+这就是之前普遍使用的SMP模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。NUMA（Non-Uniform Memory Access）就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个NUMA node，这样这个机器就会有两个NUMA node。在物理分布上，NUMA node的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（cpu1, cpu2），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样NUMA node1的 cpu1 访问memory1.1和memory1.2就比访问memory2.1和memory2.2更快。所以使用NUMA的模式如果能尽量保证本node内的CPU只访问本node内的内存块，那这样的效率就是最高的。
+在运行程序的时候使用numactl -m和-physcpubind就能制定将这个程序运行在哪个cpu和哪个memory中。玩转cpu-topology给了一个表格，当程序只使用一个node资源和使用多个node资源的比较表（差不多是 38s 与 28s 的差距）。所以限定程序在numa node中运行是有实际意义的。
+但是呢，话又说回来了，制定numa就一定好吗？--numa的陷阱。SWAP的罪与罚文章就说到了一个numa的陷阱的问题。现象是当你的服务器还有内存的时候，发现它已经在开始使用swap了，甚至已经导致机器出现停滞的现象。这个就有可能是由于numa的限制，如果一个进程限制它只能使用自己的numa节点的内存，那么当自身numa node内存使用光之后，就不会去使用其他numa node的内存了，会开始使用swap，甚至更糟的情况，机器没有设置swap的时候，可能会直接死机！所以你可以使用numactl --interleave=all来取消numa node的限制。
+综上所述得出的结论就是，根据具体业务决定NUMA的使用。
+如果你的程序是会占用大规模内存的，你大多应该选择关闭numa node的限制。因为这个时候你的程序很有几率会碰到numa陷阱。
+另外，如果你的程序并不占用大内存，而是要求更快的程序运行时间。你大多应该选择限制只访问本numa node的方法来进行处理。
+ 转载：http://lib.csdn.net/article/linux/28546
+ "/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么你的Linux物理内存还有很多，却开始使用swap?"/>
+<meta name="twitter:description" content="#Swap
+现在的机器上都是有多个CPU和多个内存块的。以前我们都是将内存块看成是一大块内存，所有CPU到这个共享内存的访问消息是一样的。
+这就是之前普遍使用的SMP模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。NUMA（Non-Uniform Memory Access）就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个NUMA node，这样这个机器就会有两个NUMA node。在物理分布上，NUMA node的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（cpu1, cpu2），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样NUMA node1的 cpu1 访问memory1.1和memory1.2就比访问memory2.1和memory2.2更快。所以使用NUMA的模式如果能尽量保证本node内的CPU只访问本node内的内存块，那这样的效率就是最高的。
+在运行程序的时候使用numactl -m和-physcpubind就能制定将这个程序运行在哪个cpu和哪个memory中。玩转cpu-topology给了一个表格，当程序只使用一个node资源和使用多个node资源的比较表（差不多是 38s 与 28s 的差距）。所以限定程序在numa node中运行是有实际意义的。
+但是呢，话又说回来了，制定numa就一定好吗？--numa的陷阱。SWAP的罪与罚文章就说到了一个numa的陷阱的问题。现象是当你的服务器还有内存的时候，发现它已经在开始使用swap了，甚至已经导致机器出现停滞的现象。这个就有可能是由于numa的限制，如果一个进程限制它只能使用自己的numa节点的内存，那么当自身numa node内存使用光之后，就不会去使用其他numa node的内存了，会开始使用swap，甚至更糟的情况，机器没有设置swap的时候，可能会直接死机！所以你可以使用numactl --interleave=all来取消numa node的限制。
+综上所述得出的结论就是，根据具体业务决定NUMA的使用。
+如果你的程序是会占用大规模内存的，你大多应该选择关闭numa node的限制。因为这个时候你的程序很有几率会碰到numa陷阱。
+另外，如果你的程序并不占用大内存，而是要求更快的程序运行时间。你大多应该选择限制只访问本numa node的方法来进行处理。
+ 转载：http://lib.csdn.net/article/linux/28546
+ "/>
+
+
+
+<meta property="og:title" content="为什么你的Linux物理内存还有很多，却开始使用swap?" />
+<meta property="og:description" content="#Swap
+现在的机器上都是有多个CPU和多个内存块的。以前我们都是将内存块看成是一大块内存，所有CPU到这个共享内存的访问消息是一样的。
+这就是之前普遍使用的SMP模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。NUMA（Non-Uniform Memory Access）就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个NUMA node，这样这个机器就会有两个NUMA node。在物理分布上，NUMA node的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（cpu1, cpu2），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样NUMA node1的 cpu1 访问memory1.1和memory1.2就比访问memory2.1和memory2.2更快。所以使用NUMA的模式如果能尽量保证本node内的CPU只访问本node内的内存块，那这样的效率就是最高的。
+在运行程序的时候使用numactl -m和-physcpubind就能制定将这个程序运行在哪个cpu和哪个memory中。玩转cpu-topology给了一个表格，当程序只使用一个node资源和使用多个node资源的比较表（差不多是 38s 与 28s 的差距）。所以限定程序在numa node中运行是有实际意义的。
+但是呢，话又说回来了，制定numa就一定好吗？--numa的陷阱。SWAP的罪与罚文章就说到了一个numa的陷阱的问题。现象是当你的服务器还有内存的时候，发现它已经在开始使用swap了，甚至已经导致机器出现停滞的现象。这个就有可能是由于numa的限制，如果一个进程限制它只能使用自己的numa节点的内存，那么当自身numa node内存使用光之后，就不会去使用其他numa node的内存了，会开始使用swap，甚至更糟的情况，机器没有设置swap的时候，可能会直接死机！所以你可以使用numactl --interleave=all来取消numa node的限制。
+综上所述得出的结论就是，根据具体业务决定NUMA的使用。
+如果你的程序是会占用大规模内存的，你大多应该选择关闭numa node的限制。因为这个时候你的程序很有几率会碰到numa陷阱。
+另外，如果你的程序并不占用大内存，而是要求更快的程序运行时间。你大多应该选择限制只访问本numa node的方法来进行处理。
+ 转载：http://lib.csdn.net/article/linux/28546
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">为什么你的Linux物理内存还有很多，却开始使用swap?</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-01-07
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 1 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/linux/">Linux</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/swap/">swap</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/memory/">memory</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>#Swap</p>
+
+<p>现在的机器上都是有多个<code>CPU</code>和多个<code>内存块</code>的。以前我们都是将内存块看成是一大块内存，所有<code>CPU</code>到这个<code>共享内存</code>的访问消息是一样的。</p>
+
+<p>这就是之前普遍使用的<code>SMP</code>模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。<code>NUMA（Non-Uniform Memory Access）</code>就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个<code>NUMA node</code>，这样这个机器就会有两个<code>NUMA node</code>。在物理分布上，<code>NUMA node</code>的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（<code>cpu1</code>, <code>cpu2</code>），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样<code>NUMA node1</code>的 cpu1 访问<code>memory1.1</code>和<code>memory1.2</code>就比访问<code>memory2.1</code>和<code>memory2.2</code>更快。所以使用<code>NUMA</code>的模式如果能尽量保证本<code>node</code>内的<code>CPU</code>只访问本<code>node</code>内的内存块，那这样的效率就是最高的。</p>
+
+<p>在运行程序的时候使用<code>numactl -m</code>和<code>-physcpubind</code>就能制定将这个程序运行在哪个<code>cpu</code>和哪个<code>memory</code>中。玩转<code>cpu-topology</code>给了一个表格，当程序只使用一个<code>node</code>资源和使用多个<code>node</code>资源的比较表（差不多是 38s 与 28s 的差距）。所以限定程序在<code>numa node</code>中运行是有实际意义的。</p>
+
+<p>但是呢，话又说回来了，制定<code>numa</code>就一定好吗？<code>--numa</code>的陷阱。<code>SWAP</code>的罪与罚文章就说到了一个<code>numa</code>的陷阱的问题。现象是当你的服务器还有内存的时候，发现它已经在开始使用<code>swap</code>了，甚至已经导致机器出现停滞的现象。这个就有可能是由于<code>numa</code>的限制，如果一个进程限制它只能使用自己的<code>numa</code>节点的内存，那么当自身<code>numa node</code>内存使用光之后，就不会去使用其他<code>numa node</code>的内存了，会开始使用<code>swap</code>，甚至更糟的情况，机器没有设置<code>swap</code>的时候，可能会直接死机！所以你可以使用<code>numactl --interleave=all</code>来取消<code>numa node</code>的限制。</p>
+
+<p>综上所述得出的结论就是，根据具体业务决定<code>NUMA</code>的使用。</p>
+
+<p>如果你的程序是会占用大规模内存的，你大多应该选择关闭<code>numa node</code>的限制。因为这个时候你的程序很有几率会碰到<code>numa</code>陷阱。</p>
+
+<p>另外，如果你的程序并不占用大内存，而是要求更快的程序运行时间。你大多应该选择限制只访问本<code>numa node</code>的方法来进行处理。</p>
+
+<blockquote>
+<p>转载：<a href="http://lib.csdn.net/article/linux/28546">http://lib.csdn.net/article/linux/28546</a></p>
+</blockquote>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/">
+                <span class="button__icon">←</span>
+                <span class="button__text">ansible脚本</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/">
+                <span class="button__text">分布式文件系统-FastDFS</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

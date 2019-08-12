@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Golang 数组和切片 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="一、数组类型 数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。
+1.定义 var 变量名 [len]type
+ var a[5] int var a[5]string var a[15]bool  2.元素访问 可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:
+ var a[5]int var b = [2]int {1,2} fmt.Printf(&amp;quot;%v %v %v\n&amp;quot;,a, b, b[1]) Output: [0 0 0 0 0] [1 2] 2  3.值类型 需要特别注意的是，在 Go 语言中数组是一个值类型( value type)。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组做为函数的从参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。
+ $ vim main.go package main import ( &amp;quot;fmt&amp;quot; ) func modify(array [5]int) { array[0] = 100 fmt."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 数组和切片"/>
+<meta name="twitter:description" content="一、数组类型 数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。
+1.定义 var 变量名 [len]type
+ var a[5] int var a[5]string var a[15]bool  2.元素访问 可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:
+ var a[5]int var b = [2]int {1,2} fmt.Printf(&quot;%v %v %v\n&quot;,a, b, b[1]) Output: [0 0 0 0 0] [1 2] 2  3.值类型 需要特别注意的是，在 Go 语言中数组是一个值类型( value type)。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组做为函数的从参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。
+ $ vim main.go package main import ( &quot;fmt&quot; ) func modify(array [5]int) { array[0] = 100 fmt."/>
+
+
+
+<meta property="og:title" content="Golang 数组和切片" />
+<meta property="og:description" content="一、数组类型 数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。
+1.定义 var 变量名 [len]type
+ var a[5] int var a[5]string var a[15]bool  2.元素访问 可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:
+ var a[5]int var b = [2]int {1,2} fmt.Printf(&quot;%v %v %v\n&quot;,a, b, b[1]) Output: [0 0 0 0 0] [1 2] 2  3.值类型 需要特别注意的是，在 Go 语言中数组是一个值类型( value type)。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组做为函数的从参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。
+ $ vim main.go package main import ( &quot;fmt&quot; ) func modify(array [5]int) { array[0] = 100 fmt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/" />
+<meta property="article:published_time" content="2017-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/">Golang 数组和切片</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-01-07
+        </span>
+      
+      <span class="post-author">— Written by zhaoxin</span>
+      
+        <span class="post-read-time">— 4 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/go/">go</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="一-数组类型">一、数组类型</h3>
+
+<p>数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。</p>
+
+<h4 id="1-定义">1.定义</h4>
+
+<p><code>var 变量名 [len]type</code></p>
+
+<pre><code>
+var a[5] int
+
+var a[5]string
+
+var a[15]bool
+
+</code></pre>
+
+<h4 id="2-元素访问">2.元素访问</h4>
+
+<p>可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:</p>
+
+<pre><code>
+var a[5]int
+
+var b = [2]int {1,2}
+
+fmt.Printf(&quot;%v %v %v\n&quot;,a, b, b[1])
+
+Output: [0 0 0 0 0] [1 2] 2
+
+</code></pre>
+
+<h4 id="3-值类型">3.值类型</h4>
+
+<p>需要特别注意的是，在 Go 语言中数组是一个值类型( value type)。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组做为函数的从参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。</p>
+
+<pre><code>
+$ vim main.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func modify(array [5]int) {
+
+	array[0] = 100
+
+	fmt.Println(&quot;In modify, array value: &quot;, array)
+
+}
+
+
+
+func main() {
+
+	array := [5]int {1,2,3,4,6}
+
+	modify(array)
+
+	fmt.Println(&quot;In main, array value: &quot;, array)
+
+}
+
+$ go run main.go //执行结构为
+
+
+
+In modify, array value:  [100 2 3 4 6]
+
+In main, array value:  [1 2 3 4 6]
+
+</code></pre>
+
+<h4 id="4-数组遍历">4.数组遍历</h4>
+
+<p>数组遍历可以使用下标访问，用 for 做循环，数组下标从 0 开始，len(array) -1 则表示最后一个元素的下标。</p>
+
+<pre><code>
+$ vim main.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	var a = [6]string {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;}
+
+	for i := 0; i &lt; len(a); i ++{
+
+		fmt.Println(a[i])
+
+	}
+
+}
+
+$ go run main.go // Output
+
+
+
+a
+
+b
+
+c
+
+d
+
+e
+
+f
+
+</code></pre>
+
+<p>Go 语言还提供了一个关键字 range，用于便捷地遍历容器中的元素。当然，数组也是 range 的支持范围。上面的遍历过程可以简化为如下的写法</p>
+
+<pre><code>
+$ vim main.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	var a = [6]string {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;}
+
+	for k, v := range a {
+
+		fmt.Println(k, v)
+
+	}
+
+}
+
+$ go run main.go //输出
+
+0 a
+
+1 b
+
+2 c
+
+3 d
+
+4 e
+
+5 f
+
+</code></pre>
+
+<p>在使用 range 的时候我们可能不希望输入 key，可以使用<code>_</code>来代表，表示丢弃</p>
+
+<pre><code>
+var a = [6]string {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;}
+
+
+
+for _, v := range a {
+
+
+
+	fmt.Println(v)
+
+
+
+}
+
+</code></pre>
+
+<h3 id="二-切片类型">二、切片类型</h3>
+
+<p>初看起来，数组切片就像一个指向数组的指针，实际上它拥有自己的数据结构，而不仅仅是 个指针。数组切片的数据结构可以抽象为以下 3 个变量:</p>
+
+<ul>
+<li><p>一个指向原生数组的指针;</p></li>
+
+<li><p>数组切片中的元素个数;</p></li>
+
+<li><p>数组切片已分配的存储空间。</p></li>
+</ul>
+
+<p>从底层实现的角度来看，数组切片实际上仍然使用数组来管理元素。基于数组，数组切片添加了一系 列管理功能，可以随时动态扩充存放空间，并且可以被随意传递而不会导致所管理的元素被重复复制。</p>
+
+<h4 id="切片内部">切片内部</h4>
+
+<p>切片是一个数组段。他由一个指向数组的指针、len(长度)和 cap(最大长度)组成。</p>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/slice_1.png" alt="slice_1" /></p>
+
+<p><code>s := make([]byte, 5)</code>的结构如下图</p>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/slice_2.png" alt="slice_2" /></p>
+
+<p><strong>在切片中，len 是切片引用元素的数量。cap 是底层数组中元素的总数量(从切片指针引用的元素开始)</strong></p>
+
+<p>在我们切片 s 时<code>s = s[2:4]</code>，其数据结构与底层数组的关系如下图</p>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/slice_3.png" alt="slice_3" /></p>
+
+<h4 id="1-创建切片及定义">1.创建切片及定义</h4>
+
+<p><strong>定义</strong></p>
+
+<p>定义的时候和数组类似，只是在中括号内没有长度</p>
+
+<pre><code>
+var 变量名 []type
+
+// 例子
+
+var a []int
+
+var a []string
+
+var a []float32           // 默认值，a的长度等于0
+
+var a []bool
+
+</code></pre>
+
+<p>创建数组切片的方法主要有两种&mdash;&ndash;<code>基于数组</code>和<code>直接创建</code>，下面我们来简要介绍一下这两种方法。</p>
+
+<h5 id="基于数组">基于数组</h5>
+
+<p>数组切片可以基于一个已存在的数组创建。数组切片可以只使用数组的一部分元素或者整个数组来创建，甚至可以创建一个比所基于的数组还要大的数组切片。</p>
+
+<pre><code>
+$ vim main.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	var array = [10]int {1,2,3,4,5,6,7,8,9,10}
+
+	var myslice []int = array[:5] // 取前五个元素，注意不包含5
+
+	var myslicetoend []int = array[2:] //从第三个元素到最后一个
+
+	var mysliceall []int = array[:] // 取全部元素
+
+
+
+	fmt.Println(&quot;myslice: &quot;, myslice)
+
+	fmt.Println(&quot;myslicetoend&quot;, myslicetoend)
+
+	fmt.Println(&quot;mysliceall&quot;, mysliceall)
+
+}
+
+$ go run main.go
+
+
+
+myslice:  [1 2 3 4 5]
+
+myslicetoend [3 4 5 6 7 8 9 10]
+
+mysliceall [1 2 3 4 5 6 7 8 9 10]
+
+</code></pre>
+
+<p>我们应该注意到，Go 语言支持用 myarray[first:last]这样的方式来基于数组生成一个数组切片，而且这个用法还很灵活，比如上述中</p>
+
+<ul>
+<li>取前五个元素，注意不包含 5</li>
+</ul>
+
+<p>var myslice []int = array[:5]</p>
+
+<ul>
+<li>从第三个元素到最后一个</li>
+</ul>
+
+<p>var myslicetoend []int = array[2:]</p>
+
+<ul>
+<li>取全部元素</li>
+</ul>
+
+<p>var mysliceall []int = array[:]</p>
+
+<h5 id="直接创建">直接创建</h5>
+
+<p>并非一定要事先准备一个数组才能穿件数组切片，Go 语言提供的内置函数<code>make()</code>可以用于灵活地创建数组切片。下面的例子示范了直接创建数组切片的各种方法：</p>
+
+<ul>
+<li><p>创建一个初始化元素个数为 5 的数组切片，元素初始值为 0</p>
+
+<pre><code>
+myslice1 := make([]int, 5)
+
+</code></pre></li>
+
+<li><p>创建一个初始化元素个数为 5 的数组切片，元素初始值为 0，并预留 10 个元素的存储空间</p>
+
+<pre><code>
+myslice2 := make([]int, 5, 10)
+
+</code></pre></li>
+
+<li><p>直接创建一个包含 5 个元素的切片</p>
+
+<pre><code>
+myslice3 := []int {1,2,3,4,5}
+
+</code></pre></li>
+</ul>
+
+<h4 id="2-遍历">2.遍历</h4>
+
+<p>操作数组元素的所有方法都适用于数组切片，可以用 for 循环和 range</p>
+
+<pre><code>
+$ vim main.go
+
+
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	myslice1 := []int {1,2,3,4,5}
+
+	for i := 0; i &lt; len(myslice1); i++ {
+
+		fmt.Println(&quot;For: &quot;, myslice1[i])
+
+	}
+
+	for _, v := range myslice1 {
+
+		fmt.Println(&quot;range: &quot;, v)
+
+	}
+
+}
+
+$ go run main.go
+
+
+
+For:  1
+
+For:  2
+
+For:  3
+
+For:  4
+
+For:  5
+
+range:  1
+
+range:  2
+
+range:  3
+
+range:  4
+
+range:  5
+
+</code></pre>
+
+<h4 id="3-内置函数-len-和-cap">3.内置函数 len 和 cap</h4>
+
+<p>数组切片支持 Go 语言内置的<code>cap()</code>函数和<code>len()</code>函数，下面的例子展示了两个内置函数的用法。<code>cap()</code>函数返回的是数组切片分配的空间大小，而<code>len()</code>函数返回的是数组切片中当前所存储元素的个数</p>
+
+<pre><code>
+$ vim main.go
+
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	slice := make([]int, 5, 10)
+
+	fmt.Println(&quot;len is: &quot;, len(slice))
+
+	fmt.Println(&quot;cap is: &quot;, cap(slice))
+
+}
+
+$ go run main.go
+
+len is:  5
+
+cap is:  10
+
+</code></pre>
+
+<h4 id="4-reslice-在切片的基础在切片">4.reslice，在切片的基础在切片</h4>
+
+<p>从下面的例子我们可以看出：</p>
+
+<ul>
+<li><p>可以对已存在的切片进行扩容</p></li>
+
+<li><p>切片的指针始终相同，不属于值类型，所以修改后对所有切片都有效</p>
+
+<pre><code>
+package main
+
+
+
+import (
+
+	&quot;fmt&quot;
+
+)
+
+
+
+func main() {
+
+	a := make([]int, 5, 10)
+
+	a[4] = 100
+
+	b := a[0:10]
+
+	b[9] = 200
+
+	b[0] = 200
+
+	fmt.Println(&quot;a: &quot;, a)
+
+	fmt.Println(&quot;b: &quot;, b)
+
+}
+
+// 输出
+
+a:  [200 0 0 0 100]
+
+b:  [200 0 0 0 100 0 0 0 0 200]
+
+</code></pre></li>
+</ul>
+
+<h4 id="5-切片-copy-和-append-操作">5.切片 copy 和 append 操作</h4>
+
+<p><strong>函数 copy 可以在一个切片后面新增元素</strong></p>
+
+<pre><code>
+myslice := make([]int, 5, 10)
+
+myslice = append(myslice, 1, 2, 3)
+
+</code></pre>
+
+<p>也可以将一个<code>切片</code>追加到当前切片后面，只需要在要添加的切片后面添加三个点<code>...</code>，他会将传入的切片打散后传入，如例</p>
+
+<pre><code>
+
+myslice := make([]int, 5, 10)
+
+myslice2 := []int {8, 9, 10}
+
+myslice = append(myslice, myslice2...)
+
+</code></pre>
+
+<p><strong>copy 函数用于将内容从一个切片复制到另一个切片</strong></p>
+
+<p>这里请注意，替换只是将对应下标的元素复制到另一个元素，这里不是追加操作</p>
+
+<pre><code>
+slice1 := []int {1,2,3,4,5}
+
+slice2 := []int {5,4,3}
+
+copy(slice1, slice2) // 将slice2的对应元素copy到slice1上面
+
+// 输出
+
+slice1 = [5 4 3 4 5]
+
+slice2 = [5 4 3]
+
+</code></pre>
+
+<p>相反的如果将 slice1 复制到 slice2，将会得到下面的结果</p>
+
+<pre><code>
+slice1 := []int {1,2,3,4,5}
+
+slice2 := []int {5,4,3}
+
+// 输出
+
+
+slice1 = [1 2 3 4 5]
+
+slice2 = [1 2 3]
+
+</code></pre>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/git/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Git基础</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">
+                <span class="button__text">Linux三剑客之grep</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

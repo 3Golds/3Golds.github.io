@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>AWS EBS 在线扩容 :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+ growpart /dev/xvdf 1  parted
+ GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS EBS 在线扩容"/>
+<meta name="twitter:description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+ growpart /dev/xvdf 1  parted
+ GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used."/>
+
+
+
+<meta property="og:title" content="AWS EBS 在线扩容" />
+<meta property="og:description" content="AWS Management Console 扩容ebs容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
+1.选择扩容设备 2.修改扩容容量 4.等待其状态达到100% 扩容磁盘分区 growpart
+ growpart /dev/xvdf 1  parted
+ GNU Parted 2.3 Using /dev/xvdf1 Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands. (parted) print Model: Unknown (unknown) Disk /dev/xvdf1: 80.7GB Sector size (logical/physical): 512B/512B Partition Table: loop Number Start End Size File system Flags 1 0.00B 53.7GB 53.7GB ext4 (parted) resizepart 1 80.7GB # resizepart NUMBER END Warning: Partition /dev/xvdf1 is being used." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/" />
+<meta property="article:published_time" content="2017-02-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-02-17T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/">AWS EBS 在线扩容</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2017-02-17
+        </span>
+      
+      <span class="post-author">— Written by Antony</span>
+      
+        <span class="post-read-time">— 1 min read</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://zhaox.xyz/tags/aws/">aws</a>&nbsp;
+        
+          #<a href="http://zhaox.xyz/tags/aws-ebs/">aws ebs</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="aws-management-console-扩容ebs容量">AWS Management Console 扩容ebs容量</h3>
+
+<p>原文连接：<a href="https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/">https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/</a></p>
+
+<h4 id="1-选择扩容设备">1.选择扩容设备</h4>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/ebs1.png" alt="ebs1" /></p>
+
+<h4 id="2-修改扩容容量">2.修改扩容容量</h4>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/ebs2.png" alt="ebs2" /></p>
+
+<h4 id="4-等待其状态达到100">4.等待其状态达到100%</h4>
+
+<p><img src="http://obbogqhb1.bkt.clouddn.com/ebs3.png" alt="ebs3" /></p>
+
+<h4 id="扩容磁盘分区">扩容磁盘分区</h4>
+
+<p><code>growpart</code></p>
+
+<pre><code>
+growpart /dev/xvdf 1
+
+</code></pre>
+
+<p><code>parted</code></p>
+
+<pre><code>
+GNU Parted 2.3
+
+Using /dev/xvdf1
+
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+
+(parted) print
+
+Model: Unknown (unknown)
+
+Disk /dev/xvdf1: 80.7GB
+
+Sector size (logical/physical): 512B/512B
+
+Partition Table: loop
+
+
+
+Number  Start  End     Size    File system  Flags
+
+ 1      0.00B  53.7GB  53.7GB  ext4
+
+(parted) resizepart 1 80.7GB  # resizepart NUMBER END
+
+
+Warning: Partition /dev/xvdf1 is being used. Are you sure you want to continue?
+
+parted: invalid token: 53.7GB
+
+Yes/No? yes
+
+End?  [53.7GB]? 80.7GB
+
+(parted) quit
+
+</code></pre>
+
+<h4 id="扩容文件系统">扩容文件系统</h4>
+
+<h5 id="1-ext系列">1.ext系列</h5>
+
+<pre><code>
+fdisk -l /dev/xvdf # 查看扩容分区容量是否成功
+
+resize2fs /dev/xvdf1 
+
+</code></pre>
+
+<h5 id="2-xfs系列">2.xfs系列</h5>
+
+<pre><code>
+ xfs_growfs /dev/xvdf1
+
+</code></pre>
+
+<blockquote>
+<p>作者：Antony WX&amp;QQ：1257465991
+Q/A：如有问题请慷慨提出</p>
+</blockquote>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Cow-rc-样例配置文件</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/">
+                <span class="button__text">Yahoo-screwdriver开源了</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

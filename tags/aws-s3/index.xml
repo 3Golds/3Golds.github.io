@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws-s3 on 赵鑫的博客</title>
+    <link>http://zhaox.xyz/tags/aws-s3/</link>
+    <description>Recent content in aws-s3 on 赵鑫的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 17 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://zhaox.xyz/tags/aws-s3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于amazon-s3创建yum仓库</title>
+      <link>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</guid>
+      <description>AWS 配置 1.创建s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建s3用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予s3用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Linux :: 赵鑫的博客</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://zhaox.xyz/tags/linux/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/assets/style.css">
+
+
+<link rel="stylesheet" href="http://zhaox.xyz/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://zhaox.xyz/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://zhaox.xyz/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="Linux" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://zhaox.xyz/tags/linux/" />
+
+<meta property="og:updated_time" content="2017-01-07T00:00:00+00:00" /><meta property="og:site_name" content="赵鑫的博客" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/linux/index.xml" title="赵鑫的博客" />
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+    
+    
+
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Linux三剑客之grep</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-07
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 4 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/linux/">linux</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/grep/">grep</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
+ 二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
+grep 家族：
+  1.grep：支持使用基本正则表达式； 2.egrep：支持使用扩展正则表达式； 3.fgrep：不支持使用正则表达式； # 虽然正则表达式有强大的引擎，但是在单独过滤字符上面 fgrep要起到很大作用，这个作用在日志文件小的时候可能体现不出来，但是当文件达到几亿行就能体现出fgrep的搜索效率。（对大型web网站一天的日志量到几亿行是很轻松的，甚至更多）  三、grep 与 egrep 的主要参数 在介绍正则表达式前，先介绍一下 grep 的常用参数，这里所有涉及正则表达式 meta 字符都会在后续中展开！ 常用选项： &ndash;color=auto：对匹配到的文本着色后高亮显示；（默认 centos7 对 grep、egrep、fgrep 已经设置参数，此处不做过多例子）
+alias alias cp=&lsquo;cp -i&rsquo; alias egrep=&lsquo;egrep &ndash;color=auto&rsquo; alias fgrep=&lsquo;fgrep &ndash;color=auto&rsquo; alias grep=&lsquo;grep &ndash;color=auto&rsquo; alias l.=&lsquo;ls -d .* &ndash;color=auto&rsquo; alias ll=&lsquo;ls -l &ndash;color=auto&rsquo; alias ls=&lsquo;ls &ndash;color=auto&rsquo; alias mv=&lsquo;mv -i&rsquo; alias rm=&lsquo;rm -i&rsquo; alias which=&lsquo;alias | /usr/bin/which &ndash;tty-only &ndash;read-alias &ndash;show-dot &ndash;show-tilde&rsquo;  -i：忽略字符大小写； # cat test Hello World How are you?
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">为什么你的Linux物理内存还有很多，却开始使用swap?</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2017-01-07
+        </span>
+        <span class="post-author">— Written by zhaoxin</span>
+        
+          <span class="post-read-time">— 1 min read</span>
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="http://zhaox.xyz/tags/linux/">Linux</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/swap/">swap</a>&nbsp;
+          
+            #<a href="http://zhaox.xyz/tags/memory/">memory</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/">Read more →</a></div>
+    </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">赵鑫的博客</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://zhaox.xyz/assets/main.js"></script>
+<script src="http://zhaox.xyz/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
