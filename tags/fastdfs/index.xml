@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FastDFS on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/fastdfs/</link>
+    <link>https://zhaox.xyz/tags/fastdfs/</link>
     <description>Recent content in FastDFS on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/fastdfs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/fastdfs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FastDFS unti for systemd</title>
-      <link>http://zhaox.xyz/posts/fastdfs-unti-for-systemd/</link>
+      <link>https://zhaox.xyz/posts/fastdfs-unti-for-systemd/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/fastdfs-unti-for-systemd/</guid>
+      <guid>https://zhaox.xyz/posts/fastdfs-unti-for-systemd/</guid>
       <description>FastDFS tracker 的 unit 脚本 # Systemd unit file for default fastdfs_tracker # [Unit] Description=FastDFS tracker script After=syslog.target network.target [Service] Type=notify ExecStart=/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf [Install] WantedBy=multi-user.target  FastDFS storage 的 unit 脚本 # Systemd unit file for default fastdfs storage # [Unit] Description=FastDFS storage script After=syslog.target network.target [Service] Type=notify ExecStart=/usr/bin/fdfs_storaged /etc/fdfs/storage.conf [Install] WantedBy=multi-user.target  使用方法 复制到/usr/lib/systemd/system/下，建议命名为: fdfs_storaged.service和fdfs_tracker.service</description>
     </item>
     
     <item>
       <title>分布式文件系统-FastDFS</title>
-      <link>http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</link>
+      <link>https://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</guid>
+      <guid>https://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</guid>
       <description>一、FastDFS 简介  FastDFS是由国人余庆所开发，其项目地址：https://github.com/happyfish100 &amp;gt;FastDFS是一个轻量级的开源分布式文件系统，主要解决了大容量的文件存储和高并发访问的问题，文件存取时实现了负载均衡。 支持存储服务器在线扩容,支持相同的文件只保存一份,节约磁盘。 FastDFS只能通过 Client API 访问，不支持 POSIX 访问方式。 FastDFS 适合中大型网站使用，用来存储资源文件(如：图片、文档、视频等)
  二、FastDFS 组成部分及其它名词 1、tracker server 跟踪服务器：用来调度来自客户端的请求。且在内存中记录所有存储组和存储服务器的信息状态。
 2、storage server 存储服务器：用来存储文件(data)和文件属性(metadata)
@@ -44,10 +44,10 @@ M##：服务器配置的虚拟路径，与磁盘选项 store_path#对应两级�
     
     <item>
       <title>制作并安装FastDFS的RPM程序包</title>
-      <link>http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</link>
+      <link>https://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</guid>
+      <guid>https://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</guid>
       <description>一、安装并制作 rpm 包 libfastcommon 注意:生成的 rpm 包全都在/root/rpmbuild/RPMS/下面，可以再其他主机直接使用
 #!/bin/bash # Author: Antony # rpm build for fastdfs # Mail: zhaoxin@altamob.com,go80800@163.com # Desc: build libfastcommmon # 制作和安装libfastcommon cat &amp;lt;&amp;lt; EOF +-------------------------------------------+ | this is a rpmbuild libfastcommon script | | from Antony ....... | +-------------------------------------------- EOF # 制作源码文件 建议手动安装yum #yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server platform Development&amp;quot; -y cd /root/ git clone https://github.com/happyfish100/libfastcommon.git if [ $? -ne 0 ];then exit 1 fi libversion=$(grep -i &amp;quot;^version&amp;quot; libfastcommon/libfastcommon.</description>
     </item>

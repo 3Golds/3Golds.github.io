@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>l2tp on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/l2tp/</link>
+    <link>https://zhaox.xyz/tags/l2tp/</link>
     <description>Recent content in l2tp on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 13 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/l2tp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/l2tp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</title>
-      <link>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
+      <link>https://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
       <description>VPN 原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
 http://www.china-ccie.com/doc/vpn/vpn.html
 Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用 ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gitlab-upgrade on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/gitlab-upgrade/</link>
+    <link>https://zhaox.xyz/tags/gitlab-upgrade/</link>
     <description>Recent content in gitlab-upgrade on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 27 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/gitlab-upgrade/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/gitlab-upgrade/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
-      <link>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <link>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <guid>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
       <description>升级场景 由于公司要通过 gitlab 接入 ci 和 cd 功能，经测试一个 repo 不能正常使用，且 gitlab9.5 之后增加了很多新功能，比较吸引我们
  GPG Commit Verification: GPG 密钥允许您验证签名提交
  New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/shell/</link>
+    <link>https://zhaox.xyz/tags/shell/</link>
     <description>Recent content in shell on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 21 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>添加一个用户sudo权限的使用密钥登录的用户</title>
-      <link>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</link>
+      <link>https://zhaox.xyz/posts/2017-01-22-useradd-sh/</link>
       <pubDate>Sat, 21 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-22-useradd-sh/</guid>
       <description> $1为用户名 $2为用户公钥 #!/bin/bash #添加证书账户,并且将对应用户加入sudo # $1 为用户名 $2 为用户公钥 [[ -z $3 ]] &amp;amp;&amp;amp; useradd $1 || useradd -d $3 $1 mkdir /home/$1/.ssh echo &amp;quot;$2&amp;quot; &amp;gt;/home/$1/.ssh/authorized_keys chown -R $1.$1 /home/$1/.ssh/ chmod 600 /home/$1/.ssh/authorized_keys chmod 700 /home/$1/.ssh/ sed -i &#39;/^root.*/a\&#39;$1&#39; ALL=(ALL) NOPASSWD:ALL&#39; /etc/sudoers  </description>
     </item>
     

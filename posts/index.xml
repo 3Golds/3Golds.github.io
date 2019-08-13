@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/posts/</link>
+    <link>https://zhaox.xyz/posts/</link>
     <description>Recent content in Posts on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Golang 常量</title>
-      <link>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</link>
+      <link>https://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</guid>
+      <guid>https://zhaox.xyz/posts/golang-%E5%B8%B8%E9%87%8F/</guid>
       <description> 在 Go 语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整数、浮点数和负数类型)、布尔类型、字符串类型等。
 常量定义 通过 const 关键字定义，有以下三种方式
  const v int = 8989 const fu = 0.2 const ( long int64 = 2048 size = -1 )  预定义常量 Go 语言预定义了一些常量：true、false 和 iota。其中 iota 比较特殊，可以被认为是一个可被编译器修改的常量，在第一个 const 关键字出现时被重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1，我们看一个例子。
@@ -25,10 +25,10 @@
     
     <item>
       <title>Golang 流程控制语句(for、if、else、switch)</title>
-      <link>http://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/</link>
+      <link>https://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/</guid>
+      <guid>https://zhaox.xyz/posts/golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5-for-if-else-switch/</guid>
       <description>for 循环 在 Go 中，只有一种循环结构 &amp;mdash;&amp;gt; for循环
 基本的for循环包含三个由分号分开的组成部分：
  初始化语句：在第一次循环执行前被执行
@@ -43,10 +43,10 @@ package main import &amp;quot;fmt&amp;quot; func main() { sum := 1 for ; sum &am
     
     <item>
       <title>Golang 常量</title>
-      <link>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</link>
+      <link>https://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</link>
       <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</guid>
+      <guid>https://zhaox.xyz/posts/%E5%88%9D%E8%AF%86golang/</guid>
       <description>Go 介绍 Go 是一种开源编程语言，可以轻松构建简单，可靠和高效的软件。
 Go 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。为了方便搜索和识别，有时会将其称为 Golang。
 罗伯特·格瑞史莫，罗勃·派克（Rob Pike）及肯·汤普逊于 2007 年 9 月开始设计 Go 语言，稍后 Ian Lance Taylor、Russ Cox 加入项目。Go 语言是基于 Inferno 操作系统所开发的。Go 语言于 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
@@ -58,10 +58,10 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
     
     <item>
       <title>Opentracing Zipkin</title>
-      <link>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</link>
+      <link>https://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</link>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</guid>
+      <guid>https://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</guid>
       <description>Zipkin 是一个开源分布式的追踪系统 http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google Dagger](http://research.google.com/pubs/pub36356.html)论文
 架构 查看您的平台是否已经在 instrumentation, 查看列表existing instrumentations
 示例流程 以下是 User Code 调用资源/foo 的示例 http 跟踪序列，讲一个 span 在 User Code 收到 http 响应之后异步发送给 zipkin
@@ -70,10 +70,10 @@ Go 开源软件的影响力 Go 有很多出色的开源软件，并且很流行�
     
     <item>
       <title>解决 AWS ELB 偶发的 502 Bad Gateway 错误</title>
-      <link>http://zhaox.xyz/posts/aws-elb-502/</link>
+      <link>https://zhaox.xyz/posts/aws-elb-502/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/aws-elb-502/</guid>
+      <guid>https://zhaox.xyz/posts/aws-elb-502/</guid>
       <description>问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
 HTTP 数据流向如下：
  [Client] --- [ELB] --- [nginx] --- [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
@@ -83,10 +83,10 @@ HTTP 数据流向如下：
     
     <item>
       <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
-      <link>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <link>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <guid>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
       <description>升级场景 由于公司要通过 gitlab 接入 ci 和 cd 功能，经测试一个 repo 不能正常使用，且 gitlab9.5 之后增加了很多新功能，比较吸引我们
  GPG Commit Verification: GPG 密钥允许您验证签名提交
  New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
@@ -100,10 +100,10 @@ HTTP 数据流向如下：
     
     <item>
       <title>七个对我最重要的职业建议-译文</title>
-      <link>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</link>
+      <link>https://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</guid>
+      <guid>https://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</guid>
       <description>七个对我最重要的职业建议（译文） 作者： 阮一峰
 日期： 2015 年 9 月 18 日
 Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
@@ -136,10 +136,10 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
     
     <item>
       <title>软技能——代码之外的生存指南</title>
-      <link>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <link>https://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
       <description>这本书是在逛知乎的时候发现的，说的神乎其神的，也没多想就买了本，并在一个周六的下午看完了，读的过程倒是很轻松，速度也挺快，因为毕竟是一本励志书，多少有点“鸡汤”。总体来说，这本书可圈可点，有干货，也有“鸡汤”，主要分为职业、自我营销、学习、生产力、理财、健身、精神七大模块，不论是不是码农，取其精华来安利一下自己还是不错的！ 下面我就谈谈书中一些不错的干货，湿货就自己去慢慢看吧。
 一、如何对待上班这件事情？ 把自己当做一个软件企业，把雇主当做企业的一个客户，你应当能够提供某种产品或者服务（把一个想法通过技术手段变成一个产品的能力），不断提升你的服务质量，专注于为某一类客户提供特定的服务，做好自我营销，为更多更优质的雇主服务。
 二、如何注意人际关系？ 不是教你搞办公室政治，而是让你在这上面少踩坑。书中有句话比较经典：“一旦你贬低他人，削弱他们的成就感，在某种程度上就如同切断了他们的氧气补给，获得的回馈将完全是抓狂和绝望”。
@@ -172,10 +172,10 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
     
     <item>
       <title>Nginx配置文件安全分析工具Gixy</title>
-      <link>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</link>
+      <link>https://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</guid>
+      <guid>https://zhaox.xyz/posts/2017-06-01-nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7gixy/</guid>
       <description>Nginx 配置文件安全分析工具 Gixy Gixy 是一个分析 Nginx 配置的工具。Gixy 的主要目的是防止安全的错误配置和自动化探伤。
 目前支持 Python 版本 2.7 和 3.5 +。
 免责声明:Gixy 只在 GNU / Linux Gixy 测试良好,其他的操作系统可能有问题。
@@ -187,19 +187,19 @@ $ gixy  可以指定 nginx 配置文件所在位置</description>
     
     <item>
       <title>基于amazon-s3创建yum仓库</title>
-      <link>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</link>
+      <link>https://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</link>
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</guid>
+      <guid>https://zhaox.xyz/posts/2017-03-17-%E5%9F%BA%E4%BA%8Eamazon-s3%E5%88%9B%E5%BB%BAyum%E4%BB%93%E5%BA%93/</guid>
       <description>AWS 配置 1.创建 s3 仓库  aws s3 mb s3://yum-repo-s3 make_bucket: yum-repo-s3  2.创建 s3 用户  $~ aws iam create-user --user-name yum-repo-user  3.赋予 s3 用户权限  $ aws iam put-user-policy --user-name yum-repo-user --policy-name yum-repo-s3-Bucket-Access --policy-document file://demo-s3-rpm-repo_policy.json $ cat demo-s3-rpm-repo_policy.json { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;Stmt1489722431765&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws-cn:s3:::yum-repo-s3&amp;quot; } ] }  4.查看其权限  $ aws iam list-user-policies --user-name yum-repo-user { &amp;quot;PolicyNames&amp;quot;: [ &amp;quot;yum-repo-s3-Bucket-Access&amp;quot; ] }  5.</description>
     </item>
     
     <item>
       <title>docker 1.13&#43; FORWARD链为DROP的问题</title>
-      <link>http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zhaox.xyz/posts/2017-03-16-docker1.13&#43;%E7%89%88%E6%9C%ACforward%E9%93%BE%E4%B8%BAdrop%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>本地网络容器访问漏洞 这个问题出现在 docker 的issue中
 其主要影响：允许与 docker 主机位于同一网络上的任何人访问在该主机上运行的容器，而不是只访问暴露的端口。
 当 docker 启动时，它启用 net.ipv4.ip_forward 而不改变 iptables FORWARD 链默认策略 DROP。这意味着与 docker 主机位于同一网络上的另一台机器可以向其路由表添加路由，并直接寻址在该 docker 主机上运行的任何容器。
@@ -213,10 +213,10 @@ $ gixy  可以指定 nginx 配置文件所在位置</description>
     
     <item>
       <title>Docker 社区和企业版出现了</title>
-      <link>http://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</link>
+      <link>https://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</guid>
+      <guid>https://zhaox.xyz/posts/2017-03-15-docker-%E7%A4%BE%E5%8C%BA%E5%92%8C%E4%BC%81%E4%B8%9A%E7%89%88%E5%87%BA%E7%8E%B0%E4%BA%86/</guid>
       <description>Docker 社区和企业版出现了 今天早上去官网看文档，一进去发现主页变了，映入眼帘的便是：join us at Dockercon, April 17,2017。一脸蒙蔽的我往下翻了翻，发现做了这么久的解决方案，docker 企业版都支持，但是收费！！！！而且，Dockercon 是什么鬼？
 当然，docker 也被分为两个版本：
  community-edition
@@ -231,10 +231,10 @@ Docker EE（企业版）详细介绍  Docker 企业版（EE）专为企业开发
     
     <item>
       <title>COW (Climb Over the Wall) Proxy</title>
-      <link>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</link>
+      <link>https://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-20-cow-climb-over-the-wall-proxy/</guid>
       <description>COW 简介  COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理。COW 对外提供一个地址和端口，用户只需将这个地址配置好，便可以使用。COW 的二级代理用来访问海外的 server，支持sock5、shadowsocks、cow(采用 shadowsock 协议)三种方式. Github 地址
  功能 COW 的设计目标是自动化，理想情况下用户无需关心哪些网站无法访问，可直连网站也不会因为使用二级代理而降低访问速度。
  作为 HTTP 代理，可提供给移动设备使用；若部署在国内服务器上，可作为 APN 代理
@@ -248,19 +248,19 @@ Docker EE（企业版）详细介绍  Docker 企业版（EE）专为企业开发
     
     <item>
       <title>Cow-rc-样例配置文件</title>
-      <link>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <link>https://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-20-cow-rc-%E6%A0%B7%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
       <description>// 配置文件中 # 开头的行为注释 // // 代理服务器监听地址，重复多次来指定多个监听地址，语法： // // listen = protocol://[optional@]server_address:server_port // // 支持的 protocol 如下： // // HTTP (提供 http 代理): // listen = http://127.0.0.1:7777 // // 上面的例子中，cow 生成的 PAC url 为 http://127.0.0.1:7777/pac // 配置浏览器或系统 HTTP 和 HTTPS 代理时请填入该地址 // 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选 // // cow (需两个 cow 服务器配合使用): // listen = cow://encrypt_method:password@1.2.3.4:5678 // // 若 1.2.3.4:5678 在国外，位于国内的 cow 配置其为二级代理后，两个 cow 之间可以 // 通过加密连接传输 http 代理流量。目前的加密采用与 shadowsocks 相同的方式。 // // 其他说明： // - 若 server_address 为 0.</description>
     </item>
     
     <item>
       <title>AWS EBS 在线扩容</title>
-      <link>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
+      <link>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
       <description>AWS Management Console 扩容 ebs 容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
 1.选择扩容设备 2.修改扩容容量 4.等待其状态达到 100% 扩容磁盘分区 growpart
  growpart /dev/xvdf 1  parted
@@ -269,10 +269,10 @@ Docker EE（企业版）详细介绍  Docker 企业版（EE）专为企业开发
     
     <item>
       <title>Yahoo-screwdriver开源</title>
-      <link>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</link>
+      <link>https://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</guid>
       <description>screwdriver 介绍 screwdriver 是 yahoo 开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
 这应该是目前最完整拥有 CI(持续集成 Continuous integration)和 CD(持续交付 Continuous delivery)的专案.
  官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)
@@ -290,10 +290,10 @@ Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cl
     
     <item>
       <title>Gitlab-Omnibus</title>
-      <link>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</link>
+      <link>https://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</link>
       <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
       <description>一、Gitlab 简介 组件说明
  前端：Nginx，用于页面及 Git tool 走 http 或 https 协议
  后端：Gitlab 服务，采用 Ruby on Rails 框架，通过 unicorn 实现后台服务及多进程
@@ -310,10 +310,10 @@ Screwdrive 架构和开发流程 详情请查看：http://docs.screwdriver.cd/cl
     
     <item>
       <title>Ruby 环境那些坑</title>
-      <link>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</link>
+      <link>https://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</link>
       <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-23-ruby%E7%8E%AF%E5%A2%83%E9%82%A3%E4%BA%9B%E5%9D%91/</guid>
       <description>最近接触了很多 ruby 程序，除了 java 之外，让我感觉第二耗时、不是很舒服的语言。但是 ruby 不让人舒服主要还是网络方面的问题，不过只要稍微配置就能让装 ruby 程序变得飞快，不用一安装一天。本文做个总结和梳理
 先介绍下 Ruby 相关的各种概念（rvm, gem, bundle, rake, rails 等） Ruby 这个就不用多说了
 RVM 用于帮你安装 Ruby 环境，帮你管理多个 Ruby 环境，帮你管理你开发的每个 Ruby 应用使用机器上哪个 Ruby 环境。Ruby 环境不仅仅是 Ruby 本身，还包括依赖的第三方 Ruby 插件。都由 RVM 管理。
@@ -325,19 +325,19 @@ Gem Gem 是封装起来的 Ruby 应用程序或代码库。
     
     <item>
       <title>添加一个用户sudo权限的使用密钥登录的用户</title>
-      <link>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</link>
+      <link>https://zhaox.xyz/posts/2017-01-22-useradd-sh/</link>
       <pubDate>Sat, 21 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-22-useradd-sh/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-22-useradd-sh/</guid>
       <description> $1为用户名 $2为用户公钥 #!/bin/bash #添加证书账户,并且将对应用户加入sudo # $1 为用户名 $2 为用户公钥 [[ -z $3 ]] &amp;amp;&amp;amp; useradd $1 || useradd -d $3 $1 mkdir /home/$1/.ssh echo &amp;quot;$2&amp;quot; &amp;gt;/home/$1/.ssh/authorized_keys chown -R $1.$1 /home/$1/.ssh/ chmod 600 /home/$1/.ssh/authorized_keys chmod 700 /home/$1/.ssh/ sed -i &#39;/^root.*/a\&#39;$1&#39; ALL=(ALL) NOPASSWD:ALL&#39; /etc/sudoers  </description>
     </item>
     
     <item>
       <title>Linux系统异常-CoreDump详解</title>
-      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
+      <link>https://zhaox.xyz/posts/2017-01-19-coredump/</link>
       <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-19-coredump/</guid>
       <description>CoreDump http://linux.die.net/man/5/core
 什么是 core dump core dump 又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个 core 文件中, 叫 core dump。core dump 在应用 crash 掉之后对问题的诊断是很有帮助的。而在默认安装的时候 core dump 是关闭状 态的。
 如何查看系统是否打开了 core dump  Note：使用 ulimit -c 查看 core dump 是否打开。如果结果为 0，则表示此功能处于关闭 状态，不会生成 core 文件
@@ -347,10 +347,10 @@ Gem Gem 是封装起来的 Ruby 应用程序或代码库。
     
     <item>
       <title>IPSEC-L2TP-VPN-on-Ubuntu-14.04-with-OpenSwan-xl2tpd-and-ppp</title>
-      <link>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
+      <link>https://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</link>
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-13-ipsec-l2tp-vpn-on-ubuntu-14.04-with-openswan-xl2tpd-and-ppp/</guid>
       <description>VPN 原理 http://www.cisco.com/support/zh/105/IPSECpart1.shtml#glossary
 http://www.china-ccie.com/doc/vpn/vpn.html
 Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof  Firewall and sysctl 配置一条防火墙语句  iptables -t nat -A POSTROUTING -s %SERVERIP% -o eth0 -j MASQUERADE  启用内核转发和禁用 ICP redirects  echo &amp;quot;net.ipv4.ip_forward = 1&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.accept_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.all.send_redirects = 0&amp;quot; | tee -a /etc/sysctl.conf echo &amp;quot;net.ipv4.conf.default.rp_filter = 0&amp;quot; | tee -a /etc/sysctl.</description>
@@ -358,10 +358,10 @@ Install ppp openswan and xl2tpd  $ sudo apt-get install openswan xl2tpd ppp lsof
     
     <item>
       <title>aws-ec2-双网卡问题y</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <link>https://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
       <description>问题描述 在已存在的 EC2 上新添加网卡后发现，凡是和 eth0 在同一个网段的只能通过 eth0 访问，不能通过 eth1。同样的，在 eth1 网段的只能通过 eth1 访问，不能通过 eth0 访问。 如果既不在 eth0 也不再 eth0 默认走 eth0(在没有修改路由表的前提下，默认路由是 eth0)
 问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡 2 进来的数据包从网卡 1 发送出去，或者从网卡 1 进来的数据包从网卡 2 发送出去，AWS 底层会把这样的数据包丢弃。
 因此需要手动定义策略路由，在响应网卡 1 进来的数据包时通过网卡 1 发送，响应网卡 2 进来的数据包时通过网卡 2 发送。
@@ -373,39 +373,39 @@ http://www.linuxjournal.com/article/7291
     
     <item>
       <title>aws自定义AMI-UUID相同处理方法</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
+      <link>https://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
       <description>Note: 在制作 Centos 7 AMI 并进行使用时，我们发现：如果将两个相同 AMI 挂载到一个操作系统的时候，会出现因为 UUID 相同，导致不能挂载的问题(至于为什么将两个相同的 AMI 挂载到一个操作系统：当误删除用户的密钥文件或者不能登录系统时，我们不得不将其挂载到其他操作系统)
  问题重现  $ sudo fdisk -l Disk /dev/xvda: 53.7 GB, 53687091200 bytes, 104857600 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x0001783d Device Boot Start End Blocks Id System /dev/xvda1 * 2048 104856254 52427103+ 83 Linux Disk /dev/mapper/docker-202:1-84149041-pool: 107.</description>
     </item>
     
     <item>
       <title>FastDFS unti for systemd</title>
-      <link>http://zhaox.xyz/posts/fastdfs-unti-for-systemd/</link>
+      <link>https://zhaox.xyz/posts/fastdfs-unti-for-systemd/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/fastdfs-unti-for-systemd/</guid>
+      <guid>https://zhaox.xyz/posts/fastdfs-unti-for-systemd/</guid>
       <description>FastDFS tracker 的 unit 脚本 # Systemd unit file for default fastdfs_tracker # [Unit] Description=FastDFS tracker script After=syslog.target network.target [Service] Type=notify ExecStart=/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf [Install] WantedBy=multi-user.target  FastDFS storage 的 unit 脚本 # Systemd unit file for default fastdfs storage # [Unit] Description=FastDFS storage script After=syslog.target network.target [Service] Type=notify ExecStart=/usr/bin/fdfs_storaged /etc/fdfs/storage.conf [Install] WantedBy=multi-user.target  使用方法 复制到/usr/lib/systemd/system/下，建议命名为: fdfs_storaged.service和fdfs_tracker.service</description>
     </item>
     
     <item>
       <title>Git基础</title>
-      <link>http://zhaox.xyz/posts/git/</link>
+      <link>https://zhaox.xyz/posts/git/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/git/</guid>
+      <guid>https://zhaox.xyz/posts/git/</guid>
       <description>一、git install  Ubuntu sudo apt-get install git Centos yum install git Mac brew install git  二、git initialization configure  git config --global user.name &amp;quot;Your Name&amp;quot; git config --global user.email &amp;quot;email@example.com&amp;quot;  注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和 Email 地址 三、git create repository  git 版本库，也叫仓库，英文为repository，可以理解为一个目录，目录里的文件都可以被 git 管理起来，每个文件的修改、删除 Git 都能跟踪，以便任何时候都能够追踪历史，或者将来在某个时刻可以还原。  1、创建一个目录  $ mkdir gitrepo $ cd gitrepo $ pwd /Users/antony/gitrepo  注意：目录不要包含中文
 2、通过 git init 命令把这个目录变成 Git 可以管理的仓库  $ git init Initialized empty Git repository in /Users/antony/gitrepo/.</description>
     </item>
     
     <item>
       <title>Golang 数组和切片</title>
-      <link>http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/</link>
+      <link>https://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/</guid>
+      <guid>https://zhaox.xyz/posts/2017-12-14-golang-%E6%95%B0%E7%BB%84%E5%92%8C%E5%88%87%E7%89%87/</guid>
       <description>一、数组类型 数组是 Go 语言编程中最常用的数据结构之一。顾名思义，数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。
 1.定义 var 变量名 [len]type
  var a[5] int var a[5]string var a[15]bool  2.元素访问 可以使用数组下标来访问数组中的元素。与 C 语言相同，数组下标从 0 开始，len(array)-1 则表示最后一个元素的下标。下面的示例遍历整型数组并逐个打印元素内容:
@@ -415,10 +415,10 @@ http://www.linuxjournal.com/article/7291
     
     <item>
       <title>Linux grep</title>
-      <link>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
+      <link>https://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
+      <guid>https://zhaox.xyz/posts/linux%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</guid>
       <description>一、Linux 文本处理三剑客  Linux 上有三种常用的文本处理工具，分别为：grep（egrep、fgrep）、sed、awk。今天主要给大家介绍一下三剑客中的第一剑：grep 伐木累。
  二、grep 是什么？  grep 全称（Globally search a Regular Expression and Print）是一个文本搜索工具，基于“pattern”（这里指的是过滤模式，多指正则表达式）对给定的文本进行搜索。
 grep 家族：
@@ -428,10 +428,10 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
     
     <item>
       <title>Linux用户、用户组及权限管理</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <link>https://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-07-linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
       <description>一、Linux 用户及用户组的基本概念 用户：用户是实现能够将有限的资源在多个使用者之间进行分配；、 用户组：用户组是指多个用户的集合，方便对一类需要同样权限的用户授权 Linux 是多用户、多任务的操作系统。 多用户指：多人同时使用系统资源；多任务：同时运行多个进程
 二、用户及用户组类别 1、用户：名称解析库 /etc/passwd a、管理员 root 用户标识（UID）为 0 b、普通用户及系统用户 普通用户的用户标识（既 UID）： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户用户标识（既 UID）： CentOS 5,6: 1-499 CentOS 7: 1-999
 2、用户组：名称解析库 /etc/group a、管理员组 组标识为：0 b、普通用户组及系统用户组 普通用户组标识： CentOS 5,6: 500+ CentOS 7: 1000+ 系统用户组标识： CentOS 5,6: 1-499 CentOS 7: 1-999 3、用户组类别： 以用户为核心分为： 用户的主组：基本组； 用户的附加组：额外组； 以容纳的用户来划分： 私有组：与用户名相同，且只有一个用户； 共有组：组内包含了多个用户；
@@ -440,10 +440,10 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
     
     <item>
       <title>Nginx&#43;PHP编译安装</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</link>
+      <link>https://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-07-nginx-php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</guid>
       <description>编译安装 Nginx&amp;amp;PHP nginx 编译安装 下载路径：(建议使用Tengine) http://nginx.org/ http://tengine.taobao.org/
 启动命令 /usr/local/nginx/sbin/nginx 重载 nginx /usr/local/nginx/sbin/nginx -s reload
 一、安装环境 sudo yum groupinstall &amp;quot;Development Tools&amp;quot; -y sudo yum install jemalloc-devel openssl-devel pcre-devel -y nginx编译参数(红色部分可能不支持,可去掉) # sudo ./configure --prefix=/usr/local/nginx --user=webapps --group=webapps --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-jemalloc # sudo make # sudo make install # cd /usr/local/nginx # sudo mv logs /export/ # sudo ln -s /export/logs logs # cd /usr/local/nginx/conf # sudo mkdir vhosts  二、修改 conf 文件 1.</description>
@@ -451,20 +451,20 @@ alias alias cp=&#39;cp -i&#39; alias egrep=&#39;egrep --color=auto&#39; alias fg
     
     <item>
       <title>ansible脚本</title>
-      <link>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</link>
+      <link>https://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</guid>
       <description>这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
  #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh	# like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &amp;lt;&amp;lt; EOF +---------------------------------------+ | this is a ansible script | | from Altamob....... | +--------------------------------------- EOF read -p &amp;quot;pelease input your service name: &amp;quot; SER read -p &amp;quot;pelease input your hostgroup name: &amp;quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;amp;&amp;gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}.</description>
     </item>
     
     <item>
       <title>python-快速改造：基础知识</title>
-      <link>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-07-python-%E5%BF%AB%E9%80%9F%E6%94%B9%E9%80%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
       <description>一、python 安装之 pyenv windows 下安装 Python （1）打开 web 浏览器，访问 Python 官方站点http://www.python.org
 （2）点击 Download，或者在首页点击下载
 （3）下载所需版本，目前最新版本为 3.5.2
@@ -477,10 +477,10 @@ $ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp
     
     <item>
       <title>为什么你的Linux物理内存还有很多，却开始使用swap?</title>
-      <link>http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</link>
+      <link>https://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</guid>
+      <guid>https://zhaox.xyz/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84linux%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8D%B4%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8swap/</guid>
       <description>#Swap
 现在的机器上都是有多个CPU和多个内存块的。以前我们都是将内存块看成是一大块内存，所有CPU到这个共享内存的访问消息是一样的。
 这就是之前普遍使用的SMP模型。但是随着处理器的增加，共享内存可能会导致内存访问冲突越来越厉害，且如果内存访问达到瓶颈的时候，性能就不能随之增加。NUMA（Non-Uniform Memory Access）就是这样的环境下引入的一个模型。比如一台机器是有 2 个处理器，有 4 个内存块。我们将 1 个处理器和两个内存块合起来，称为一个NUMA node，这样这个机器就会有两个NUMA node。在物理分布上，NUMA node的处理器和内存块的物理距离更小，因此访问也更快。比如这台机器会分左右两个处理器（cpu1, cpu2），在每个处理器两边放两个内存块(memory1.1, memory1.2, memory2.1,memory2.2)，这样NUMA node1的 cpu1 访问memory1.1和memory1.2就比访问memory2.1和memory2.2更快。所以使用NUMA的模式如果能尽量保证本node内的CPU只访问本node内的内存块，那这样的效率就是最高的。
@@ -495,10 +495,10 @@ $ echo &#39;export PYENV_ROOT=&amp;quot;$HOME/.pyenv&amp;quot;&#39; &amp;gt;&amp
     
     <item>
       <title>分布式文件系统-FastDFS</title>
-      <link>http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</link>
+      <link>https://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</guid>
+      <guid>https://zhaox.xyz/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fastdfs/</guid>
       <description>一、FastDFS 简介  FastDFS是由国人余庆所开发，其项目地址：https://github.com/happyfish100 &amp;gt;FastDFS是一个轻量级的开源分布式文件系统，主要解决了大容量的文件存储和高并发访问的问题，文件存取时实现了负载均衡。 支持存储服务器在线扩容,支持相同的文件只保存一份,节约磁盘。 FastDFS只能通过 Client API 访问，不支持 POSIX 访问方式。 FastDFS 适合中大型网站使用，用来存储资源文件(如：图片、文档、视频等)
  二、FastDFS 组成部分及其它名词 1、tracker server 跟踪服务器：用来调度来自客户端的请求。且在内存中记录所有存储组和存储服务器的信息状态。
 2、storage server 存储服务器：用来存储文件(data)和文件属性(metadata)
@@ -517,20 +517,20 @@ M##：服务器配置的虚拟路径，与磁盘选项 store_path#对应两级�
     
     <item>
       <title>制作并安装FastDFS的RPM程序包</title>
-      <link>http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</link>
+      <link>https://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</guid>
+      <guid>https://zhaox.xyz/posts/%E5%88%B6%E4%BD%9C%E5%B9%B6%E5%AE%89%E8%A3%85fastdfs%E7%9A%84rpm%E7%A8%8B%E5%BA%8F%E5%8C%85/</guid>
       <description>一、安装并制作 rpm 包 libfastcommon 注意:生成的 rpm 包全都在/root/rpmbuild/RPMS/下面，可以再其他主机直接使用
 #!/bin/bash # Author: Antony # rpm build for fastdfs # Mail: zhaoxin@altamob.com,go80800@163.com # Desc: build libfastcommmon # 制作和安装libfastcommon cat &amp;lt;&amp;lt; EOF +-------------------------------------------+ | this is a rpmbuild libfastcommon script | | from Antony ....... | +-------------------------------------------- EOF # 制作源码文件 建议手动安装yum #yum groupinstall &amp;quot;Development Tools&amp;quot; &amp;quot;Server platform Development&amp;quot; -y cd /root/ git clone https://github.com/happyfish100/libfastcommon.git if [ $? -ne 0 ];then exit 1 fi libversion=$(grep -i &amp;quot;^version&amp;quot; libfastcommon/libfastcommon.</description>
     </item>
     
     <item>
       <title>Template Exmple</title>
-      <link>http://zhaox.xyz/posts/template/</link>
+      <link>https://zhaox.xyz/posts/template/</link>
       <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/template/</guid>
+      <guid>https://zhaox.xyz/posts/template/</guid>
       <description>Content here</description>
     </item>
     

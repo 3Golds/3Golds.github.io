@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ansible on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/ansible/</link>
+    <link>https://zhaox.xyz/tags/ansible/</link>
     <description>Recent content in ansible on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 07 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ansible脚本</title>
-      <link>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</link>
+      <link>https://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://zhaox.xyz/posts/ansible%E8%84%9A%E6%9C%AC/</guid>
       <description>这是一个可以自动在多台 server 批量安装及拷贝配置文件启动服务器的 ansible 脚本，本人学疏才浅，目前还有很多待完善，希望各位多多指教。
  #!/bin/bash # Author: Altamob # Directory tree # /opt/ # ├── ansible.sh	# like this,nginx.conf is varia $FILE # └── nginx.conf # Host IP One HOST=172.18.4.62 # Host IP two HOST1= # conf file template FILE=nginx.conf cat &amp;lt;&amp;lt; EOF +---------------------------------------+ | this is a ansible script | | from Altamob....... | +--------------------------------------- EOF read -p &amp;quot;pelease input your service name: &amp;quot; SER read -p &amp;quot;pelease input your hostgroup name: &amp;quot; HOSTGROUP mkdir /etc/ansible/roles/${SER}/{tasks,templates,vars,handlers} -pv &amp;amp;&amp;gt;/dev/null cp $FILE /etc/ansible/roles/${SER}/templates/${FILE}.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>opentracing on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/opentracing/</link>
+    <link>https://zhaox.xyz/tags/opentracing/</link>
     <description>Recent content in opentracing on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/opentracing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/opentracing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Opentracing Zipkin</title>
-      <link>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</link>
+      <link>https://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</link>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</guid>
+      <guid>https://zhaox.xyz/posts/2017-11-09-opentracing-zipkin/</guid>
       <description>Zipkin 是一个开源分布式的追踪系统 http://zipkin.io/，在微服务架构下，能够清晰的找出系统问题所在。它同时管理数据收集和数据查询。Zipkin的设计基于[Google Dagger](http://research.google.com/pubs/pub36356.html)论文
 架构 查看您的平台是否已经在 instrumentation, 查看列表existing instrumentations
 示例流程 以下是 User Code 调用资源/foo 的示例 http 跟踪序列，讲一个 span 在 User Code 收到 http 响应之后异步发送给 zipkin

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/aws/</link>
+    <link>https://zhaox.xyz/tags/aws/</link>
     <description>Recent content in aws on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>解决 AWS ELB 偶发的 502 Bad Gateway 错误</title>
-      <link>http://zhaox.xyz/posts/aws-elb-502/</link>
+      <link>https://zhaox.xyz/posts/aws-elb-502/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/aws-elb-502/</guid>
+      <guid>https://zhaox.xyz/posts/aws-elb-502/</guid>
       <description>问题描述 在使用了 Prometheus 做了 HTTP 协议的监控之后，blackbox_exporter 偶尔会报一些 ProbeDown 的报警，经过检查是 502 Bad Gateway 错误，但此时后端是正常的，只是在 AWS ELB 的监控指标中，看到了 ELB HTTP 5xx 相关错误，因此困扰了一段时间。
 HTTP 数据流向如下：
  [Client] --- [ELB] --- [nginx] --- [App Servers]  排查问题 最开始是怀疑是后端问题，但是查阅了 nginx 和 App servers 的日志，没有任何结果，只是在 ELB 日志里面找到了 502 Bad Gateway 的错误信息。无奈之下甚至怀疑 nginx 所在 EC2 instance 有问题，因此求助了 AWS 技术支持。根据建议，在 nginx 这端做了 tcpdump 抓包，最后终于在 AWS 技术支持的帮助下，定位并解决了问题 🎉。
@@ -26,10 +26,10 @@ HTTP 数据流向如下：
     
     <item>
       <title>AWS EBS 在线扩容</title>
-      <link>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
+      <link>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
       <description>AWS Management Console 扩容 ebs 容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
 1.选择扩容设备 2.修改扩容容量 4.等待其状态达到 100% 扩容磁盘分区 growpart
  growpart /dev/xvdf 1  parted
@@ -38,10 +38,10 @@ HTTP 数据流向如下：
     
     <item>
       <title>aws-ec2-双网卡问题y</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <link>https://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-12-aws-ec2-%E5%8F%8C%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
       <description>问题描述 在已存在的 EC2 上新添加网卡后发现，凡是和 eth0 在同一个网段的只能通过 eth0 访问，不能通过 eth1。同样的，在 eth1 网段的只能通过 eth1 访问，不能通过 eth0 访问。 如果既不在 eth0 也不再 eth0 默认走 eth0(在没有修改路由表的前提下，默认路由是 eth0)
 问题分析 之所以出现您列出的网络访问现象，是因为目前的实例当中有两块网卡，而发生故障的时候，路由的走向是从网卡 2 进来的数据包从网卡 1 发送出去，或者从网卡 1 进来的数据包从网卡 2 发送出去，AWS 底层会把这样的数据包丢弃。
 因此需要手动定义策略路由，在响应网卡 1 进来的数据包时通过网卡 1 发送，响应网卡 2 进来的数据包时通过网卡 2 发送。
@@ -53,10 +53,10 @@ http://www.linuxjournal.com/article/7291
     
     <item>
       <title>aws自定义AMI-UUID相同处理方法</title>
-      <link>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
+      <link>https://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-12-aws%E8%87%AA%E5%AE%9A%E4%B9%89ami-uuid%E7%9B%B8%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
       <description>Note: 在制作 Centos 7 AMI 并进行使用时，我们发现：如果将两个相同 AMI 挂载到一个操作系统的时候，会出现因为 UUID 相同，导致不能挂载的问题(至于为什么将两个相同的 AMI 挂载到一个操作系统：当误删除用户的密钥文件或者不能登录系统时，我们不得不将其挂载到其他操作系统)
  问题重现  $ sudo fdisk -l Disk /dev/xvda: 53.7 GB, 53687091200 bytes, 104857600 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x0001783d Device Boot Start End Blocks Id System /dev/xvda1 * 2048 104856254 52427103+ 83 Linux Disk /dev/mapper/docker-202:1-84149041-pool: 107.</description>
     </item>

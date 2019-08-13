@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>coredump on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/coredump/</link>
+    <link>https://zhaox.xyz/tags/coredump/</link>
     <description>Recent content in coredump on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 19 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/coredump/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/coredump/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux系统异常-CoreDump详解</title>
-      <link>http://zhaox.xyz/posts/2017-01-19-coredump/</link>
+      <link>https://zhaox.xyz/posts/2017-01-19-coredump/</link>
       <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-19-coredump/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-19-coredump/</guid>
       <description>CoreDump http://linux.die.net/man/5/core
 什么是 core dump core dump 又叫核心转储, 当程序运行过程中发生异常, 程序异常退出时, 由操作系 统把程序当前的内存状况存储在一个 core 文件中, 叫 core dump。core dump 在应用 crash 掉之后对问题的诊断是很有帮助的。而在默认安装的时候 core dump 是关闭状 态的。
 如何查看系统是否打开了 core dump  Note：使用 ulimit -c 查看 core dump 是否打开。如果结果为 0，则表示此功能处于关闭 状态，不会生成 core 文件

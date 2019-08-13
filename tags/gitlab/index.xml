@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gitlab on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/gitlab/</link>
+    <link>https://zhaox.xyz/tags/gitlab/</link>
     <description>Recent content in gitlab on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 27 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gitlab omnibus 8.15.1 upgrade to 9.5.9</title>
-      <link>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
+      <link>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</link>
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
+      <guid>https://zhaox.xyz/posts/gitlab-omnibus-8.15.1-upgrade-to-9.5.9/</guid>
       <description>升级场景 由于公司要通过 gitlab 接入 ci 和 cd 功能，经测试一个 repo 不能正常使用，且 gitlab9.5 之后增加了很多新功能，比较吸引我们
  GPG Commit Verification: GPG 密钥允许您验证签名提交
  New Navigation Improvements: 界面窗口有所改进，更便捷和美观，可以在老界面和新界面自由切换
@@ -30,10 +30,10 @@
     
     <item>
       <title>Gitlab-Omnibus</title>
-      <link>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</link>
+      <link>https://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</link>
       <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
+      <guid>https://zhaox.xyz/posts/2017-01-23-gitlab-omnibus/</guid>
       <description>一、Gitlab 简介 组件说明
  前端：Nginx，用于页面及 Git tool 走 http 或 https 协议
  后端：Gitlab 服务，采用 Ruby on Rails 框架，通过 unicorn 实现后台服务及多进程

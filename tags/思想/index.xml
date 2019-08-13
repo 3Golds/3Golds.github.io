@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>思想 on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/</link>
+    <link>https://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/</link>
     <description>Recent content in 思想 on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 09 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/%E6%80%9D%E6%83%B3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>七个对我最重要的职业建议-译文</title>
-      <link>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</link>
+      <link>https://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</guid>
+      <guid>https://zhaox.xyz/posts/2017-06-09-%E4%B8%83%E4%B8%AA%E5%AF%B9%E6%88%91%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E8%81%8C%E4%B8%9A%E5%BB%BA%E8%AE%AE-%E8%AF%91%E6%96%87/</guid>
       <description>七个对我最重要的职业建议（译文） 作者： 阮一峰
 日期： 2015 年 9 月 18 日
 Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
@@ -49,10 +49,10 @@ Nicholas C. Zakas 是全世界最著名的 JavaScript 程序员之一。
     
     <item>
       <title>软技能——代码之外的生存指南</title>
-      <link>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
+      <link>https://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://zhaox.xyz/posts/%E8%BD%AF%E6%8A%80%E8%83%BD%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97/</guid>
       <description>这本书是在逛知乎的时候发现的，说的神乎其神的，也没多想就买了本，并在一个周六的下午看完了，读的过程倒是很轻松，速度也挺快，因为毕竟是一本励志书，多少有点“鸡汤”。总体来说，这本书可圈可点，有干货，也有“鸡汤”，主要分为职业、自我营销、学习、生产力、理财、健身、精神七大模块，不论是不是码农，取其精华来安利一下自己还是不错的！ 下面我就谈谈书中一些不错的干货，湿货就自己去慢慢看吧。
 一、如何对待上班这件事情？ 把自己当做一个软件企业，把雇主当做企业的一个客户，你应当能够提供某种产品或者服务（把一个想法通过技术手段变成一个产品的能力），不断提升你的服务质量，专注于为某一类客户提供特定的服务，做好自我营销，为更多更优质的雇主服务。
 二、如何注意人际关系？ 不是教你搞办公室政治，而是让你在这上面少踩坑。书中有句话比较经典：“一旦你贬低他人，削弱他们的成就感，在某种程度上就如同切断了他们的氧气补给，获得的回馈将完全是抓狂和绝望”。

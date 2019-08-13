@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CI on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/ci/</link>
+    <link>https://zhaox.xyz/tags/ci/</link>
     <description>Recent content in CI on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 08 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/ci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Yahoo-screwdriver开源</title>
-      <link>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</link>
+      <link>https://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-08-yahoo-screwdriver-%E5%BC%80%E6%BA%90%E4%BA%86/</guid>
       <description>screwdriver 介绍 screwdriver 是 yahoo 开源的一款发布工具，用于大规模持续交付到生产的动态基础架构.
 这应该是目前最完整拥有 CI(持续集成 Continuous integration)和 CD(持续交付 Continuous delivery)的专案.
  官网: http://screwdriver.cd/ Doc: http://docs.screwdriver.cd/user-guide/quickstart/ Github: https://github.com/screwdriver-cd Docker: https://hub.docker.com/u/screwdrivercd/  特色  1.使部署通道更容易 (Making deployment pipelines easy)

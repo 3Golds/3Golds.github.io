@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws ebs on 赵鑫的博客</title>
-    <link>http://zhaox.xyz/tags/aws-ebs/</link>
+    <link>https://zhaox.xyz/tags/aws-ebs/</link>
     <description>Recent content in aws ebs on 赵鑫的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 17 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://zhaox.xyz/tags/aws-ebs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhaox.xyz/tags/aws-ebs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS EBS 在线扩容</title>
-      <link>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
+      <link>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
+      <guid>https://zhaox.xyz/posts/2017-02-17-aws-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9/</guid>
       <description>AWS Management Console 扩容 ebs 容量 原文连接：https://aws.amazon.com/blogs/aws/amazon-ebs-update-new-elastic-volumes-change-everything/
 1.选择扩容设备 2.修改扩容容量 4.等待其状态达到 100% 扩容磁盘分区 growpart
  growpart /dev/xvdf 1  parted
